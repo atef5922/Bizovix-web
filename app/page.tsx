@@ -56,6 +56,41 @@ export default function Home() {
     ["Sylhet", "Multi-branch service teams", "sylhet"],
     ["Khulna", "Sales, POS, stock control", "khulna"],
   ];
+  const serviceHighlights = [
+    {
+      title: "Cloud ERP Implementation",
+      body: "Unify accounting, purchase, inventory, sales, POS, HR, payroll, approvals, and reporting in one scalable Bizovix ERP platform.",
+      icon: <Layers3 className="h-5 w-5" />,
+    },
+    {
+      title: "Warehouse & Distribution",
+      body: "Track stock, transfers, purchase, delivery, branch inventory, and warehouse movement with real-time operational visibility.",
+      icon: <Building2 className="h-5 w-5" />,
+    },
+    {
+      title: "Manufacturing & Production",
+      body: "Plan BOM, work orders, raw materials, finished goods, costing, and production progress from a connected ERP workflow.",
+      icon: <Factory className="h-5 w-5" />,
+    },
+    {
+      title: "Secure Finance & Approvals",
+      body: "Control receivables, payables, expenses, audit-ready records, approval chains, dashboards, and management reports.",
+      icon: <ShieldCheck className="h-5 w-5" />,
+    },
+  ];
+  const trustSignals = [
+    ["Certified ERP Process", "Secure implementation standards", <ShieldCheck className="h-5 w-5" />],
+    ["Local Support", "Bangladesh-ready rollout team", <MapPin className="h-5 w-5" />],
+    ["Industry Fit", "Finance, stock, sales, production", <Factory className="h-5 w-5" />],
+    ["Customization", "Workflows shaped around your team", <Layers3 className="h-5 w-5" />],
+    ["Growth Stories", "Dashboards leaders can trust", <Building2 className="h-5 w-5" />],
+  ];
+  const trustReasons = [
+    ["Business-first ERP implementation", "We map finance, inventory, purchase, sales, HR, production, and approval flows before configuring the platform."],
+    ["Bangladesh-ready workflows", "Bizovix supports practical local operations including VAT-ready records, payroll needs, branch controls, and management reports."],
+    ["Flexible customization", "Every team has different approval chains, product structures, and reporting needs, so Bizovix adapts without making daily work complicated."],
+    ["Ongoing support and optimization", "After rollout, our team helps improve usage, train users, maintain performance, and refine dashboards as your business grows."],
+  ];
 
   return (
     <>
@@ -204,6 +239,80 @@ export default function Home() {
           </div>
           <div className="multi-device-media">
             <img src="/images/The-Real-Multi-Device-Experience.webp" alt="Bizovix ERP dashboard syncing between mobile and laptop" />
+          </div>
+        </div>
+      </section>
+
+      <section className="solution-orbit-section" aria-label="Bizovix ERP services for business transformation">
+        <div className="container-shell solution-orbit-head">
+          <p>Services</p>
+          <h2>Innovative ERP Solutions That Power Business Transformation</h2>
+          <span>From cloud ERP implementation to inventory, manufacturing, finance, and approvals, Bizovix delivers dependable software built for long-term operational growth.</span>
+        </div>
+        <div className="container-shell solution-orbit-layout">
+          <div className="solution-orbit-column">
+            {serviceHighlights.slice(0, 2).map((service) => (
+              <article className="solution-orbit-card" key={service.title}>
+                <div className="solution-orbit-icon">{service.icon}</div>
+                <h3>{service.title}</h3>
+                <p>{service.body}</p>
+                <ArrowRight className="solution-orbit-arrow h-4 w-4" />
+              </article>
+            ))}
+          </div>
+
+          <div className="solution-orbit-center">
+            <img src="/images/Home-circle.webp" alt="Bizovix ERP user working on cloud business software" />
+            <ButtonLink href="/solutions" variant="secondary" className="solution-orbit-cta">
+              Explore Our Services
+            </ButtonLink>
+          </div>
+
+          <div className="solution-orbit-column">
+            {serviceHighlights.slice(2).map((service) => (
+              <article className="solution-orbit-card" key={service.title}>
+                <div className="solution-orbit-icon">{service.icon}</div>
+                <h3>{service.title}</h3>
+                <p>{service.body}</p>
+                <ArrowRight className="solution-orbit-arrow h-4 w-4" />
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="why-trust-section" aria-label="Why businesses trust Bizovix ERP">
+        <div className="container-shell why-trust-head">
+          <p>Why Choose Us</p>
+          <h2>Why Businesses Trust Bizovix?</h2>
+          <span>Empowering Bangladeshi businesses with secure cloud ERP, local implementation, and practical automation that helps teams grow with confidence.</span>
+        </div>
+
+        <div className="container-shell why-trust-cards">
+          {trustSignals.map(([title, body, icon]) => (
+            <article className="why-trust-card" key={title as string}>
+              <div className="why-trust-icon">{icon}</div>
+              <strong>{title}</strong>
+              <span>{body}</span>
+            </article>
+          ))}
+        </div>
+
+        <div className="container-shell why-trust-detail">
+          <h3>Why choose Bizovix ERP for your business?</h3>
+          <p>
+            Bizovix is built for companies that need more than software installation. We deliver a structured ERP experience that connects people, processes, data, and decisions across the whole business.
+          </p>
+          <div className="why-trust-list">
+            {trustReasons.map(([title, body]) => (
+              <article key={title}>
+                <CheckCircle2 className="h-5 w-5" />
+                <div>
+                  <strong>{title}</strong>
+                  <p>{body}</p>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
