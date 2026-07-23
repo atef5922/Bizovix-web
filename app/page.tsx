@@ -1,10 +1,23 @@
 import type { Metadata } from "next";
-import { ArrowRight, Building2, CheckCircle2, Factory, Layers3, MapPin, PlayCircle, ShieldCheck } from "lucide-react";
+import {
+  ArrowRight,
+  BarChart3,
+  Bot,
+  Building2,
+  CheckCircle2,
+  ClipboardCheck,
+  Factory,
+  Layers3,
+  LifeBuoy,
+  MapPin,
+  PackageCheck,
+  Rocket,
+  Settings2,
+  ShieldCheck,
+  UsersRound,
+} from "lucide-react";
 import { ButtonLink } from "@/components/ui/Button";
-import { DemoModalButton } from "@/components/ui/SiteTools";
-import { DashboardShowcase } from "@/components/product/DashboardShowcase";
-import { CTASection, SectionHeading, TrustBand, WorkflowBand } from "@/components/sections/MarketingSections";
-import { BlogExplorer, FAQAccordion, IndustrySelector, PricingToggle, ResourceExplorer, SolutionExplorer } from "@/components/sections/InteractiveSections";
+import { CTASection } from "@/components/sections/MarketingSections";
 import { SEOJsonLd } from "@/components/seo/SEOJsonLd";
 import { faqJsonLd, pageMetadata } from "@/src/lib/seo";
 import { faqs } from "@/src/data/faqs";
@@ -90,6 +103,37 @@ export default function Home() {
     ["Bangladesh-ready workflows", "Bizovix supports practical local operations including VAT-ready records, payroll needs, branch controls, and management reports."],
     ["Flexible customization", "Every team has different approval chains, product structures, and reporting needs, so Bizovix adapts without making daily work complicated."],
     ["Ongoing support and optimization", "After rollout, our team helps improve usage, train users, maintain performance, and refine dashboards as your business grows."],
+  ];
+  const productTabs = ["Finance & Inventory", "One Stop ERP", "Manufacturing & Sales"];
+  const erpModules = [
+    ["Finance", <BarChart3 className="h-4 w-4" />],
+    ["Inventory", <PackageCheck className="h-4 w-4" />],
+    ["Sales & POS", <Building2 className="h-4 w-4" />],
+    ["HR & Payroll", <UsersRound className="h-4 w-4" />],
+    ["Production", <Factory className="h-4 w-4" />],
+    ["Reports", <ClipboardCheck className="h-4 w-4" />],
+  ];
+  const processSteps = [
+    {
+      title: "Understand & Analyse",
+      body: "We study your business goals, branches, users, modules, approval flows, and reporting needs before ERP configuration begins.",
+      icon: <ClipboardCheck className="h-6 w-6" />,
+    },
+    {
+      title: "Design & Configure",
+      body: "Bizovix sets up finance, stock rules, dashboards, roles, permissions, forms, and workflows around how your team works.",
+      icon: <Settings2 className="h-6 w-6" />,
+    },
+    {
+      title: "Implement & Integrate",
+      body: "We support data migration, user training, connected workflows, and smooth go-live planning for every department.",
+      icon: <Rocket className="h-6 w-6" />,
+    },
+    {
+      title: "Support & Evolve",
+      body: "After launch, our team helps optimize usage, refine reports, improve adoption, and keep operations running confidently.",
+      icon: <LifeBuoy className="h-6 w-6" />,
+    },
   ];
 
   return (
@@ -317,149 +361,79 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="hero">
-        <div className="container-shell hero-grid">
-          <div className="hero-copy">
-            <p className="eyebrow">Cloud ERP for Bangladesh and Beyond</p>
-            <h1>Premium Cloud ERP for Finance, Inventory, Production, and Growth</h1>
-            <p className="hero-lead">
-              Bizovix brings accounting, purchase, inventory, manufacturing, sales, POS, HR, payroll, approvals, and reporting into one polished operating system for serious teams.
-            </p>
-            <div className="button-row">
-              <ButtonLink href="/demo-request">Request a Free Demo <ArrowRight className="h-4 w-4" /></ButtonLink>
-              <ButtonLink href="/solutions" variant="secondary">Explore Solutions</ButtonLink>
-              <DemoModalButton label="Watch Product Tour" />
-            </div>
-            <div className="microcopy">
-              <span><CheckCircle2 className="h-4 w-4 text-[var(--success)]" />Personalized consultation</span>
-              <span><CheckCircle2 className="h-4 w-4 text-[var(--success)]" />No credit card required</span>
-            </div>
-            <div className="hero-proof" aria-label="Bizovix platform highlights">
-              <span><ShieldCheck className="h-4 w-4" /> Secure approvals</span>
-              <span><Factory className="h-4 w-4" /> Production-ready</span>
-              <span><Building2 className="h-4 w-4" /> Multi-branch control</span>
-            </div>
-          </div>
-          <div className="hero-visual">
-            <DashboardShowcase />
-          </div>
+      <section className="erp-clarity-section" aria-label="Bizovix one stop ERP products">
+        <div className="container-shell erp-clarity-head">
+          <p>Our Products</p>
+          <h2>From Complexity to Clarity. One ERP for Every Team.</h2>
         </div>
-      </section>
 
-      <section className="signal-band" aria-label="ERP capability summary">
-        <div className="container-shell signal-grid">
-          {[
-            ["Core modules", "12+", "Finance, stock, sales, HR, production"],
-            ["Operating view", "Live", "Dashboards, approvals, and alerts"],
-            ["Rollout model", "Modular", "Start focused and expand cleanly"],
-            ["Business fit", "BD + Global", "Local operations, scalable controls"],
-          ].map(([label, value, body]) => (
-            <article key={label}>
-              <Layers3 className="h-5 w-5" />
-              <span>{label}</span>
-              <strong>{value}</strong>
-              <p>{body}</p>
-            </article>
+        <div className="container-shell erp-tab-row" role="list" aria-label="Bizovix ERP product focus">
+          {productTabs.map((tab) => (
+            <span className={tab === "One Stop ERP" ? "is-active" : ""} key={tab} role="listitem">
+              {tab}
+            </span>
           ))}
         </div>
-      </section>
 
-      <TrustBand />
+        <div className="container-shell erp-clarity-grid">
+          <div className="erp-clarity-copy">
+            <h3>Your one-stop ERP solution for everything your business needs</h3>
+            <p>
+              Bizovix connects accounting, purchase, inventory, sales, POS, CRM, HR, payroll, production, approvals, vendors, customers, and reports in one cloud ERP platform. Your teams get cleaner workflows, faster decisions, and stronger control without switching between disconnected tools.
+            </p>
+            <ButtonLink href="/solutions" variant="secondary" className="erp-clarity-button">
+              Know More <ArrowRight className="h-4 w-4" />
+            </ButtonLink>
+          </div>
 
-      <section className="section">
-        <div className="container-shell">
-          <SectionHeading
-            eyebrow="Operational clarity"
-            title="Replace scattered files, disconnected teams, and delayed reports with one operating record"
-            description="Bizovix helps production, finance, warehouse, sales, purchase, HR, and leadership teams understand the same business reality."
-          />
-          <div className="card-grid">
-            {[
-              ["Finance waits for stock updates", "Inventory valuation, purchase bills, invoices, and receivables need to move together."],
-              ["Production lacks material visibility", "Work orders become easier to plan when raw materials, purchase, warehouse, and costing are connected."],
-              ["Leadership sees reports too late", "Dashboards should surface sales trends, production progress, stock alerts, approvals, and attendance quickly."],
-              ["Branches work in separate systems", "Multi-branch and multi-company operations need shared controls without losing local context."],
-            ].map(([title, body]) => (
-              <article className="feature-card" key={title}>
-                <PlayCircle className="h-6 w-6 text-[var(--primary)]" />
-                <h3>{title}</h3>
-                <p>{body}</p>
-              </article>
+          <div className="erp-wheel" aria-label="Bizovix ERP connected modules">
+            <div className="erp-wheel-center">
+              <strong>ERP</strong>
+              <span>Bizovix Cloud Suite</span>
+            </div>
+            {erpModules.map(([label, icon], index) => (
+              <div className={`erp-wheel-item erp-wheel-item-${index + 1}`} key={label as string}>
+                {icon}
+                <span>{label}</span>
+              </div>
             ))}
           </div>
         </div>
-      </section>
 
-      <section className="section soft">
-        <div className="container-shell">
-          <SectionHeading
-            eyebrow="Solutions"
-            title="ERP modules built around the way real businesses operate"
-            description="Explore finance, commerce, production, warehouse, people, client, and vendor workflows from one organized platform."
-          />
-          <SolutionExplorer />
-        </div>
-      </section>
-
-      <WorkflowBand />
-
-      <section className="section soft">
-        <div className="container-shell">
-          <SectionHeading
-            eyebrow="Industries"
-            title="Designed for production companies, SMEs, and enterprise operations"
-            description="Bizovix content is tailored to Bangladesh-relevant business models while keeping the platform ready for global operations."
-          />
-          <IndustrySelector />
-        </div>
-      </section>
-
-      <section className="section">
-        <div className="container-shell two-column">
-          <div>
-            <SectionHeading
-              eyebrow="Implementation"
-              title="A serious ERP rollout needs consultation, configuration, training, and adoption support"
-              description="The Bizovix journey is demo-led so your team can discuss modules, users, branches, data migration, reporting needs, and rollout priorities before choosing a plan."
-            />
-            <div className="button-row">
-              <ButtonLink href="/demo-request">Plan Your Demo</ButtonLink>
-              <ButtonLink href="/resources/checklists" variant="secondary">Use Checklist</ButtonLink>
+        <div className="container-shell erp-ai-row">
+          <div className="erp-ai-callout">
+            <Bot className="h-7 w-7" />
+            <div>
+              <span>Click here for</span>
+              <strong>AI-Powered ERP Recommendation Support</strong>
             </div>
           </div>
-          <DashboardShowcase compact />
         </div>
       </section>
 
-      <section className="section soft">
-        <div className="container-shell">
-          <SectionHeading
-            eyebrow="Pricing"
-            title="Transparent paths without unsupported fixed-price promises"
-            description="ERP scope depends on modules, users, branches, migration, training, and integrations. Bizovix keeps pricing tied to the implementation reality."
-          />
-          <PricingToggle />
+      <section className="process-section" aria-label="Bizovix ERP implementation process">
+        <div className="container-shell process-head">
+          <h2>How Bizovix Helps Your Business Go Live</h2>
+          <p>Transforming operational challenges into connected cloud ERP success through a clear, practical, and support-focused rollout process.</p>
         </div>
-      </section>
 
-      <section className="section">
-        <div className="container-shell">
-          <SectionHeading eyebrow="Resources" title="Helpful ERP planning content for decision makers" description="Guides, checklists, updates, and practical articles help teams prepare for a more productive demo." />
-          <ResourceExplorer />
+        <div className="container-shell process-grid">
+          {processSteps.map((step, index) => (
+            <article className="process-card" key={step.title}>
+              <div className="process-icon">
+                {step.icon}
+                <span>{index + 1}</span>
+              </div>
+              <h3>{step.title}</h3>
+              <p>{step.body}</p>
+            </article>
+          ))}
         </div>
-      </section>
 
-      <section className="section soft">
-        <div className="container-shell">
-          <SectionHeading eyebrow="Blog" title="Practical ERP articles for operations, finance, and production teams" />
-          <BlogExplorer />
-        </div>
-      </section>
-
-      <section className="section">
-        <div className="container-shell two-column">
-          <SectionHeading eyebrow="FAQ" title="Questions teams usually ask before an ERP demo" description="Straight answers, no inflated claims." />
-          <FAQAccordion />
+        <div className="process-action">
+          <ButtonLink href="/about-us" variant="secondary" className="process-button">
+            About Our Process
+          </ButtonLink>
         </div>
       </section>
 

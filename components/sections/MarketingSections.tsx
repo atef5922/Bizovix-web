@@ -56,14 +56,23 @@ export function CTASection({ title = "Ready to connect your business operations?
   return (
     <section className="cta-band">
       <div className="container-shell cta-inner">
-        <div>
-          <p className="eyebrow">Demo request</p>
+        <div className="cta-copy">
+          <p className="cta-eyebrow">Demo request</p>
           <h2>{title}</h2>
           <p>{description}</p>
+          <div className="cta-points" aria-label="Demo request benefits">
+            <span><CheckCircle2 className="h-4 w-4" />Workflow consultation</span>
+            <span><CheckCircle2 className="h-4 w-4" />Module fit review</span>
+            <span><CheckCircle2 className="h-4 w-4" />Implementation roadmap</span>
+          </div>
         </div>
         <div className="cta-actions">
-          <ButtonLink href="/demo-request" variant="dark">Request a Free Demo</ButtonLink>
-          <DemoModalButton label="Open Quick Form" />
+          <ButtonLink href="/demo-request" className="cta-primary-button">
+            Request a Free Demo <ArrowRight className="h-4 w-4" />
+          </ButtonLink>
+          <div className="cta-secondary-wrap">
+            <DemoModalButton label="Open Quick Form" />
+          </div>
         </div>
       </div>
     </section>

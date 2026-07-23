@@ -9,10 +9,12 @@ type BrandLockupProps = {
 };
 
 export function BrandLockup({ href = "/", variant = "default", compact = false, className }: BrandLockupProps) {
+  const logoSrc = variant === "light" ? "/brand/bizovix-logo-footer.webp" : "/brand/bizovix-logo-nav.png";
+
   return (
     <Link href={href} className={cn("brand-lockup", variant === "light" && "light", className)} aria-label="Bizovix home">
       <img
-        src="/brand/bizovix-logo-nav.png"
+        src={logoSrc}
         alt="Bizovix"
         width={460}
         height={139}

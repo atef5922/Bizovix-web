@@ -9,35 +9,43 @@ export function Footer() {
   const solutions = solutionNavigation.slice(0, 8);
 
   return (
-    <footer className="border-t border-[var(--border)] bg-[var(--navy)] text-white">
-      <div className="container-shell py-14">
-        <div className="grid gap-10 lg:grid-cols-[1.25fr_2fr]">
-          <div>
-            <BrandLockup variant="light" />
-            <p className="mt-5 max-w-md text-sm leading-7 text-white/72">
-              Cloud ERP for Bangladesh and beyond, connecting accounting, inventory, purchase, manufacturing, sales, POS, HR, payroll, and reporting.
+    <footer className="site-footer">
+      <div className="container-shell footer-shell">
+        <div className="footer-top">
+          <div className="footer-brand-panel">
+            <BrandLockup variant="light" className="footer-logo" />
+            <p>
+              Bizovix connects finance, inventory, purchase, manufacturing, sales, POS, HR, payroll, approvals, and reporting in one secure operating platform.
             </p>
-            <div className="mt-6 text-sm text-white/72">
-              <p>{siteConfig.salesEmail}</p>
-              <p>{siteConfig.salesPhone}</p>
+            <div className="footer-contact-list">
+              <a href={`mailto:${siteConfig.salesEmail}`}>{siteConfig.salesEmail}</a>
+              <a href={`tel:${siteConfig.salesPhone.replace(/\s/g, "")}`}>{siteConfig.salesPhone}</a>
+              <span>Dhaka, Bangladesh</span>
+            </div>
+            <div className="footer-proof-row" aria-label="Bizovix platform highlights">
+              <span>Cloud ERP</span>
+              <span>BD-ready</span>
+              <span>Secure rollout</span>
             </div>
           </div>
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+
+          <div className="footer-link-grid">
             <FooterColumn title="Solutions" items={solutions} />
             <FooterColumn title="Industries" items={industries} />
             <FooterColumn title="Company" items={resourcesNavigation} />
-            <div>
-              <h2 className="text-sm font-semibold uppercase tracking-wide text-white/58">Updates</h2>
-              <p className="mt-4 text-sm leading-6 text-white/72">Get ERP implementation ideas and product notes.</p>
-              <div className="mt-4">
+            <div className="footer-newsletter">
+              <h2>Updates</h2>
+              <p>Get ERP implementation ideas, product notes, and workflow planning resources.</p>
+              <div>
                 <NewsletterForm compact />
               </div>
             </div>
           </div>
         </div>
-        <div className="mt-12 flex flex-col gap-4 border-t border-white/12 pt-6 text-sm text-white/60 md:flex-row md:items-center md:justify-between">
+
+        <div className="footer-bottom">
           <p>Copyright {new Date().getFullYear()} Bizovix. All rights reserved.</p>
-          <div className="flex flex-wrap gap-4">
+          <div>
             <Link href="/privacy-policy">Privacy Policy</Link>
             <Link href="/terms">Terms</Link>
             <Link href="/cookie-policy">Cookie Policy</Link>
@@ -50,12 +58,12 @@ export function Footer() {
 
 function FooterColumn({ title, items }: { title: string; items: Array<{ title: string; href: string }> }) {
   return (
-    <div>
-      <h2 className="text-sm font-semibold uppercase tracking-wide text-white/58">{title}</h2>
-      <ul className="mt-4 space-y-3 text-sm text-white/72">
+    <div className="footer-column">
+      <h2>{title}</h2>
+      <ul>
         {items.map((item) => (
           <li key={item.href}>
-            <Link className="transition hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white" href={item.href}>
+            <Link href={item.href}>
               {item.title}
             </Link>
           </li>

@@ -57,7 +57,7 @@ export function Header() {
   return (
     <>
       <a className="skip-link" href="#main-content">Skip to content</a>
-      <header className={cn("site-header", scrolled && "is-scrolled")}>
+      <header className={cn("site-header", scrolled && "is-scrolled")} onMouseLeave={() => setOpen(null)}>
         <div className="utility-bar">
           <div className="container-shell utility-inner">
             <a href={`tel:${siteConfig.salesPhone.replace(/\s/g, "")}`}>
@@ -76,7 +76,7 @@ export function Header() {
         </div>
         <nav className="container-shell nav-shell" aria-label="Primary navigation">
           <BrandLockup />
-          <div className="desktop-nav" onMouseLeave={() => setOpen(null)}>
+          <div className="desktop-nav">
             {mainNavigation.map((item) => {
               const hasMenu = ["Industries", "Solutions", "Resources"].includes(item.title);
               const active = pathname === item.href || (item.href !== "/" && pathname.startsWith(item.href));
@@ -93,12 +93,20 @@ export function Header() {
                   {item.title}<ChevronDown className="h-4 w-4" />
                 </button>
               ) : (
-                <Link key={item.title} href={item.href} className={cn("nav-link", active && "active")}>{item.title}</Link>
+                <Link
+                  key={item.title}
+                  href={item.href}
+                  className={cn("nav-link", active && "active")}
+                  onMouseEnter={() => setOpen(null)}
+                  onFocus={() => setOpen(null)}
+                >
+                  {item.title}
+                </Link>
               );
             })}
           </div>
-          <div className="nav-actions">
-            <button className="icon-button" type="button" onClick={() => setSearch(true)} aria-label="Search">
+          <div className="nav-actions" onMouseEnter={() => setOpen(null)}>
+            <button className="icon-button search-trigger" type="button" onClick={() => setSearch(true)} aria-label="Search">
               <Search className="h-5 w-5" />
             </button>
             <Link className="signin-link" href="/sign-in">Sign In</Link>
