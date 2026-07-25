@@ -16,6 +16,7 @@ import {
   ShieldCheck,
   UsersRound,
 } from "lucide-react";
+
 import { ButtonLink } from "@/components/ui/Button";
 import { CTASection } from "@/components/sections/MarketingSections";
 import { SEOJsonLd } from "@/components/seo/SEOJsonLd";
@@ -23,8 +24,9 @@ import { faqJsonLd, pageMetadata } from "@/src/lib/seo";
 import { faqs } from "@/src/data/faqs";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Cloud ERP Software in Bangladesh",
-  description: "Bizovix connects accounting, inventory, purchase, manufacturing, sales, POS, HR, payroll, clients, vendors, dashboards, and approvals in one cloud ERP platform.",
+  title: "Cloud ERP Software for Bangladesh and South Asia",
+  description:
+    "Bizovix is a modern cloud ERP platform for businesses across Bangladesh and South Asia, connecting finance, inventory, purchase, manufacturing, sales, POS, HR, payroll, approvals, and reporting.",
 });
 
 export default function Home() {
@@ -32,43 +34,90 @@ export default function Home() {
     {
       image: "banner1.webp",
       badge: "Next-Gen Cloud ERP Platform",
-      title: <>One Platform.<br />Limitless Potential.<br /><span>Built for the Future.</span></>,
-      description: "Bizovix ERP unifies your operations, automates workflows, and delivers real-time insights so you can make smarter decisions and scale with confidence.",
+      title: (
+        <>
+          One Platform.
+          <br />
+          Limitless Potential.
+          <br />
+          <span>Built for the Future.</span>
+        </>
+      ),
+      description:
+        "Bizovix ERP unifies your operations, automates workflows, and delivers real-time insights so you can make smarter decisions and scale with confidence.",
     },
     {
       image: "banner2.webp",
       badge: "Innovating The Future",
-      title: <>Bridging Borders,<br />Building Digital<br /><span>Futures</span></>,
-      description: "Your business software expert for connected teams, cloud operations, secure workflows, and confident growth.",
+      title: (
+        <>
+          Bridging Borders,
+          <br />
+          Building Digital
+          <br />
+          <span>Futures</span>
+        </>
+      ),
+      description:
+        "Your business software expert for connected teams, cloud operations, secure workflows, and confident growth.",
     },
     {
       image: "banner3.webp",
       badge: "Innovating The Future",
-      title: <>Empowering Progress Through<br /><span>Innovation and Intelligence</span></>,
-      description: "Business operation with vision and intelligence, built for faster decisions across finance, inventory, sales, and production.",
+      title: (
+        <>
+          Empowering Progress Through
+          <br />
+          <span>Innovation and Intelligence</span>
+        </>
+      ),
+      description:
+        "Business operation with vision and intelligence, built for faster decisions across finance, inventory, sales, and production.",
     },
   ];
+
   const brandCards = [
-    { name: "Walton", logo: "/images/brands/walton.svg" },
-    { name: "PRAN", logo: "/images/brands/pran.png" },
-    { name: "RFL", logo: "/images/brands/rfl.png" },
-    { name: "Akij Group", logo: "/images/brands/akij.png" },
-    { name: "Beximco", logo: "/images/brands/beximco.png" },
-    { name: "Keya Group", logo: "/images/brands/keya-group.png" },
+    {
+      name: "Walton",
+      logo: "/images/brands/walton.svg",
+    },
+    {
+      name: "PRAN",
+      logo: "/images/brands/pran.png",
+    },
+    {
+      name: "RFL",
+      logo: "/images/brands/rfl.png",
+    },
+    {
+      name: "Akij Group",
+      logo: "/images/brands/akij.png",
+    },
+    {
+      name: "Beximco",
+      logo: "/images/brands/beximco.png",
+    },
+    {
+      name: "Keya Group",
+      logo: "/images/brands/keya-group.png",
+    },
   ];
+
   const coverageStats = [
-    ["8 Divisions", "Cloud ERP support model"],
-    ["64 Districts", "Remote rollout ready"],
-    ["12+ Modules", "Finance to production"],
-    ["BD-ready", "VAT, payroll, reports"],
+    ["8 Countries", "Regional ERP coverage"],
+    ["Multi-Currency", "Local and global transactions"],
+    ["12+ Modules", "Complete business management"],
+    ["Region-Ready", "Tax, payroll and reporting"],
   ];
+
   const coveragePoints = [
-    ["Dhaka", "Head office, finance, approvals", "dhaka"],
-    ["Gazipur", "Manufacturing and inventory", "gazipur"],
-    ["Chattogram", "Trading, distribution, warehouse", "chattogram"],
-    ["Sylhet", "Multi-branch service teams", "sylhet"],
-    ["Khulna", "Sales, POS, stock control", "khulna"],
+    ["Pakistan", "Trading, wholesale and distribution", "pakistan"],
+    ["Bangladesh", "Core operations and ERP support", "bangladesh"],
+    ["Nepal", "Retail and growing service teams", "nepal"],
+    ["India", "Manufacturing, sales and inventory", "india"],
+    ["Sri Lanka", "Finance, logistics and services", "sri-lanka"],
   ];
+
   const serviceHighlights = [
     {
       title: "Cloud ERP Implementation",
@@ -91,20 +140,60 @@ export default function Home() {
       icon: <ShieldCheck className="h-5 w-5" />,
     },
   ];
+
   const trustSignals = [
-    ["Certified ERP Process", "Secure implementation standards", <ShieldCheck className="h-5 w-5" />],
-    ["Local Support", "Bangladesh-ready rollout team", <MapPin className="h-5 w-5" />],
-    ["Industry Fit", "Finance, stock, sales, production", <Factory className="h-5 w-5" />],
-    ["Customization", "Workflows shaped around your team", <Layers3 className="h-5 w-5" />],
-    ["Growth Stories", "Dashboards leaders can trust", <Building2 className="h-5 w-5" />],
+    [
+      "Certified ERP Process",
+      "Secure implementation standards",
+      <ShieldCheck className="h-5 w-5" />,
+    ],
+    [
+      "Regional Support",
+      "South Asia-ready rollout team",
+      <MapPin className="h-5 w-5" />,
+    ],
+    [
+      "Industry Fit",
+      "Finance, stock, sales, production",
+      <Factory className="h-5 w-5" />,
+    ],
+    [
+      "Customization",
+      "Workflows shaped around your team",
+      <Layers3 className="h-5 w-5" />,
+    ],
+    [
+      "Growth Stories",
+      "Dashboards leaders can trust",
+      <Building2 className="h-5 w-5" />,
+    ],
   ];
+
   const trustReasons = [
-    ["Business-first ERP implementation", "We map finance, inventory, purchase, sales, HR, production, and approval flows before configuring the platform."],
-    ["Bangladesh-ready workflows", "Bizovix supports practical local operations including VAT-ready records, payroll needs, branch controls, and management reports."],
-    ["Flexible customization", "Every team has different approval chains, product structures, and reporting needs, so Bizovix adapts without making daily work complicated."],
-    ["Ongoing support and optimization", "After rollout, our team helps improve usage, train users, maintain performance, and refine dashboards as your business grows."],
+    [
+      "Business-first ERP implementation",
+      "We map finance, inventory, purchase, sales, HR, production, and approval flows before configuring the platform.",
+    ],
+    [
+      "South Asia-ready workflows",
+      "Bizovix supports practical regional operations including tax-ready records, payroll needs, multi-currency transactions, branch controls, and management reports.",
+    ],
+    [
+      "Flexible customization",
+      "Every team has different approval chains, product structures, and reporting needs, so Bizovix adapts without making daily work complicated.",
+    ],
+    [
+      "Ongoing support and optimization",
+      "After rollout, our team helps improve usage, train users, maintain performance, and refine dashboards as your business grows.",
+    ],
   ];
-  const productTabs = ["Finance & Inventory", "One Stop ERP", "Manufacturing & Sales"];
+
+  const productTabs = [
+    "Finance & Inventory",
+    "One Stop ERP",
+    "Manufacturing & Sales",
+  ];
+
   const erpModules = [
     ["Finance", <BarChart3 className="h-4 w-4" />],
     ["Inventory", <PackageCheck className="h-4 w-4" />],
@@ -113,6 +202,7 @@ export default function Home() {
     ["Production", <Factory className="h-4 w-4" />],
     ["Reports", <ClipboardCheck className="h-4 w-4" />],
   ];
+
   const processSteps = [
     {
       title: "Understand & Analyse",
@@ -139,13 +229,19 @@ export default function Home() {
   return (
     <>
       <SEOJsonLd data={faqJsonLd(faqs)} />
-      <section className="banner-hero" aria-label="Bizovix cloud ERP overview">
+
+      <section
+        className="banner-hero"
+        aria-label="Bizovix cloud ERP overview"
+      >
         <div className="banner-slider">
           {bannerSlides.map((banner, index) => (
             <div
               key={banner.image}
               className="banner-slide"
-              style={{ animationDelay: `${index * 5}s` }}
+              style={{
+                animationDelay: `${index * 5}s`,
+              }}
             >
               <img
                 src={`/images/banner/${banner.image}`}
@@ -153,23 +249,44 @@ export default function Home() {
                 className="banner-image"
                 aria-hidden="true"
               />
+
               <div className="banner-content">
-                <p className="banner-kicker"><span />{banner.badge}</p>
+                <p className="banner-kicker">
+                  <span />
+                  {banner.badge}
+                </p>
+
                 <h2>{banner.title}</h2>
+
                 <div className="banner-rule" />
+
                 <p className="banner-copy">{banner.description}</p>
+
                 <div className="banner-actions">
-                  <ButtonLink href="/demo-request" className="banner-action-primary">
-                    Request Demo <ArrowRight className="h-3.5 w-3.5" />
+                  <ButtonLink
+                    href="/demo-request"
+                    className="banner-action-primary"
+                  >
+                    Request Demo
+                    <ArrowRight className="h-3.5 w-3.5" />
                   </ButtonLink>
-                  <ButtonLink href="/solutions" variant="secondary" className="banner-action-secondary">
+
+                  <ButtonLink
+                    href="/solutions"
+                    variant="secondary"
+                    className="banner-action-secondary"
+                  >
                     Explore Solutions
                   </ButtonLink>
                 </div>
               </div>
             </div>
           ))}
-          <div className="banner-dots" aria-hidden="true">
+
+          <div
+            className="banner-dots"
+            aria-hidden="true"
+          >
             <span />
             <span />
             <span />
@@ -177,24 +294,50 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="about-preview" aria-label="About Bizovix ERP solutions">
+      <section
+        className="about-preview"
+        aria-label="About Bizovix ERP solutions"
+      >
         <div className="container-shell about-preview-grid">
           <div className="about-preview-media">
-            <img className="about-image-main" src="/images/about/about1.webp" alt="Bizovix ERP consultants reviewing business analytics" />
+            <img
+              className="about-image-main"
+              src="/images/about/about1.webp"
+              alt="Bizovix ERP consultants reviewing business analytics"
+            />
+
             <div className="about-experience-badge">
               <strong>10+</strong>
               <span>Years ERP Experience</span>
             </div>
-            <img className="about-image-secondary" src="/images/about/about2.webp" alt="Bizovix team planning cloud ERP implementation" />
+
+            <img
+              className="about-image-secondary"
+              src="/images/about/about2.webp"
+              alt="Bizovix team planning cloud ERP implementation"
+            />
           </div>
 
           <div className="about-preview-copy">
             <p className="about-pill">About Bizovix</p>
-            <h2>We build cloud ERP solutions for smarter business operations</h2>
+
+            <h2>
+              We build cloud ERP solutions for smarter business operations
+            </h2>
+
             <p>
-              Bizovix helps growing companies in Bangladesh and beyond connect finance, inventory, sales, purchase, production, HR, payroll, approvals, and reporting in one secure cloud ERP platform. Our team focuses on practical implementation, clean workflows, and real-time business visibility that leaders can trust.
+              Bizovix helps growing companies in Bangladesh, South Asia,
+              and beyond connect finance, inventory, sales, purchase,
+              production, HR, payroll, approvals, and reporting in one
+              secure cloud ERP platform. Our team focuses on practical
+              implementation, clean workflows, and real-time business
+              visibility that leaders can trust.
             </p>
-            <div className="about-solution-title">Our Core ERP Solutions</div>
+
+            <div className="about-solution-title">
+              Our Core ERP Solutions
+            </div>
+
             <div className="about-solution-grid">
               {[
                 "Accounting & Finance ERP",
@@ -204,39 +347,74 @@ export default function Home() {
                 "HR, Payroll & Attendance",
                 "Approvals, Dashboards & Reports",
               ].map((item) => (
-                <span key={item}><CheckCircle2 className="h-4 w-4" />{item}</span>
+                <span key={item}>
+                  <CheckCircle2 className="h-4 w-4" />
+                  {item}
+                </span>
               ))}
             </div>
-            <ButtonLink href="/about-us" variant="secondary" className="about-preview-cta">
-              Discover More <ArrowRight className="h-4 w-4" />
+
+            <ButtonLink
+              href="/about-us"
+              variant="secondary"
+              className="about-preview-cta"
+            >
+              Discover More
+              <ArrowRight className="h-4 w-4" />
             </ButtonLink>
           </div>
         </div>
       </section>
 
-      <section className="brand-carousel-section" aria-label="Brands and industries powered by Bizovix ERP">
+      <section
+        className="brand-carousel-section"
+        aria-label="Brands and industries powered by Bizovix ERP"
+      >
         <div className="container-shell brand-carousel-head">
           <p>Connected ERP for ambitious teams</p>
         </div>
+
         <div className="brand-carousel-wrap">
-          <div className="brand-carousel-track" aria-hidden="true">
+          <div
+            className="brand-carousel-track"
+            aria-hidden="true"
+          >
             {[...brandCards, ...brandCards].map((brand, index) => (
-              <div className="brand-card" key={`${brand.name}-${index}`}>
-                <img src={brand.logo} alt="" />
+              <div
+                className="brand-card"
+                key={`${brand.name}-${index}`}
+              >
+                <img
+                  src={brand.logo}
+                  alt=""
+                />
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bd-coverage-section" aria-label="Bizovix ERP coverage across Bangladesh">
+      <section
+        className="bd-coverage-section"
+        aria-label="Bizovix ERP coverage across South Asia"
+      >
         <div className="container-shell bd-coverage-grid">
           <div className="bd-coverage-copy">
-            <p className="bd-coverage-pill"><MapPin className="h-4 w-4" />Nationwide ERP Coverage</p>
-            <h2>Supporting growing businesses across every corner of Bangladesh</h2>
-            <p>
-              From Dhaka-based head offices to manufacturing floors, warehouses, retail outlets, and distribution teams across Bangladesh, Bizovix delivers cloud ERP software built for local workflows, Bangladeshi compliance needs, and real-time management visibility.
+            <p className="bd-coverage-pill">
+              <MapPin className="h-4 w-4" />
+              Built for South Asian Businesses
             </p>
+
+            <h2>
+              One Powerful ERP Platform for South Asia’s Growing Businesses
+            </h2>
+
+            <p>
+              Bizovix helps manufacturers, distributors, retailers, service providers, and multi-branch 
+              companies across South Asia manage finance, inventory, sales, purchasing, production, HR, payroll, 
+              approvals, and reporting through one secure and scalable cloud ERP platform.
+            </p>
+
             <div className="bd-coverage-stats">
               {coverageStats.map(([value, label]) => (
                 <article key={value}>
@@ -247,129 +425,254 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="bd-map-card" aria-label="Bangladesh map showing Bizovix ERP operating coverage">
-            <img className="bd-map-image" src="/images/maps/bangladesh.svg" alt="Bangladesh map" />
-            <div className="bd-map-hub">
-              <img src="/brand/bizovix-logo-nav.png" alt="" />
+          <div
+            className="bd-map-card south-asia-map-card"
+            aria-label="South Asia map showing Bizovix ERP regional coverage"
+          >
+            <div className="south-asia-map-wrap">
+              <img
+                className="bd-map-image south-asia-map-image"
+                src="/images/maps/south-asia.svg"
+                alt="Map of South Asia showing Bizovix ERP coverage"
+              />
+            </div>
+
+            <div className="bd-map-hub south-asia-map-hub">
+              <img
+                src="/brand/bizovix-logo-nav.png"
+                alt=""
+                aria-hidden="true"
+              />
+
               <strong>Bizovix ERP</strong>
             </div>
-            {coveragePoints.map(([city, label, position]) => (
-              <div className={`bd-map-point bd-map-point-${position}`} key={city}>
-                <span />
-                <p><strong>{city}</strong>{label}</p>
-              </div>
-            ))}
+
+            {coveragePoints.map(
+              ([country, label, position]) => (
+                <div
+                  className={`bd-map-point south-asia-map-point south-asia-point-${position}`}
+                  key={country}
+                >
+                  <span />
+
+                  <p>
+                    <strong>{country}</strong>
+                    {label}
+                  </p>
+                </div>
+              ),
+            )}
           </div>
         </div>
       </section>
 
-      <section className="multi-device-section" aria-label="Bizovix multi-device cloud ERP experience">
+      <section
+        className="multi-device-section"
+        aria-label="Bizovix multi-device cloud ERP experience"
+      >
         <div className="container-shell multi-device-grid">
           <div className="multi-device-copy">
-            <h2>The Real Multi-Device ERP Experience</h2>
+            <h2>
+              The Real Multi-Device ERP Experience
+            </h2>
+
             <p>
-              Bizovix cloud ERP keeps finance, inventory, sales, purchase, production, and approvals synced across mobile, laptop, and desktop, so your team can manage operations from head office, warehouse, showroom, or on the move.
+              Bizovix cloud ERP keeps finance, inventory, sales,
+              purchase, production, and approvals synced across mobile,
+              laptop, and desktop, so your team can manage operations
+              from head office, warehouse, showroom, or on the move.
             </p>
+
             <div className="multi-device-stats">
               <article>
                 <strong>99.9%</strong>
                 <span>Reliable cloud access</span>
               </article>
+
               <article>
                 <strong>Instant</strong>
                 <span>Cross-device sync</span>
               </article>
             </div>
           </div>
+
           <div className="multi-device-media">
-            <img src="/images/The-Real-Multi-Device-Experience.webp" alt="Bizovix ERP dashboard syncing between mobile and laptop" />
+            <img
+              src="/images/The-Real-Multi-Device-Experience.webp"
+              alt="Bizovix ERP dashboard syncing between mobile and laptop"
+            />
           </div>
         </div>
       </section>
 
-      <section className="solution-orbit-section" aria-label="Bizovix ERP services for business transformation">
+      <section
+        className="solution-orbit-section"
+        aria-label="Bizovix ERP services for business transformation"
+      >
         <div className="container-shell solution-orbit-head">
           <p>Services</p>
-          <h2>Innovative ERP Solutions That Power Business Transformation</h2>
-          <span>From cloud ERP implementation to inventory, manufacturing, finance, and approvals, Bizovix delivers dependable software built for long-term operational growth.</span>
+
+          <h2>
+            Innovative ERP Solutions That Power Business Transformation
+          </h2>
+
+          <span>
+            From cloud ERP implementation to inventory, manufacturing,
+            finance, and approvals, Bizovix delivers dependable software
+            built for long-term operational growth.
+          </span>
         </div>
+
         <div className="container-shell solution-orbit-layout">
           <div className="solution-orbit-column">
-            {serviceHighlights.slice(0, 2).map((service) => (
-              <article className="solution-orbit-card" key={service.title}>
-                <div className="solution-orbit-icon">{service.icon}</div>
-                <h3>{service.title}</h3>
-                <p>{service.body}</p>
-                <ArrowRight className="solution-orbit-arrow h-4 w-4" />
-              </article>
-            ))}
+            {serviceHighlights
+              .slice(0, 2)
+              .map((service) => (
+                <article
+                  className="solution-orbit-card"
+                  key={service.title}
+                >
+                  <div className="solution-orbit-icon">
+                    {service.icon}
+                  </div>
+
+                  <h3>{service.title}</h3>
+                  <p>{service.body}</p>
+
+                  <ArrowRight className="solution-orbit-arrow h-4 w-4" />
+                </article>
+              ))}
           </div>
 
           <div className="solution-orbit-center">
-            <img src="/images/Home-circle.webp" alt="Bizovix ERP user working on cloud business software" />
-            <ButtonLink href="/solutions" variant="secondary" className="solution-orbit-cta">
+            <img
+              src="/images/Home-circle.webp"
+              alt="Bizovix ERP user working on cloud business software"
+            />
+
+            <ButtonLink
+              href="/solutions"
+              variant="secondary"
+              className="solution-orbit-cta"
+            >
               Explore Our Services
             </ButtonLink>
           </div>
 
           <div className="solution-orbit-column">
-            {serviceHighlights.slice(2).map((service) => (
-              <article className="solution-orbit-card" key={service.title}>
-                <div className="solution-orbit-icon">{service.icon}</div>
-                <h3>{service.title}</h3>
-                <p>{service.body}</p>
-                <ArrowRight className="solution-orbit-arrow h-4 w-4" />
-              </article>
-            ))}
+            {serviceHighlights
+              .slice(2)
+              .map((service) => (
+                <article
+                  className="solution-orbit-card"
+                  key={service.title}
+                >
+                  <div className="solution-orbit-icon">
+                    {service.icon}
+                  </div>
+
+                  <h3>{service.title}</h3>
+                  <p>{service.body}</p>
+
+                  <ArrowRight className="solution-orbit-arrow h-4 w-4" />
+                </article>
+              ))}
           </div>
         </div>
       </section>
 
-      <section className="why-trust-section" aria-label="Why businesses trust Bizovix ERP">
+      <section
+        className="why-trust-section"
+        aria-label="Why businesses trust Bizovix ERP"
+      >
         <div className="container-shell why-trust-head">
           <p>Why Choose Us</p>
-          <h2>Why Businesses Trust Bizovix?</h2>
-          <span>Empowering Bangladeshi businesses with secure cloud ERP, local implementation, and practical automation that helps teams grow with confidence.</span>
+
+          <h2>
+            Why Businesses Trust Bizovix?
+          </h2>
+
+          <span>
+            Empowering businesses across Bangladesh and South Asia with
+            secure cloud ERP, regional implementation, and practical
+            automation that helps teams grow with confidence.
+          </span>
         </div>
 
         <div className="container-shell why-trust-cards">
-          {trustSignals.map(([title, body, icon]) => (
-            <article className="why-trust-card" key={title as string}>
-              <div className="why-trust-icon">{icon}</div>
-              <strong>{title}</strong>
-              <span>{body}</span>
-            </article>
-          ))}
+          {trustSignals.map(
+            ([title, body, icon]) => (
+              <article
+                className="why-trust-card"
+                key={title as string}
+              >
+                <div className="why-trust-icon">
+                  {icon}
+                </div>
+
+                <strong>{title}</strong>
+                <span>{body}</span>
+              </article>
+            ),
+          )}
         </div>
 
         <div className="container-shell why-trust-detail">
-          <h3>Why choose Bizovix ERP for your business?</h3>
+          <h3>
+            Why choose Bizovix ERP for your business?
+          </h3>
+
           <p>
-            Bizovix is built for companies that need more than software installation. We deliver a structured ERP experience that connects people, processes, data, and decisions across the whole business.
+            Bizovix is built for companies that need more than software
+            installation. We deliver a structured ERP experience that
+            connects people, processes, data, and decisions across the
+            whole business.
           </p>
+
           <div className="why-trust-list">
-            {trustReasons.map(([title, body]) => (
-              <article key={title}>
-                <CheckCircle2 className="h-5 w-5" />
-                <div>
-                  <strong>{title}</strong>
-                  <p>{body}</p>
-                </div>
-              </article>
-            ))}
+            {trustReasons.map(
+              ([title, body]) => (
+                <article key={title}>
+                  <CheckCircle2 className="h-5 w-5" />
+
+                  <div>
+                    <strong>{title}</strong>
+                    <p>{body}</p>
+                  </div>
+                </article>
+              ),
+            )}
           </div>
         </div>
       </section>
 
-      <section className="erp-clarity-section" aria-label="Bizovix one stop ERP products">
+      <section
+        className="erp-clarity-section"
+        aria-label="Bizovix one stop ERP products"
+      >
         <div className="container-shell erp-clarity-head">
           <p>Our Products</p>
-          <h2>From Complexity to Clarity. One ERP for Every Team.</h2>
+
+          <h2>
+            From Complexity to Clarity. One ERP for Every Team.
+          </h2>
         </div>
 
-        <div className="container-shell erp-tab-row" role="list" aria-label="Bizovix ERP product focus">
+        <div
+          className="container-shell erp-tab-row"
+          role="list"
+          aria-label="Bizovix ERP product focus"
+        >
           {productTabs.map((tab) => (
-            <span className={tab === "One Stop ERP" ? "is-active" : ""} key={tab} role="listitem">
+            <span
+              className={
+                tab === "One Stop ERP"
+                  ? "is-active"
+                  : ""
+              }
+              key={tab}
+              role="listitem"
+            >
               {tab}
             </span>
           ))}
@@ -377,61 +680,108 @@ export default function Home() {
 
         <div className="container-shell erp-clarity-grid">
           <div className="erp-clarity-copy">
-            <h3>Your one-stop ERP solution for everything your business needs</h3>
+            <h3>
+              Your one-stop ERP solution for everything your business
+              needs
+            </h3>
+
             <p>
-              Bizovix connects accounting, purchase, inventory, sales, POS, CRM, HR, payroll, production, approvals, vendors, customers, and reports in one cloud ERP platform. Your teams get cleaner workflows, faster decisions, and stronger control without switching between disconnected tools.
+              Bizovix connects accounting, purchase, inventory, sales,
+              POS, CRM, HR, payroll, production, approvals, vendors,
+              customers, and reports in one cloud ERP platform. Your
+              teams get cleaner workflows, faster decisions, and
+              stronger control without switching between disconnected
+              tools.
             </p>
-            <ButtonLink href="/solutions" variant="secondary" className="erp-clarity-button">
-              Know More <ArrowRight className="h-4 w-4" />
+
+            <ButtonLink
+              href="/solutions"
+              variant="secondary"
+              className="erp-clarity-button"
+            >
+              Know More
+              <ArrowRight className="h-4 w-4" />
             </ButtonLink>
           </div>
 
-          <div className="erp-wheel" aria-label="Bizovix ERP connected modules">
+          <div
+            className="erp-wheel"
+            aria-label="Bizovix ERP connected modules"
+          >
             <div className="erp-wheel-center">
               <strong>ERP</strong>
               <span>Bizovix Cloud Suite</span>
             </div>
-            {erpModules.map(([label, icon], index) => (
-              <div className={`erp-wheel-item erp-wheel-item-${index + 1}`} key={label as string}>
-                {icon}
-                <span>{label}</span>
-              </div>
-            ))}
+
+            {erpModules.map(
+              ([label, icon], index) => (
+                <div
+                  className={`erp-wheel-item erp-wheel-item-${index + 1}`}
+                  key={label as string}
+                >
+                  {icon}
+                  <span>{label}</span>
+                </div>
+              ),
+            )}
           </div>
         </div>
 
         <div className="container-shell erp-ai-row">
           <div className="erp-ai-callout">
             <Bot className="h-7 w-7" />
+
             <div>
               <span>Click here for</span>
-              <strong>AI-Powered ERP Recommendation Support</strong>
+              <strong>
+                AI-Powered ERP Recommendation Support
+              </strong>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="process-section" aria-label="Bizovix ERP implementation process">
+      <section
+        className="process-section"
+        aria-label="Bizovix ERP implementation process"
+      >
         <div className="container-shell process-head">
-          <h2>How Bizovix Helps Your Business Go Live</h2>
-          <p>Transforming operational challenges into connected cloud ERP success through a clear, practical, and support-focused rollout process.</p>
+          <h2>
+            How Bizovix Helps Your Business Go Live
+          </h2>
+
+          <p>
+            Transforming operational challenges into connected cloud ERP
+            success through a clear, practical, and support-focused
+            rollout process.
+          </p>
         </div>
 
         <div className="container-shell process-grid">
-          {processSteps.map((step, index) => (
-            <article className="process-card" key={step.title}>
-              <div className="process-icon">
-                {step.icon}
-                <span>{index + 1}</span>
-              </div>
-              <h3>{step.title}</h3>
-              <p>{step.body}</p>
-            </article>
-          ))}
+          {processSteps.map(
+            (step, index) => (
+              <article
+                className="process-card"
+                key={step.title}
+              >
+                <div className="process-icon">
+                  {step.icon}
+                  <span>{index + 1}</span>
+                </div>
+
+                <h3>{step.title}</h3>
+                <p>{step.body}</p>
+              </article>
+            ),
+          )}
         </div>
 
         <div className="process-action">
-          <ButtonLink href="/about-us" variant="secondary" className="process-button">
+          <ButtonLink
+            href="/about-us"
+            variant="secondary"
+            className="process-button"
+          >
             About Our Process
           </ButtonLink>
         </div>

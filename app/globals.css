@@ -1033,19 +1033,31 @@ img {
   }
 }
 
+/* =========================================================
+   SOUTH ASIA ERP COVERAGE SECTION
+========================================================= */
+
 .bd-coverage-section {
+  position: relative;
   overflow: hidden;
   background:
-    radial-gradient(circle at 80% 22%, rgba(7, 100, 238, 0.08), transparent 30%),
+    radial-gradient(
+      circle at 80% 22%,
+      rgba(7, 100, 238, 0.08),
+      transparent 30%
+    ),
     linear-gradient(180deg, #ffffff 0%, #f7fbff 100%);
   padding: clamp(46px, 5vw, 72px) 0;
 }
 
 .bd-coverage-grid {
+  position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 0.82fr) minmax(520px, 1fr);
+  grid-template-columns:
+    minmax(0, 0.82fr)
+    minmax(600px, 1.18fr);
   align-items: center;
-  gap: clamp(34px, 5vw, 64px);
+  gap: clamp(28px, 4vw, 52px);
 }
 
 .bd-coverage-copy {
@@ -1069,6 +1081,7 @@ img {
 }
 
 .bd-coverage-pill svg {
+  flex: 0 0 auto;
   fill: rgba(239, 31, 70, 0.12);
 }
 
@@ -1118,168 +1131,527 @@ img {
   font-weight: 700;
 }
 
-.bd-map-card {
+/* =========================================================
+   SOUTH ASIA MAP CARD
+========================================================= */
+
+.bd-map-card,
+.bd-map-card.south-asia-map-card {
   position: relative;
-  overflow: hidden;
-  min-height: 0;
-  height: clamp(410px, 38vw, 500px);
+  overflow: visible;
+  width: 100%;
+  height: 540px;
+  min-height: 540px;
   background: transparent;
+  isolation: isolate;
 }
 
-.bd-map-image {
+/* Holds the actual SVG */
+.south-asia-map-wrap {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: min(50%, 315px);
-  max-height: 92%;
+  z-index: 1;
+  width: 88%;
+  height: 96%;
   transform: translate(-50%, -50%);
-  opacity: 1;
-  filter: drop-shadow(0 18px 32px rgba(239, 31, 70, 0.16));
+  pointer-events: none;
 }
 
-.bd-map-hub {
+/*
+  This overrides the old Bangladesh map rule:
+  width: min(50%, 315px)
+*/
+.bd-map-image,
+.bd-map-image.south-asia-map-image {
+  position: static;
+  inset: auto;
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  object-fit: contain;
+  object-position: center;
+  opacity: 1;
+  filter: drop-shadow(
+    0 18px 32px rgba(239, 31, 70, 0.14)
+  );
+  transform: none;
+}
+
+/* =========================================================
+   BIZOVIX CENTER HUB
+========================================================= */
+
+.bd-map-hub,
+.bd-map-hub.south-asia-map-hub {
   position: absolute;
-  top: 48%;
-  left: 50%;
-  z-index: 3;
+  top: 50%;
+  left: 53%;
+  z-index: 6;
   display: grid;
   place-items: center;
   transform: translate(-50%, -50%);
-  color: #0764EE;
+  color: #0764ee;
   text-align: center;
 }
 
-.bd-map-hub img {
-  height: 48px;
-  width: 92px;
+.bd-map-hub img,
+.bd-map-hub.south-asia-map-hub img {
+  display: block;
+  width: 100px;
+  height: auto;
+  max-width: none;
   object-fit: contain;
 }
 
-.bd-map-hub strong {
-  margin-top: 2px;
+.bd-map-hub strong,
+.bd-map-hub.south-asia-map-hub strong {
+  display: block;
+  margin-top: 3px;
   color: #ef1f46;
   font-size: 14px;
   font-weight: 900;
   line-height: 1;
+  white-space: nowrap;
 }
 
-.bd-map-point {
+/* =========================================================
+   MAP COUNTRY POINTS
+========================================================= */
+
+.bd-map-point,
+.south-asia-map-point {
   position: absolute;
-  z-index: 4;
+  z-index: 8;
   display: flex;
-  max-width: 156px;
+  max-width: 165px;
   align-items: center;
   gap: 8px;
 }
 
-.bd-map-point::before {
+.bd-map-point::before,
+.south-asia-map-point::before {
   position: absolute;
   z-index: -1;
-  height: 1px;
   width: 54px;
-  background: linear-gradient(90deg, rgba(239, 31, 70, 0.6), rgba(255, 171, 0, 0.28));
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    rgba(239, 31, 70, 0.62),
+    rgba(255, 171, 0, 0.3)
+  );
   content: "";
 }
 
-.bd-map-point > span {
+.bd-map-point > span,
+.south-asia-map-point > span {
   flex: 0 0 auto;
-  height: 12px;
   width: 12px;
+  height: 12px;
   border: 3px solid #ffffff;
   border-radius: 999px;
   background: #ef1f46;
-  box-shadow: 0 0 0 5px rgba(239, 31, 70, 0.13), 0 10px 18px rgba(239, 31, 70, 0.22);
+  box-shadow:
+    0 0 0 5px rgba(239, 31, 70, 0.13),
+    0 10px 18px rgba(239, 31, 70, 0.22);
 }
 
-.bd-map-point p {
+.bd-map-point p,
+.south-asia-map-point p {
+  min-width: 135px;
+  max-width: 150px;
   margin: 0;
   border: 1px solid rgba(239, 31, 70, 0.1);
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(255, 255, 255, 0.94);
   color: #5f6b7d;
   padding: 8px 10px;
   font-size: 10px;
   font-weight: 700;
   line-height: 1.35;
   box-shadow: 0 14px 30px rgba(15, 23, 42, 0.08);
+  backdrop-filter: blur(5px);
 }
 
-.bd-map-point:nth-of-type(odd) > span {
-  background: #0764EE;
-  box-shadow: 0 0 0 5px rgba(7, 100, 238, 0.13), 0 10px 18px rgba(7, 100, 238, 0.18);
-}
-
-.bd-map-point:nth-of-type(3n) > span {
-  background: #16b98f;
-  box-shadow: 0 0 0 5px rgba(22, 185, 143, 0.13), 0 10px 18px rgba(22, 185, 143, 0.18);
-}
-
-.bd-map-point strong {
+.bd-map-point strong,
+.south-asia-map-point strong {
   display: block;
   color: #0f1f36;
   font-size: 11px;
 }
 
-.bd-map-point-dhaka {
+.south-asia-map-point:nth-of-type(odd) > span {
+  background: #0764ee;
+  box-shadow:
+    0 0 0 5px rgba(7, 100, 238, 0.13),
+    0 10px 18px rgba(7, 100, 238, 0.18);
+}
+
+.south-asia-map-point:nth-of-type(3n) > span {
+  background: #16b98f;
+  box-shadow:
+    0 0 0 5px rgba(22, 185, 143, 0.13),
+    0 10px 18px rgba(22, 185, 143, 0.18);
+}
+
+/* Pakistan — upper left */
+.south-asia-point-pakistan {
+  top: 15%;
+  left: 3%;
+}
+
+.south-asia-point-pakistan::before {
+  top: 8px;
+  left: 14px;
+  transform: rotate(22deg);
+  transform-origin: left center;
+}
+
+/* Bangladesh — middle left */
+.south-asia-point-bangladesh {
   top: 43%;
-  left: 18%;
+  left: -1%;
 }
 
-.bd-map-point-dhaka::before {
-  left: 14px;
-  top: 7px;
-  transform: rotate(10deg);
-  transform-origin: left center;
-}
-
-.bd-map-point-gazipur {
-  top: 26%;
-  left: 24%;
-}
-
-.bd-map-point-gazipur::before {
-  left: 14px;
+.south-asia-point-bangladesh::before {
   top: 8px;
-  transform: rotate(24deg);
+  left: 14px;
+  transform: rotate(8deg);
   transform-origin: left center;
 }
 
-.bd-map-point-chattogram {
-  right: 5%;
-  bottom: 30%;
+/* Nepal — upper right */
+.south-asia-point-nepal {
+  top: 13%;
+  right: 4%;
   flex-direction: row-reverse;
 }
 
-.bd-map-point-chattogram::before {
-  right: 14px;
+.south-asia-point-nepal::before {
   top: 8px;
-  transform: rotate(162deg);
+  right: 14px;
+  transform: rotate(152deg);
   transform-origin: right center;
 }
 
-.bd-map-point-sylhet {
-  top: 24%;
-  right: 9%;
+/* India — lower left */
+.south-asia-point-india {
+  bottom: 10%;
+  left: 4%;
+}
+
+.south-asia-point-india::before {
+  top: 8px;
+  left: 14px;
+  transform: rotate(-24deg);
+  transform-origin: left center;
+}
+
+/* Sri Lanka — lower right */
+.south-asia-point-sri-lanka {
+  right: 0;
+  bottom: 24%;
   flex-direction: row-reverse;
 }
 
-.bd-map-point-sylhet::before {
-  right: 14px;
+.south-asia-point-sri-lanka::before {
   top: 8px;
-  transform: rotate(150deg);
+  right: 14px;
+  transform: rotate(164deg);
   transform-origin: right center;
 }
 
-.bd-map-point-khulna {
-  bottom: 18%;
-  left: 24%;
+/* =========================================================
+   LARGE DESKTOP
+========================================================= */
+
+@media (min-width: 1440px) {
+  .bd-coverage-grid {
+    grid-template-columns:
+      minmax(0, 0.8fr)
+      minmax(660px, 1.2fr);
+    gap: 48px;
+  }
+
+  .bd-map-card,
+  .bd-map-card.south-asia-map-card {
+    height: 570px;
+    min-height: 570px;
+  }
+
+  .south-asia-map-wrap {
+    width: 92%;
+    height: 98%;
+  }
+
+  .bd-map-hub,
+  .bd-map-hub.south-asia-map-hub {
+    left: 53%;
+  }
 }
 
-.bd-map-point-khulna::before {
-  left: 14px;
-  top: 8px;
-  transform: rotate(-25deg);
-  transform-origin: left center;
+/* =========================================================
+   LAPTOP
+========================================================= */
+
+@media (max-width: 1200px) {
+  .bd-coverage-grid {
+    grid-template-columns:
+      minmax(0, 0.9fr)
+      minmax(520px, 1.1fr);
+    gap: 24px;
+  }
+
+  .bd-map-card,
+  .bd-map-card.south-asia-map-card {
+    height: 510px;
+    min-height: 510px;
+  }
+
+  .south-asia-map-wrap {
+    width: 90%;
+    height: 94%;
+  }
+
+  .bd-map-point p,
+  .south-asia-map-point p {
+    min-width: 122px;
+    max-width: 138px;
+  }
+
+  .south-asia-point-pakistan {
+    left: 0;
+  }
+
+  .south-asia-point-bangladesh {
+    left: -3%;
+  }
+
+  .south-asia-point-nepal {
+    right: 0;
+  }
+
+  .south-asia-point-india {
+    left: 0;
+  }
+
+  .south-asia-point-sri-lanka {
+    right: -3%;
+  }
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+  .bd-coverage-grid {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+
+  .bd-coverage-copy {
+    max-width: 780px;
+  }
+
+  .bd-map-card,
+  .bd-map-card.south-asia-map-card {
+    width: 100%;
+    max-width: 780px;
+    height: 570px;
+    min-height: 570px;
+    margin-inline: auto;
+  }
+
+  .south-asia-map-wrap {
+    width: 84%;
+    height: 92%;
+  }
+
+  .bd-map-hub,
+  .bd-map-hub.south-asia-map-hub {
+    top: 49%;
+    left: 52%;
+  }
+
+  .south-asia-point-pakistan {
+    top: 12%;
+    left: 4%;
+  }
+
+  .south-asia-point-bangladesh {
+    top: 42%;
+    left: 0;
+  }
+
+  .south-asia-point-nepal {
+    top: 11%;
+    right: 4%;
+  }
+
+  .south-asia-point-india {
+    bottom: 9%;
+    left: 4%;
+  }
+
+  .south-asia-point-sri-lanka {
+    right: 0;
+    bottom: 23%;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 640px) {
+  .bd-coverage-section {
+    padding: 42px 0;
+  }
+
+  .bd-coverage-copy h2 {
+    font-size: clamp(1.7rem, 7vw, 2.25rem);
+  }
+
+  .bd-coverage-copy > p:not(.bd-coverage-pill) {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .bd-coverage-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .bd-map-card,
+  .bd-map-card.south-asia-map-card {
+    height: 650px;
+    min-height: 650px;
+    margin-top: 10px;
+  }
+
+  .south-asia-map-wrap {
+    top: 48%;
+    width: 100%;
+    height: 64%;
+  }
+
+  .bd-map-hub,
+  .bd-map-hub.south-asia-map-hub {
+    top: 48%;
+    left: 52%;
+  }
+
+  .bd-map-hub img,
+  .bd-map-hub.south-asia-map-hub img {
+    width: 78px;
+  }
+
+  .bd-map-hub strong,
+  .bd-map-hub.south-asia-map-hub strong {
+    font-size: 12px;
+  }
+
+  .bd-map-point,
+  .south-asia-map-point {
+    max-width: 125px;
+    gap: 6px;
+  }
+
+  .bd-map-point p,
+  .south-asia-map-point p {
+    min-width: 108px;
+    max-width: 120px;
+    padding: 6px 7px;
+    font-size: 9px;
+  }
+
+  .bd-map-point strong,
+  .south-asia-map-point strong {
+    font-size: 10px;
+  }
+
+  .bd-map-point::before,
+  .south-asia-map-point::before {
+    width: 34px;
+  }
+
+  .south-asia-point-pakistan {
+    top: 1%;
+    left: 0;
+  }
+
+  .south-asia-point-nepal {
+    top: 1%;
+    right: 0;
+  }
+
+  .south-asia-point-bangladesh {
+    top: 24%;
+    left: 0;
+  }
+
+  .south-asia-point-india {
+    bottom: 1%;
+    left: 0;
+  }
+
+  .south-asia-point-sri-lanka {
+    right: 0;
+    bottom: 14%;
+  }
+}
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 420px) {
+  .bd-coverage-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .bd-map-card,
+  .bd-map-card.south-asia-map-card {
+    height: 690px;
+    min-height: 690px;
+  }
+
+  .south-asia-map-wrap {
+    top: 47%;
+    width: 105%;
+    height: 56%;
+  }
+
+  .bd-map-hub,
+  .bd-map-hub.south-asia-map-hub {
+    top: 47%;
+    left: 52%;
+  }
+
+  .bd-map-hub img,
+  .bd-map-hub.south-asia-map-hub img {
+    width: 68px;
+  }
+
+  .bd-map-hub strong,
+  .bd-map-hub.south-asia-map-hub strong {
+    font-size: 11px;
+  }
+
+  .bd-map-point p,
+  .south-asia-map-point p {
+    min-width: 98px;
+    max-width: 106px;
+    font-size: 8px;
+  }
+
+  .bd-map-point strong,
+  .south-asia-map-point strong {
+    font-size: 9px;
+  }
 }
 
 .multi-device-section {
