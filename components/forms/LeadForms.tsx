@@ -53,15 +53,15 @@ const careerSchema = z.object({
 const newsletterSchema = z.object({ email });
 
 export function DemoRequestForm({ compact = false }: { compact?: boolean }) {
-  const form = useForm({ defaultValues: { requiredSolutions: [] as string[], consent: false } });
+  const form = useForm<Record<string, unknown>>({ defaultValues: { requiredSolutions: [] as string[], consent: false } });
   const [state, setState] = useFormState();
 
   async function onSubmit(values: Record<string, unknown>) {
-    setState({ status: "loading" });
+    setState({ status: "loading", errors: {} });
     const parsed = demoSchema.safeParse(values);
     if (!parsed.success) return setState({ status: "error", errors: flattenErrors(parsed.error) });
     const result = await submitDemoRequest(parsed.data);
-    setState(result.ok ? { status: "success", message: "Demo request received. The Bizovix team can now review your context." } : { status: "error", errors: { form: result.error } });
+    setState(result.ok ? { status: "success", message: "Demo request received. The Bizovix team can now review your context.", errors: {} } : { status: "error", errors: { form: result.error } });
     if (result.ok) form.reset();
   }
 
@@ -112,15 +112,15 @@ export function DemoRequestForm({ compact = false }: { compact?: boolean }) {
 }
 
 export function ContactForm() {
-  const form = useForm();
+  const form = useForm<Record<string, unknown>>();
   const [state, setState] = useFormState();
 
   async function onSubmit(values: Record<string, unknown>) {
-    setState({ status: "loading" });
+    setState({ status: "loading", errors: {} });
     const parsed = contactSchema.safeParse(values);
     if (!parsed.success) return setState({ status: "error", errors: flattenErrors(parsed.error) });
     const result = await submitContact(parsed.data);
-    setState(result.ok ? { status: "success", message: "Message received. We will route it to the right team." } : { status: "error", errors: { form: result.error } });
+    setState(result.ok ? { status: "success", message: "Message received. We will route it to the right team.", errors: {} } : { status: "error", errors: { form: result.error } });
     if (result.ok) form.reset();
   }
 
@@ -139,15 +139,15 @@ export function ContactForm() {
 }
 
 export function CareerForm() {
-  const form = useForm({ defaultValues: { consent: false } });
+  const form = useForm<Record<string, unknown>>({ defaultValues: { consent: false } });
   const [state, setState] = useFormState();
 
   async function onSubmit(values: Record<string, unknown>) {
-    setState({ status: "loading" });
+    setState({ status: "loading", errors: {} });
     const parsed = careerSchema.safeParse(values);
     if (!parsed.success) return setState({ status: "error", errors: flattenErrors(parsed.error) });
     const result = await submitCareer(parsed.data);
-    setState(result.ok ? { status: "success", message: "Application details received. The careers team can review your profile." } : { status: "error", errors: { form: result.error } });
+    setState(result.ok ? { status: "success", message: "Application details received. The careers team can review your profile.", errors: {} } : { status: "error", errors: { form: result.error } });
     if (result.ok) form.reset();
   }
 
@@ -172,15 +172,15 @@ export function CareerForm() {
 }
 
 export function NewsletterForm({ compact = false }: { compact?: boolean }) {
-  const form = useForm();
+  const form = useForm<Record<string, unknown>>();
   const [state, setState] = useFormState();
 
   async function onSubmit(values: Record<string, unknown>) {
-    setState({ status: "loading" });
+    setState({ status: "loading", errors: {} });
     const parsed = newsletterSchema.safeParse(values);
     if (!parsed.success) return setState({ status: "error", errors: flattenErrors(parsed.error) });
     const result = await subscribeNewsletter(parsed.data);
-    setState(result.ok ? { status: "success", message: "Subscribed." } : { status: "error", errors: { form: result.error } });
+    setState(result.ok ? { status: "success", message: "Subscribed.", errors: {} } : { status: "error", errors: { form: result.error } });
     if (result.ok) form.reset();
   }
 

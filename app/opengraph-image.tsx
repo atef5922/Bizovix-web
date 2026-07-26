@@ -28,7 +28,7 @@ export default function Image() {
           </div>
         </div>
         <div style={{ marginLeft: 58, flex: 1, display: "flex", alignItems: "center" }}>
-          <div style={{ width: "100%", borderRadius: 34, background: "#ffffff", boxShadow: "0 28px 80px rgba(7,26,51,.18)", padding: 28 }}>
+          <div style={{ width: "100%", display: "flex", flexDirection: "column", borderRadius: 34, background: "#ffffff", boxShadow: "0 28px 80px rgba(7,26,51,.18)", padding: 28 }}>
             {["Revenue BDT 18.4M", "Production 71%", "Low stock 14", "Approvals 24"].map((item) => (
               <div key={item} style={{ display: "flex", justifyContent: "space-between", borderRadius: 18, background: "#f0f6ff", padding: 20, marginBottom: 16, color: "#071a33", fontSize: 24, fontWeight: 800 }}>
                 <span>{item}</span><span style={{ color: "#126cff" }}>Live</span>
