@@ -79,7 +79,7 @@ export function Header() {
           <div className="desktop-nav">
             {mainNavigation.map((item) => {
               const hasMenu = ["Industries", "Solutions", "Resources"].includes(item.title);
-              const active = pathname === item.href || (item.href !== "/" && pathname.startsWith(item.href));
+              const active = isNavActive(pathname, item);
               return hasMenu ? (
                 <button
                   key={item.title}
@@ -116,7 +116,7 @@ export function Header() {
             </button>
           </div>
         </nav>
-        {open && <MegaMenu type={open} onClose={() => setOpen(null)} />}
+        {open && <MegaMenu type={open} pathname={pathname} onClose={() => setOpen(null)} />}
       </header>
       {drawer && <MobileDrawer pathname={pathname} onClose={() => setDrawer(false)} onSearch={() => setSearch(true)} />}
       {search && <SearchDialog items={searchItems} onClose={() => setSearch(false)} />}
@@ -124,7 +124,7 @@ export function Header() {
   );
 }
 
-function MegaMenu({ type, onClose }: { type: Exclude<MenuKey, null>; onClose: () => void }) {
+function MegaMenu({ type, pathname, onClose }: { type: Exclude<MenuKey, null>; pathname: string; onClose: () => void }) {
   const items = type === "Industries" ? industryNavigation : type === "Solutions" ? solutionNavigation : resourcesNavigation;
   const grouped = groupItems(items);
 
@@ -137,7 +137,7 @@ function MegaMenu({ type, onClose }: { type: Exclude<MenuKey, null>; onClose: ()
               <p className="mega-label">{group}</p>
               <div className="mega-list">
                 {groupItemsList.map((item) => (
-                  <Link key={item.href} className="mega-item" href={item.href} onClick={onClose}>
+                  <Link key={item.href} className={cn("mega-item", isPathActive(pathname, item.href) && "active")} href={item.href} onClick={onClose}>
                     {item.icon && <span><Icon name={item.icon} className="h-5 w-5" /></span>}
                     <span><strong>{item.title}</strong><small>{item.description}</small></span>
                   </Link>
@@ -171,12 +171,12 @@ function MobileDrawer({ pathname, onClose, onSearch }: { pathname: string; onClo
         <button className="drawer-search" type="button" onClick={onSearch}><Search className="h-5 w-5" /> Search Bizovix</button>
         <div className="drawer-links">
           {mainNavigation.map((item) => (
-            <Link key={item.href} onClick={onClose} className={cn(pathname === item.href && "active")} href={item.href}>{item.title}</Link>
+            <Link key={item.href} onClick={onClose} className={cn(isNavActive(pathname, item) && "active")} href={item.href}>{item.title}</Link>
           ))}
         </div>
-        <DrawerGroup title="Solutions" items={solutionNavigation} onClose={onClose} />
-        <DrawerGroup title="Industries" items={industryNavigation} onClose={onClose} />
-        <DrawerGroup title="Resources" items={resourcesNavigation} onClose={onClose} />
+        <DrawerGroup title="Solutions" pathname={pathname} items={solutionNavigation} onClose={onClose} />
+        <DrawerGroup title="Industries" pathname={pathname} items={industryNavigation} onClose={onClose} />
+        <DrawerGroup title="Resources" pathname={pathname} items={resourcesNavigation} onClose={onClose} />
         <div className="drawer-actions">
           <ButtonLink href="/demo-request">Demo Request</ButtonLink>
           <ButtonLink href="/sign-in" variant="secondary">Sign In</ButtonLink>
@@ -186,13 +186,13 @@ function MobileDrawer({ pathname, onClose, onSearch }: { pathname: string; onClo
   );
 }
 
-function DrawerGroup({ title, items, onClose }: { title: string; items: Array<{ title: string; href: string; icon?: IconName }>; onClose: () => void }) {
+function DrawerGroup({ title, pathname, items, onClose }: { title: string; pathname: string; items: Array<{ title: string; href: string; icon?: IconName }>; onClose: () => void }) {
   return (
     <details className="drawer-group">
       <summary>{title}<ChevronDown className="h-4 w-4" /></summary>
       <div>
         {items.map((item) => (
-          <Link key={item.href} href={item.href} onClick={onClose}>
+          <Link key={item.href} href={item.href} className={cn(isPathActive(pathname, item.href) && "active")} onClick={onClose}>
             {item.icon && <Icon name={item.icon} className="h-4 w-4" />}
             {item.title}
           </Link>
@@ -233,4 +233,26 @@ function groupItems<T extends { group?: string }>(items: T[]) {
     acc[group] = [...(acc[group] || []), item];
     return acc;
   }, {});
+}
+
+function isPathActive(pathname: string, href: string) {
+  if (href === "/") {
+    return pathname === "/";
+  }
+
+  return pathname === href || pathname.startsWith(`${href}/`);
+}
+
+function isNavActive(pathname: string, item: { title: string; href: string }) {
+  if (isPathActive(pathname, item.href)) {
+    return true;
+  }
+
+  const groupItems =
+    item.title === "Industries" ? industryNavigation :
+    item.title === "Solutions" ? solutionNavigation :
+    item.title === "Resources" ? resourcesNavigation :
+    [];
+
+  return groupItems.some((groupItem) => isPathActive(pathname, groupItem.href));
 }
