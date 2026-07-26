@@ -74,6 +74,7 @@ export interface BlogPost {
   reviewer: string;
   updated: string;
   readingTime: string;
+  image?: string;
   excerpt: string;
   sections: Array<{ heading: string; body: string }>;
 }
