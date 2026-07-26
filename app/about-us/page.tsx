@@ -256,7 +256,7 @@ export default function AboutPage() {
             <p>Implementation-ready ERP</p>
             <h2>Reduce manual work, improve visibility, and scale with confidence.</h2>
           </div>
-          <ButtonLink href="/demo-request" variant="secondary">
+          <ButtonLink href="/demo-request" variant="secondary" className="about-blue-cta-button">
             Book an Appointment <ArrowRight className="h-4 w-4" />
           </ButtonLink>
         </div>
