@@ -12,7 +12,7 @@ export function BrandLockup({ href = "/", variant = "default", compact = false, 
   const logoSrc = variant === "light" ? "/brand/bizovix-logo-footer.webp" : "/brand/bizovix-logo-nav.png";
 
   return (
-    <Link href={href} className={cn("brand-lockup", variant === "light" && "light", className)} aria-label="Bizovix home">
+    <Link href={href} className={cn("brand-lockup", variant === "light" && "light", compact && "compact", className)} aria-label="Bizovix home">
       <img
         src={logoSrc}
         alt="Bizovix"

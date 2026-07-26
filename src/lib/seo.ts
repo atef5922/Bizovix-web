@@ -16,6 +16,29 @@ export function pageMetadata({ title, description, path = "/" }: MetaInput): Met
   return {
     title: pageTitle,
     description,
+    keywords: [
+      "Bizovix",
+      "cloud ERP software",
+      "ERP software Bangladesh",
+      "business management software",
+      "accounting ERP",
+      "inventory management ERP",
+      "manufacturing ERP",
+      "POS software",
+      "HR payroll ERP",
+      pageTitle,
+    ],
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+        "max-video-preview": -1,
+      },
+    },
     alternates: { canonical: url },
     openGraph: {
       title: fullTitle,

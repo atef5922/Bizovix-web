@@ -145,27 +145,27 @@ export default function Home() {
     [
       "Certified ERP Process",
       "Secure implementation standards",
-      <ShieldCheck className="h-5 w-5" />,
+      <ShieldCheck key="certified-erp-process" className="h-5 w-5" />,
     ],
     [
       "Regional Support",
       "South Asia-ready rollout team",
-      <MapPin className="h-5 w-5" />,
+      <MapPin key="regional-support" className="h-5 w-5" />,
     ],
     [
       "Industry Fit",
       "Finance, stock, sales, production",
-      <Factory className="h-5 w-5" />,
+      <Factory key="industry-fit" className="h-5 w-5" />,
     ],
     [
       "Customization",
       "Workflows shaped around your team",
-      <Layers3 className="h-5 w-5" />,
+      <Layers3 key="customization" className="h-5 w-5" />,
     ],
     [
       "Growth Stories",
       "Dashboards leaders can trust",
-      <Building2 className="h-5 w-5" />,
+      <Building2 key="growth-stories" className="h-5 w-5" />,
     ],
   ];
 
@@ -195,12 +195,12 @@ export default function Home() {
   ];
 
   const erpModules = [
-    ["Finance", <BarChart3 className="h-4 w-4" />],
-    ["Inventory", <PackageCheck className="h-4 w-4" />],
-    ["Sales & POS", <Building2 className="h-4 w-4" />],
-    ["HR & Payroll", <UsersRound className="h-4 w-4" />],
-    ["Production", <Factory className="h-4 w-4" />],
-    ["Reports", <ClipboardCheck className="h-4 w-4" />],
+    ["Finance", <BarChart3 key="finance" className="h-4 w-4" />],
+    ["Inventory", <PackageCheck key="inventory" className="h-4 w-4" />],
+    ["Sales & POS", <Building2 key="sales-pos" className="h-4 w-4" />],
+    ["HR & Payroll", <UsersRound key="hr-payroll" className="h-4 w-4" />],
+    ["Production", <Factory key="production" className="h-4 w-4" />],
+    ["Reports", <ClipboardCheck key="reports" className="h-4 w-4" />],
   ];
 
   const processSteps = [

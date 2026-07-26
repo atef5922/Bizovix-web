@@ -19,11 +19,20 @@ export function PageHero({
 }) {
   return (
     <section className="page-hero">
-      <div className="container-shell">
-        {badge && <p className="eyebrow">{badge}</p>}
-        <h1>{title}</h1>
-        <p>{description}</p>
-        {children}
+      <div className="container-shell page-hero-shell">
+        <div className="page-hero-copy">
+          {badge && <p className="eyebrow">{badge}</p>}
+          <h1>{title}</h1>
+          <p>{description}</p>
+          {children}
+        </div>
+        <div className="page-hero-panel" aria-hidden="true">
+          <span>Cloud ERP</span>
+          <strong>Finance</strong>
+          <strong>Inventory</strong>
+          <strong>Production</strong>
+          <strong>Sales</strong>
+        </div>
       </div>
     </section>
   );
@@ -130,6 +139,11 @@ export function SolutionPageContent({ solution }: { solution: Solution }) {
         <div className="container-shell two-column">
           <div>
             <SectionHeading eyebrow="ERP module" title={solution.title} description={solution.hero} />
+            <div className="module-proof-row">
+              <span>Bangladesh-ready setup</span>
+              <span>Role-based workflow</span>
+              <span>Real-time reports</span>
+            </div>
             <div className="button-row">
               <ButtonLink href="/demo-request">Request Demo</ButtonLink>
               <ButtonLink href="/solutions" variant="secondary">View All Solutions</ButtonLink>
@@ -163,6 +177,11 @@ export function IndustryPageContent({ industry }: { industry: Industry }) {
         <div className="container-shell two-column">
           <div>
             <SectionHeading eyebrow="Industry ERP" title={`ERP for ${industry.title}`} description={industry.description} />
+            <div className="module-proof-row">
+              <span>Local implementation</span>
+              <span>Scalable modules</span>
+              <span>Management visibility</span>
+            </div>
             <div className="button-row">
               <ButtonLink href="/demo-request">Request Demo</ButtonLink>
               <ButtonLink href="/industries" variant="secondary">View All Industries</ButtonLink>
