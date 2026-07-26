@@ -6912,3 +6912,301 @@ main .pricing-price-row strong {
     padding-bottom: 34px;
   }
 }
+
+/* About page tablet and mobile responsive refinement */
+@media (max-width: 1024px) {
+  .about-page-hero {
+    min-height: 320px;
+    background-position: center;
+  }
+
+  .about-page-hero-inner {
+    width: min(100% - 36px, 760px);
+  }
+
+  .about-partner-grid {
+    gap: 28px;
+  }
+
+  .about-partner-image img {
+    min-height: 320px;
+  }
+
+  .about-contact-row span {
+    font-size: 12px;
+    padding: 8px 11px;
+  }
+
+  .ceo-message-card {
+    gap: 18px;
+  }
+
+  .ceo-profile-panel {
+    min-height: 0;
+  }
+
+  .ceo-portrait-wrap,
+  .ceo-portrait-wrap img {
+    min-height: 340px;
+  }
+
+  .ceo-message-copy {
+    padding: 26px;
+  }
+
+  .team-card {
+    flex-basis: 174px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-page-hero {
+    min-height: 270px;
+  }
+
+  .about-page-hero-inner {
+    padding-block: 28px;
+  }
+
+  .about-page-badge,
+  .about-section-pill {
+    padding: 7px 11px;
+  }
+
+  .about-partner-grid,
+  .about-mission-grid,
+  .ceo-message-card,
+  .about-proof-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .about-partner-image {
+    border-radius: 12px;
+  }
+
+  .about-partner-image img {
+    min-height: 240px;
+    max-height: 300px;
+  }
+
+  .about-partner-copy h3 {
+    margin-top: 12px;
+  }
+
+  .about-contact-row {
+    gap: 8px;
+    margin-top: 16px;
+  }
+
+  .about-contact-row span {
+    border-radius: 12px;
+    width: calc(50% - 4px);
+    justify-content: center;
+    white-space: nowrap;
+  }
+
+  .about-contact-row span:nth-child(3) {
+    width: 100%;
+  }
+
+  .about-mission-card {
+    min-height: 0;
+    padding: 20px;
+  }
+
+  .about-mission-card > span {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+  }
+
+  .about-mission-card h3 {
+    margin-top: 16px;
+  }
+
+  .about-circle-image {
+    width: min(260px, 68vw);
+    border-width: 7px;
+  }
+
+  .ceo-profile-panel {
+    padding: 16px;
+    gap: 14px;
+  }
+
+  .ceo-portrait-wrap,
+  .ceo-portrait-wrap img {
+    min-height: 300px;
+  }
+
+  .ceo-profile-meta {
+    padding: 14px;
+  }
+
+  .ceo-profile-meta h3 {
+    white-space: normal;
+  }
+
+  .ceo-message-copy {
+    padding: 22px;
+  }
+
+  .ceo-message-title-row {
+    gap: 11px;
+    margin-bottom: 14px;
+  }
+
+  .ceo-quote-icon {
+    width: 26px;
+    height: 26px;
+    border-radius: 11px;
+    padding: 7px;
+  }
+
+  .ceo-message-tags {
+    gap: 8px;
+  }
+
+  .ceo-message-tags span {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+
+  .team-slider {
+    margin-inline: -12px;
+    mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+  }
+
+  .team-track {
+    gap: 10px;
+    animation-duration: 28s;
+  }
+
+  .team-card {
+    flex-basis: 150px;
+    border-radius: 13px;
+  }
+
+  .team-photo {
+    margin: 9px 9px 0;
+    border-radius: 10px;
+  }
+
+  .team-card-body {
+    min-height: 76px;
+    padding: 10px 9px 12px;
+  }
+
+  .team-card-body h3 {
+    font-size: 0.8rem;
+  }
+
+  .team-card-body p {
+    font-size: 0.7rem;
+  }
+
+  .about-blue-cta-inner {
+    align-items: stretch;
+    gap: 18px;
+  }
+
+  .about-blue-cta-button {
+    width: min(100%, 320px);
+    min-width: 0;
+  }
+
+  .about-proof-grid article {
+    padding: 22px;
+  }
+}
+
+@media (max-width: 520px) {
+  .about-page-hero {
+    min-height: 238px;
+  }
+
+  .about-page-hero p:not(.about-page-badge) {
+    display: none;
+  }
+
+  .about-partner-section,
+  .about-who-section,
+  .ceo-message-section,
+  .team-section,
+  .about-proof-section {
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+
+  .about-centered-heading p:not(.about-section-pill),
+  .ceo-section-heading p:not(.about-section-pill),
+  .team-section-heading p:not(.about-section-pill) {
+    display: none;
+  }
+
+  .about-partner-copy p:not(.about-section-pill) {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+  }
+
+  .about-contact-row span {
+    width: 100%;
+  }
+
+  .about-contact-row span:nth-child(3) {
+    display: none;
+  }
+
+  .about-circle-image {
+    display: none;
+  }
+
+  .ceo-portrait-wrap,
+  .ceo-portrait-wrap img {
+    min-height: 250px;
+  }
+
+  .ceo-message-copy p:nth-of-type(3) {
+    display: none;
+  }
+
+  .ceo-message-copy p {
+    margin-bottom: 12px;
+  }
+
+  .team-card {
+    flex-basis: 136px;
+  }
+
+  .about-blue-cta {
+    text-align: left;
+  }
+
+  .about-blue-cta-button {
+    width: 100%;
+  }
+
+  .about-proof-points,
+  .about-client-list {
+    gap: 9px;
+    margin-top: 16px;
+  }
+}
+
+@media (max-width: 380px) {
+  .about-page-hero {
+    min-height: 220px;
+  }
+
+  .ceo-portrait-wrap,
+  .ceo-portrait-wrap img {
+    min-height: 220px;
+  }
+
+  .team-card {
+    flex-basis: 126px;
+  }
+}

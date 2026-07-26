@@ -42,7 +42,7 @@ const teamMembers = [
   {
     name: "Abdur Rahim",
     role: "Web Developer | SEO",
-    image: "/images/team/rahim.webp",
+    image: "",
   },
   {
     name: "Shishir Khondokar",
