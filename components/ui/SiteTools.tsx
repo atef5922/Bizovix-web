@@ -7,21 +7,16 @@ import { DemoRequestForm } from "@/components/forms/LeadForms";
 import { siteConfig } from "@/src/config/site";
 
 export function SiteTools() {
-  const [cookie, setCookie] = useState(false);
   const [visible, setVisible] = useState(false);
   const [contactMode, setContactMode] = useState<"messenger" | "whatsapp">("messenger");
 
   useEffect(() => {
-    const timer = window.setTimeout(() => {
-      setCookie(localStorage.getItem("bizovix-cookie-ok") !== "yes");
-    }, 0);
     const contactTimer = window.setInterval(() => {
       setContactMode((mode) => (mode === "messenger" ? "whatsapp" : "messenger"));
     }, 4200);
     const onScroll = () => setVisible(window.scrollY > 600);
     window.addEventListener("scroll", onScroll);
     return () => {
-      window.clearTimeout(timer);
       window.clearInterval(contactTimer);
       window.removeEventListener("scroll", onScroll);
     };
@@ -45,12 +40,6 @@ export function SiteTools() {
         <button className="back-top" type="button" aria-label="Back to top" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
           <ArrowUp className="h-5 w-5" />
         </button>
-      )}
-      {cookie && (
-        <div className="cookie-bar" role="region" aria-label="Cookie consent">
-          <p>Bizovix uses essential cookies for site preferences and form experience.</p>
-          <button type="button" onClick={() => { localStorage.setItem("bizovix-cookie-ok", "yes"); setCookie(false); }}>Accept</button>
-        </div>
       )}
     </>
   );

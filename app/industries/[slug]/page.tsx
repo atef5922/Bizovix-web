@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowRight, ClipboardCheck, Layers3, Workflow } from "lucide-react";
-import { DashboardShowcase } from "@/components/product/DashboardShowcase";
+import { ArrowLeft, ArrowRight, CheckCircle2, ClipboardCheck, Layers3, Route, ShieldCheck } from "lucide-react";
 import { CTASection } from "@/components/sections/MarketingSections";
 import { SEOJsonLd } from "@/components/seo/SEOJsonLd";
 import { AutoPlayVideo } from "@/components/ui/AutoPlayVideo";
@@ -33,11 +32,6 @@ const industryVideoMap: Record<string, { src: string; label: string; focus: stri
     label: "Batch and inventory preview",
     focus: "batch stock, approved purchases, warehouse control, and reporting",
   },
-  "food-beverage": {
-    src: "/videos/bizovix-inventory-batch-preview.mp4",
-    label: "Recipe and stock preview",
-    focus: "ingredients, recipes, stock movement, shelf-life awareness, and sales",
-  },
   "wholesale-distribution": {
     src: "/videos/bizovix-distribution-preview.mp4",
     label: "Distribution operations preview",
@@ -48,27 +42,94 @@ const industryVideoMap: Record<string, { src: string; label: string; focus: stri
     label: "Retail POS preview",
     focus: "counter sales, connected inventory, returns, discounts, and daily cash control",
   },
-  ecommerce: {
-    src: "/videos/bizovix-retail-pos-preview.mp4",
-    label: "Online order preview",
-    focus: "online orders, stock reservation, fulfillment, customer history, and reports",
-  },
-  "logistics-supply-chain": {
-    src: "/videos/bizovix-distribution-preview.mp4",
-    label: "Supply chain preview",
-    focus: "branch transfers, vendor activity, delivery readiness, and operational reporting",
-  },
   construction: {
     src: "/videos/bizovix-project-service-preview.mp4",
     label: "Project cost preview",
     focus: "site purchases, material control, vendor payments, approvals, and project cost visibility",
   },
-  "service-businesses": {
-    src: "/videos/bizovix-project-service-preview.mp4",
-    label: "Service operation preview",
-    focus: "client records, invoicing, expenses, payroll, approvals, and team visibility",
+};
+
+const industryDetailContent: Record<
+  string,
+  {
+    badge: string;
+    intro: string;
+    priorityTitle: string;
+    priorities: string[];
+    rolloutTitle: string;
+    rollout: string[];
+    outcomeTitle: string;
+    outcomes: string[];
+  }
+> = {
+  manufacturing: {
+    badge: "Factory workflow control",
+    intro:
+      "Manufacturing ERP should make the production cycle visible from material planning to finished goods. Bizovix connects production, stock, purchase, accounts, and reports so factory teams can reduce manual follow-up.",
+    priorityTitle: "Production gaps Bizovix helps control",
+    priorities: ["Material demand and raw stock planning", "Work order progress and production accountability", "Costing visibility between purchase, inventory, and output"],
+    rolloutTitle: "Recommended manufacturing rollout",
+    rollout: ["Map BOM and stock issue rules", "Configure work order stages", "Connect purchase and inventory records", "Review production and costing reports"],
+    outcomeTitle: "What management can review",
+    outcomes: ["Planned vs completed production", "Raw material usage", "Finished-goods movement", "Production cost context"],
+  },
+  "garments-textile": {
+    badge: "Garments order visibility",
+    intro:
+      "Garments and textile teams need order, material, line, payroll, and shipment context to stay connected. Bizovix helps reduce blind spots between merchandising, production, warehouse, and management teams.",
+    priorityTitle: "Garments operation gaps Bizovix helps control",
+    priorities: ["Fabric, trims, and warehouse movement", "Line-wise production updates and delivery readiness", "Order costing with payroll and stock context"],
+    rolloutTitle: "Recommended garments rollout",
+    rollout: ["Structure order and material records", "Configure production and line updates", "Connect sales, inventory, and payroll context", "Review shipment and costing visibility"],
+    outcomeTitle: "What management can review",
+    outcomes: ["Fabric utilization", "Line progress", "Order delivery status", "Cost and payroll context"],
+  },
+  pharmaceuticals: {
+    badge: "Batch-aware ERP control",
+    intro:
+      "Pharmaceutical operations require disciplined stock handling, batch visibility, approved purchasing, and warehouse reporting. Bizovix keeps batch, inventory, purchase, production, and finance records easier to verify.",
+    priorityTitle: "Pharma operation gaps Bizovix helps control",
+    priorities: ["Batch movement and stock discipline", "Approval-heavy purchase workflows", "Warehouse, production, and finance reporting alignment"],
+    rolloutTitle: "Recommended pharma rollout",
+    rollout: ["Define batch and warehouse rules", "Configure purchase approvals", "Connect production and stock movement", "Review operational reports"],
+    outcomeTitle: "What management can review",
+    outcomes: ["Batch stock status", "Approved purchases", "Warehouse movement", "Production and finance summaries"],
+  },
+  "wholesale-distribution": {
+    badge: "Distribution visibility",
+    intro:
+      "Distribution teams need branch stock, customer credit, purchase flow, sales order allocation, and delivery readiness in one place. Bizovix connects the distribution cycle from purchase to collection.",
+    priorityTitle: "Distribution gaps Bizovix helps control",
+    priorities: ["Multi-warehouse stock mismatch", "Customer credit and account statement visibility", "Order allocation, delivery readiness, and collection follow-up"],
+    rolloutTitle: "Recommended distribution rollout",
+    rollout: ["Map branches and warehouses", "Configure sales and purchase workflows", "Connect customer and vendor accounts", "Review stock, order, and collection reports"],
+    outcomeTitle: "What management can review",
+    outcomes: ["Branch stock status", "Open sales orders", "Customer credit", "Purchase and delivery movement"],
+  },
+  "retail-pos": {
+    badge: "Store and POS control",
+    intro:
+      "Retail teams need fast checkout while stock, cash, returns, discounts, and customer records stay connected. Bizovix POS supports store teams and gives owners better daily visibility.",
+    priorityTitle: "Retail operation gaps Bizovix helps control",
+    priorities: ["Counter sales and receipt speed", "Real-time stock updates after sales and returns", "Daily cash, payment method, and customer history visibility"],
+    rolloutTitle: "Recommended retail rollout",
+    rollout: ["Prepare product and price records", "Configure POS users and payment methods", "Connect inventory and accounting", "Review daily sales and stock reports"],
+    outcomeTitle: "What management can review",
+    outcomes: ["Daily sales", "Cash summaries", "Stock movement", "Customer purchase history"],
+  },
+  construction: {
+    badge: "Project and site control",
+    intro:
+      "Construction teams need site-wise material control, project purchase approval, vendor payments, and cost visibility. Bizovix helps connect site activity with purchase, inventory, accounting, and management reporting.",
+    priorityTitle: "Construction gaps Bizovix helps control",
+    priorities: ["Site material leakage and manual stock records", "Project purchase approvals and vendor payable tracking", "Project cost visibility across site, purchase, and accounting"],
+    rolloutTitle: "Recommended construction rollout",
+    rollout: ["Map projects, sites, and warehouses", "Configure purchase approval rules", "Connect inventory issue and vendor bills", "Review project cost and payable reports"],
+    outcomeTitle: "What management can review",
+    outcomes: ["Site stock balance", "Approved purchases", "Vendor payables", "Project cost movement"],
   },
 };
+
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
@@ -95,7 +156,8 @@ export default async function IndustryDetailPage({ params }: { params: Promise<{
   const connected = industry.connectedSolutions
     .map((title) => solutions.find((solution) => solution.shortTitle === title || solution.title.startsWith(title)))
     .filter(Boolean);
-  const video = industryVideoMap[industry.slug];
+  const video = industryVideoMap[industry.slug] ?? industryVideoMap.manufacturing;
+  const detail = industryDetailContent[industry.slug] ?? industryDetailContent.manufacturing;
 
   const serviceJsonLd = {
     "@context": "https://schema.org",
@@ -130,10 +192,7 @@ export default async function IndustryDetailPage({ params }: { params: Promise<{
               <Icon name={industry.icon} /> Industry ERP
             </span>
             <h1>{industry.title} ERP software for connected operations</h1>
-            <p>
-              {industry.description} Bizovix gives {industry.title.toLowerCase()} teams a practical way to connect data,
-              approvals, stock, finance, and management reporting without scattered files.
-            </p>
+            <p>{detail.intro}</p>
             <div className="erp-detail-hero-actions">
               <Link href="/demo-request" className="erp-primary-link">
                 Request demo <ArrowRight size={16} />
@@ -157,36 +216,55 @@ export default async function IndustryDetailPage({ params }: { params: Promise<{
       </section>
 
       <section className="erp-detail-section">
-        <div className="container-shell erp-detail-layout">
-          <article className="erp-detail-card erp-detail-card--wide">
+        <div className="container-shell industry-detail-workspace">
+          <div className="industry-detail-heading">
             <span className="biz-page-badge">
-              <ClipboardCheck size={14} /> Practical use cases
+              <ShieldCheck size={14} /> {detail.badge}
             </span>
-            <h2>What Bizovix improves for {industry.title.toLowerCase()} teams</h2>
+            <h2>{detail.priorityTitle}</h2>
             <p>
-              This ERP setup is designed to reduce manual coordination, improve department accountability, and give managers
-              a clearer view of the operating cycle from request to report.
+              Bizovix industry pages focus on operational decisions, not broad category pages. The goal is to show what
+              needs to be controlled first and which ERP modules should connect around that workflow.
             </p>
-            <div className="erp-proof-grid">
-              {industry.useCases.map((item, index) => (
-                <div className="erp-proof-card" key={item}>
-                  <span>{String(index + 1).padStart(2, "0")}</span>
-                  <h3>{item}</h3>
-                  <p>
-                    Keep this workflow connected with approvals, inventory, accounting, and reporting so daily decisions are
-                    easier to verify.
-                  </p>
-                </div>
-              ))}
-            </div>
-          </article>
+          </div>
 
-          <aside className="erp-detail-card">
-            <span className="biz-page-badge">
-              <Layers3 size={14} /> Connected modules
-            </span>
-            <h2>Recommended ERP stack</h2>
-            <div className="erp-module-list">
+          <div className="industry-detail-grid">
+            <article className="industry-detail-card industry-detail-card--priorities">
+              <span className="industry-detail-card-label">Operating priorities</span>
+              <div className="industry-detail-priority-list">
+                {detail.priorities.map((item, index) => (
+                  <div key={item}>
+                    <span>{String(index + 1).padStart(2, "0")}</span>
+                    <strong>{item}</strong>
+                  </div>
+                ))}
+              </div>
+            </article>
+
+            <article className="industry-detail-card">
+              <span className="industry-detail-card-label">Practical use cases</span>
+              <div className="industry-detail-usecase-list">
+                {industry.useCases.map((item) => (
+                  <span key={item}>
+                    <ClipboardCheck size={15} /> {item}
+                  </span>
+                ))}
+              </div>
+            </article>
+          </div>
+
+          <div className="industry-stack-card">
+            <div className="industry-stack-copy">
+              <span className="biz-page-badge">
+                <Layers3 size={14} /> Recommended ERP stack
+              </span>
+              <h2>Modules that make {industry.title.toLowerCase()} operations work together</h2>
+              <p>
+                These modules are selected because they support the daily records behind {industry.title.toLowerCase()}:
+                approvals, stock, costing, billing, customer or vendor accounts, and management reporting.
+              </p>
+            </div>
+            <div className="industry-stack-links">
               {connected.map((solution) =>
                 solution ? (
                   <Link href={`/solutions/${solution.slug}`} key={solution.slug}>
@@ -197,39 +275,37 @@ export default async function IndustryDetailPage({ params }: { params: Promise<{
                 ) : null,
               )}
             </div>
-          </aside>
-        </div>
-      </section>
-
-      <section className="erp-showcase-section">
-        <div className="container-shell erp-showcase-grid">
-          <div className="erp-showcase-copy">
-            <span className="biz-page-badge">
-              <Workflow size={14} /> Live visibility
-            </span>
-            <h2>Dashboards built for department heads and leadership teams</h2>
-            <p>
-              Track operating status, pending approvals, branch stock, sales performance, production movement, and financial
-              summaries from one connected Bizovix ERP workspace.
-            </p>
           </div>
-          <DashboardShowcase compact />
-        </div>
-      </section>
 
-      <section className="erp-roadmap-section">
-        <div className="container-shell erp-roadmap-card">
-          <div>
-            <span className="biz-page-badge">ERP rollout path</span>
-            <h2>From process mapping to confident adoption</h2>
+          <div className="industry-rollout-flow">
+            <div>
+              <span className="biz-page-badge">
+                <Route size={14} /> Rollout priorities
+              </span>
+              <h2>{detail.rolloutTitle}</h2>
+            </div>
+            <div className="industry-rollout-flow-list">
+              {detail.rollout.map((item, index) => (
+                <article key={item}>
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  <strong>{item}</strong>
+                </article>
+              ))}
+            </div>
           </div>
-          <div className="erp-roadmap-steps">
-            {["Map current workflow", "Configure modules", "Train users", "Review dashboards"].map((item, index) => (
-              <div key={item}>
-                <span>{String(index + 1).padStart(2, "0")}</span>
-                <strong>{item}</strong>
-              </div>
-            ))}
+
+          <div className="industry-outcome-card">
+            <div>
+              <span className="biz-page-badge">
+                <CheckCircle2 size={14} /> Management outcomes
+              </span>
+              <h2>{detail.outcomeTitle}</h2>
+            </div>
+            <div className="industry-outcome-list">
+              {detail.outcomes.map((item) => (
+                <span key={item}>{item}</span>
+              ))}
+            </div>
           </div>
         </div>
       </section>

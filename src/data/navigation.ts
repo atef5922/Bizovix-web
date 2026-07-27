@@ -4,8 +4,8 @@ import { solutions } from "./solutions";
 
 export const mainNavigation: NavItem[] = [
   { title: "Home", href: "/" },
-  { title: "Industries", href: "/industries" },
   { title: "Solutions", href: "/solutions" },
+  { title: "Industries", href: "/industries" },
   { title: "Pricing", href: "/pricing" },
   { title: "Resources", href: "/resources" },
 ];

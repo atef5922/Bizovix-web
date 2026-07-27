@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { ChevronDown, Mail, MapPin, Menu, Phone, Search, X } from "lucide-react";
 import { ButtonLink } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
@@ -20,19 +20,29 @@ export function Header() {
   const [drawer, setDrawer] = useState(false);
   const [search, setSearch] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const scrolledRef = useRef(false);
 
   useEffect(() => {
-    let ticking = false;
+    let animationFrame = 0;
+
     const updateScrolled = () => {
-      setScrolled(window.scrollY > 8);
-      ticking = false;
+      const scrollY = window.scrollY;
+      const nextScrolled = scrolledRef.current ? scrollY > 2 : scrollY > 56;
+
+      if (nextScrolled !== scrolledRef.current) {
+        scrolledRef.current = nextScrolled;
+        setScrolled(nextScrolled);
+      }
+
+      animationFrame = 0;
     };
+
     const onScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(updateScrolled);
-        ticking = true;
+      if (!animationFrame) {
+        animationFrame = window.requestAnimationFrame(updateScrolled);
       }
     };
+
     const onKey = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         setOpen(null);
@@ -44,6 +54,9 @@ export function Header() {
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("keydown", onKey);
     return () => {
+      if (animationFrame) {
+        window.cancelAnimationFrame(animationFrame);
+      }
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("keydown", onKey);
     };

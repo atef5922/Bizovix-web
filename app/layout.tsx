@@ -1,5 +1,4 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Noto_Sans_Bengali } from "next/font/google";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { SiteTools } from "@/components/ui/SiteTools";
@@ -7,19 +6,6 @@ import { SEOJsonLd } from "@/components/seo/SEOJsonLd";
 import { organizationJsonLd, softwareJsonLd } from "@/src/lib/seo";
 import { siteConfig } from "@/src/config/site";
 import "./globals.css";
-
-const inter = Inter({
-  variable: "--font-site-sans",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-  display: "swap",
-});
-
-const bengali = Noto_Sans_Bengali({
-  variable: "--font-bengali",
-  subsets: ["bengali"],
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -57,7 +43,7 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${bengali.variable} antialiased`}>
+      <body>
         <Header />
         <main id="main-content">{children}</main>
         <Footer />

@@ -50,7 +50,7 @@ export interface Industry {
   slug: string;
   title: string;
   icon: IconName;
-  group: "Production and Manufacturing" | "Commerce and Distribution" | "Project and Service";
+  group: "Production and Manufacturing" | "Commerce and Distribution" | "Project and Site Operations";
   description: string;
   painPoints: string[];
   useCases: string[];

@@ -77,7 +77,7 @@ export function DemoRequestForm({ compact = false }: { compact?: boolean }) {
       <Field label="Industry" error={state.errors.industry}>
         <select {...form.register("industry")} defaultValue="">
           <option value="" disabled>Select industry</option>
-          {["Manufacturing", "Garments and Textile", "Wholesale and Distribution", "Retail and POS", "Pharmaceuticals", "Food and Beverage", "Construction", "Logistics", "E-commerce", "Service"].map((item) => <option key={item}>{item}</option>)}
+          {["Manufacturing", "Garments and Textile", "Pharmaceuticals", "Wholesale and Distribution", "Retail and POS", "Construction"].map((item) => <option key={item}>{item}</option>)}
         </select>
       </Field>
       <Field label="Company size" error={state.errors.companySize}>
