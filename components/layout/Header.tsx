@@ -126,7 +126,7 @@ export function Header() {
 
 function MegaMenu({ type, pathname, onClose }: { type: Exclude<MenuKey, null>; pathname: string; onClose: () => void }) {
   const items = type === "Industries" ? industryNavigation : type === "Solutions" ? solutionNavigation : resourcesNavigation;
-  const grouped = groupItems(items);
+  const grouped = type === "Resources" ? groupResourceItems(resourcesNavigation) : groupItems(items);
 
   return (
     <div className="mega-wrap" onMouseLeave={onClose}>
@@ -230,6 +230,14 @@ function SearchDialog({ items, onClose }: { items: Array<{ title: string; href: 
 function groupItems<T extends { group?: string }>(items: T[]) {
   return items.reduce<Record<string, T[]>>((acc, item) => {
     const group = item.group || "Resources";
+    acc[group] = [...(acc[group] || []), item];
+    return acc;
+  }, {});
+}
+
+function groupResourceItems(items: typeof resourcesNavigation) {
+  return items.reduce<Record<string, typeof resourcesNavigation>>((acc, item) => {
+    const group = ["About Us", "Career", "Contact"].includes(item.title) ? "Company" : "Knowledge";
     acc[group] = [...(acc[group] || []), item];
     return acc;
   }, {});
