@@ -1,37 +1,103 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import { ArrowRight, Building2, Mail, MapPin, MessageCircle, Phone, Send, ShieldCheck } from "lucide-react";
 import { ContactForm } from "@/components/forms/LeadForms";
-import { PageHero, SectionHeading } from "@/components/sections/MarketingSections";
+import { SEOJsonLd } from "@/components/seo/SEOJsonLd";
 import { siteConfig } from "@/src/config/site";
-import { pageMetadata } from "@/src/lib/seo";
+import { organizationJsonLd, pageMetadata } from "@/src/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Contact",
-  description: "Contact Bizovix for cloud ERP software demos, implementation planning, sales support, partnerships, and business automation guidance in Bangladesh and South Asia.",
+  title: "Contact Bizovix",
+  description: "Contact Bizovix for ERP software demos, implementation planning, sales support, partnerships, and cloud ERP guidance in Bangladesh and South Asia.",
   path: "/contact",
 });
 
+const supportItems = [
+  "ERP demo and requirement review",
+  "Implementation planning and rollout guidance",
+  "Support, partnership, and product questions",
+];
+
 export default function ContactPage() {
+  const phoneHref = siteConfig.salesPhone.replace(/\s/g, "");
+
   return (
     <>
-      <PageHero badge="Contact" title="Talk with Bizovix" description="Reach the right team for sales, support, partnerships, implementation planning, or career questions." />
-      <section className="section">
-        <div className="container-shell two-column contact-layout">
-          <div>
-            <SectionHeading title="Sales and support" description={`${siteConfig.salesEmail} | ${siteConfig.salesPhone}. For support, use ${siteConfig.supportEmail}.`} />
-            <div className="contact-proof-grid">
-              {[
-                ["ERP demo", "Review modules, user roles, branches, workflows, and reporting goals."],
-                ["Implementation", "Discuss data migration, training, approvals, and rollout phases."],
-                ["Support route", "Send product, account, documentation, or workflow questions to the right team."],
-              ].map(([title, body]) => (
-                <article className="contact-proof-card" key={title}>
-                  <strong>{title}</strong>
-                  <span>{body}</span>
-                </article>
+      <SEOJsonLd data={organizationJsonLd()} />
+
+      <section className="contact-page-hero">
+        <div className="container-shell contact-page-hero-inner">
+          <p>Contact Us</p>
+          <h1>Let&apos;s talk about your ERP needs</h1>
+        </div>
+      </section>
+
+      <section className="contact-main-section">
+        <div className="container-shell contact-main-card">
+          <div className="contact-main-info">
+            <p className="contact-kicker">Bizovix ERP support</p>
+            <h2>Our team is ready to assist you with consultation, setup, and after-sales support.</h2>
+            <p>
+              Whether you are planning your first cloud ERP implementation or upgrading an existing
+              workflow, Bizovix helps you make informed decisions around finance, inventory, purchase,
+              manufacturing, sales, POS, HR payroll, approvals, dashboards, and reporting.
+            </p>
+
+            <div className="contact-detail-list">
+              <a href={`tel:${phoneHref}`}><Phone className="h-5 w-5" /><span>{siteConfig.salesPhone}</span></a>
+              <a href={`mailto:${siteConfig.salesEmail}`}><Mail className="h-5 w-5" /><span>{siteConfig.salesEmail}</span></a>
+              <span><MapPin className="h-5 w-5" />{siteConfig.address}</span>
+            </div>
+
+            <div className="contact-support-list">
+              {supportItems.map((item) => (
+                <span key={item}><ShieldCheck className="h-4 w-4" />{item}</span>
               ))}
             </div>
           </div>
-          <ContactForm />
+
+          <div className="contact-form-blue-card" id="contact-form">
+            <p className="contact-form-title">Get in touch with Bizovix to explore how connected ERP can transform your business operations.</p>
+            <ContactForm />
+          </div>
+        </div>
+      </section>
+
+      <section className="contact-map-section">
+        <div className="container-shell contact-map-heading">
+          <div>
+            <p className="contact-kicker">Find us</p>
+            <h2>Bizovix works with growing businesses across Bangladesh and South Asia</h2>
+          </div>
+          <Link href="/demo-request">
+            Request ERP consultation <ArrowRight className="h-4 w-4" />
+          </Link>
+        </div>
+        <div className="contact-map-frame">
+          <iframe
+            title="Bizovix office location in Dhaka, Bangladesh"
+            src="https://www.google.com/maps?q=Dhaka%2C%20Bangladesh&output=embed"
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          />
+          <div className="contact-map-card">
+            <Building2 className="h-5 w-5" />
+            <strong>Bangladesh</strong>
+            <span>ERP consultation, implementation planning, and product support</span>
+          </div>
+        </div>
+      </section>
+
+      <section className="contact-bottom-cta">
+        <div className="container-shell contact-bottom-inner">
+          <div>
+            <MessageCircle className="h-6 w-6" />
+            <h2>Need faster ERP guidance?</h2>
+            <p>Share your company size, industry, branch count, and required modules so our team can route your request correctly.</p>
+          </div>
+          <Link href="/demo-request">
+            Start with a demo request <Send className="h-4 w-4" />
+          </Link>
         </div>
       </section>
     </>
