@@ -42,6 +42,16 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     datePublished: post.updated,
     dateModified: post.updated,
     author: { "@type": "Organization", name: post.author },
+    editor: post.reviewer,
+    articleSection: post.category,
+    keywords: [
+      post.category,
+      "ERP software Bangladesh",
+      "Bizovix ERP",
+      "cloud ERP",
+      "business automation",
+    ],
+    wordCount: post.sections.reduce((total, section) => total + section.heading.split(/\s+/).length + section.body.split(/\s+/).length, 0),
     publisher: {
       "@type": "Organization",
       name: "Bizovix",
@@ -58,11 +68,13 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       <section className="blog-detail-hero">
         <div className="container-shell blog-detail-hero-grid">
           <div className="blog-detail-hero-copy">
-            <Link className="blog-back-link" href="/blog">
-              <ArrowLeft className="h-4 w-4" />
-              Back to Blog
-            </Link>
-            <p className="blog-hero-badge blog-detail-badge">{post.category}</p>
+            <div className="blog-detail-topline">
+              <Link className="blog-back-link" href="/blog">
+                <ArrowLeft className="h-4 w-4" />
+                Back to Blog
+              </Link>
+              <p className="blog-hero-badge blog-detail-badge">{post.category}</p>
+            </div>
             <h1>{post.title}</h1>
             <p>{post.excerpt}</p>
             <div className="blog-detail-meta">
@@ -97,8 +109,10 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             <p className="blog-lead">{post.excerpt}</p>
             {post.sections.map((section, index) => (
               <section className="blog-article-block" id={anchorId(section.heading)} key={section.heading}>
-                <span>{String(index + 1).padStart(2, "0")}</span>
-                <h2>{section.heading}</h2>
+                <div className="blog-article-heading-row">
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  <h2>{section.heading}</h2>
+                </div>
                 <p>{section.body}</p>
                 <div className="blog-insight-box">
                   <CheckCircle2 className="h-5 w-5" />
