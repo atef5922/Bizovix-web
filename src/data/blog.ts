@@ -9,7 +9,7 @@ export const blogPosts: BlogPost[] = [
     reviewer: "Implementation Advisor",
     updated: "2026-07-22",
     readingTime: "7 min read",
-    image: "/images/banner/banner1.webp",
+    image: "/images/blog/Manufacturing.webp",
     excerpt: "Understand how BOMs connect raw materials, production planning, costing, and finished goods.",
     sections: [
       { heading: "Why BOM Matters", body: "A bill of materials gives production teams a structured list of raw materials, quantities, and operating requirements for each finished product." },
@@ -24,7 +24,7 @@ export const blogPosts: BlogPost[] = [
     reviewer: "Finance Workflow Specialist",
     updated: "2026-07-22",
     readingTime: "6 min read",
-    image: "/images/banner/banner2.webp",
+    image: "/images/blog/purchase.webp",
     excerpt: "A clear approval path helps teams control spending without slowing urgent operations.",
     sections: [
       { heading: "The Approval Problem", body: "Purchase requests often move across messages, spreadsheets, and verbal approvals. That makes budget, supplier, and delivery visibility harder than it needs to be." },
@@ -39,7 +39,7 @@ export const blogPosts: BlogPost[] = [
     reviewer: "Finance Systems Reviewer",
     updated: "2026-07-22",
     readingTime: "8 min read",
-    image: "/images/banner/banner3.webp",
+    image: "/images/blog/account.webp",
     excerpt: "Disconnected inventory and accounting systems create slow reporting and unreliable margins.",
     sections: [
       { heading: "The Hidden Cost of Separation", body: "When stock movements and finance entries are updated separately, teams spend more time checking numbers than making decisions." },
@@ -54,7 +54,7 @@ export const blogPosts: BlogPost[] = [
     reviewer: "Digital Transformation Lead",
     updated: "2026-07-24",
     readingTime: "9 min read",
-    image: "/images/about/about1.webp",
+    image: "/images/blog/ERP%20Guide.webp",
     excerpt: "A practical guide to ERP selection, modules, rollout planning, and local business readiness.",
     sections: [
       { heading: "Start With Operations", body: "ERP planning should begin with finance, inventory, purchase, sales, production, HR, branches, and reporting workflows rather than only software screens." },
@@ -69,7 +69,7 @@ export const blogPosts: BlogPost[] = [
     reviewer: "Production Workflow Advisor",
     updated: "2026-07-24",
     readingTime: "6 min read",
-    image: "/images/about/about2.webp",
+    image: "/images/blog/Manufacturing.webp",
     excerpt: "Connect BOM, work orders, material issue, costing, and finished goods in one operating record.",
     sections: [
       { heading: "Production Needs Shared Data", body: "Manufacturing teams make better decisions when purchase, inventory, work orders, quality checks, and costing are connected." },
@@ -84,7 +84,7 @@ export const blogPosts: BlogPost[] = [
     reviewer: "Warehouse Operations Reviewer",
     updated: "2026-07-25",
     readingTime: "7 min read",
-    image: "/images/Home-circle.webp",
+    image: "/images/blog/Inventory.webp",
     excerpt: "Learn how growing companies can reduce stock mismatch, transfer delays, and branch-level reporting gaps.",
     sections: [
       { heading: "Branch Stock Must Stay Visible", body: "Inventory problems increase when branch transfers, warehouse movement, and sales orders are updated late or in separate spreadsheets." },
@@ -99,7 +99,7 @@ export const blogPosts: BlogPost[] = [
     reviewer: "Commerce Systems Specialist",
     updated: "2026-07-25",
     readingTime: "5 min read",
-    image: "/images/The-Real-Multi-Device-Experience.webp",
+    image: "/images/blog/Retail%20POS.webp",
     excerpt: "Retail teams need fast checkout while finance and stock records stay accurate in real time.",
     sections: [
       { heading: "POS Is More Than Billing", body: "A retail POS should update sales, stock, payments, returns, discounts, customers, and cash summaries without duplicate work." },
@@ -114,7 +114,7 @@ export const blogPosts: BlogPost[] = [
     reviewer: "Implementation Advisor",
     updated: "2026-07-25",
     readingTime: "8 min read",
-    image: "/images/banner/banner1.webp",
+    image: "/images/blog/Implementation.webp",
     excerpt: "Prepare users, workflows, approvals, branches, reports, and migration scope before going live.",
     sections: [
       { heading: "Define Scope Clearly", body: "Leadership should list required modules, departments, branches, users, approvals, reports, and integrations before implementation starts." },
@@ -129,7 +129,7 @@ export const blogPosts: BlogPost[] = [
     reviewer: "People Operations Reviewer",
     updated: "2026-07-26",
     readingTime: "6 min read",
-    image: "/images/banner/banner2.webp",
+    image: "/images/blog/HRPayroll.webp",
     excerpt: "Organize employee records, attendance, leave, salary structure, payroll readiness, and approvals.",
     sections: [
       { heading: "Payroll Needs Clean Inputs", body: "Attendance, leave, departments, allowances, deductions, and salary structure should be organized before payroll automation." },
@@ -144,7 +144,7 @@ export const blogPosts: BlogPost[] = [
     reviewer: "Finance Systems Reviewer",
     updated: "2026-07-26",
     readingTime: "5 min read",
-    image: "/images/banner/banner3.webp",
+    image: "/images/blog/Reporting.webp",
     excerpt: "Weekly ERP dashboards can reveal revenue, expenses, stock, approvals, collections, and production status.",
     sections: [
       { heading: "Focus on Operating Signals", body: "Useful dashboards show cash flow, receivables, payables, low stock, pending approvals, branch sales, and production progress." },
@@ -159,7 +159,7 @@ export const blogPosts: BlogPost[] = [
     reviewer: "Supply Chain Advisor",
     updated: "2026-07-26",
     readingTime: "7 min read",
-    image: "/images/about/about1.webp",
+    image: "/images/blog/Distribution.webp",
     excerpt: "Connect purchase, inventory, sales order allocation, customer credit, delivery planning, and reporting.",
     sections: [
       { heading: "Distribution Needs Speed", body: "Wholesale teams need fast visibility into customer orders, available stock, delivery readiness, supplier activity, and customer credit." },
@@ -174,11 +174,27 @@ export const blogPosts: BlogPost[] = [
     reviewer: "Product Security Reviewer",
     updated: "2026-07-26",
     readingTime: "6 min read",
-    image: "/images/about/about2.webp",
+    image: "/images/blog/Security.webp",
     excerpt: "Learn why user roles, permissions, approvals, and audit-friendly workflows matter in ERP adoption.",
     sections: [
       { heading: "Access Should Match Responsibility", body: "ERP users should only access the modules, reports, approvals, and records needed for their role." },
       { heading: "Control Builds Trust", body: "Role-based permissions, approval tracking, and structured records help companies protect business data while keeping teams productive." },
+    ],
+  },
+  {
+    slug: "erp-cost-planning-bangladesh",
+    title: "ERP Cost Planning in Bangladesh: What to Budget Before You Start",
+    category: "ERP Guide",
+    author: "Bizovix ERP Team",
+    reviewer: "ERP Planning Consultant",
+    updated: "2026-07-27",
+    readingTime: "7 min read",
+    image: "/images/blog/ERP%20Guide.webp",
+    excerpt: "Understand the practical cost factors behind users, branches, migration, implementation, training, support, and future ERP growth.",
+    sections: [
+      { heading: "What Shapes ERP Cost", body: "ERP cost depends on users, branches, warehouses, modules, approval rules, migration scope, reports, integrations, and how much implementation support your team needs." },
+      { heading: "Budget Beyond Subscription", body: "A realistic ERP budget should include process mapping, data preparation, training, go-live support, change management, and ongoing optimization after launch." },
+      { heading: "Plan for Scalable Value", body: "The best ERP investment is not only the lowest monthly price. It should reduce duplicate work, improve reporting speed, protect data quality, and support growth across departments." },
     ],
   },
 ];

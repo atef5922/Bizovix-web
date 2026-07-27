@@ -14,19 +14,14 @@ export const metadata: Metadata = pageMetadata({
 
 export default function BlogPage() {
   const [featuredPost, ...posts] = blogPosts;
-  const fallbackImage = "/images/banner/banner1.webp";
+  const fallbackImage = "/images/blog/ERP%20Guide.webp";
 
   return (
     <>
       <section className="blog-hero">
         <div className="container-shell blog-hero-inner">
           <p className="blog-hero-badge">Bizovix Blog</p>
-          <h1>ERP insights, implementation ideas, and business growth guides</h1>
-          <p>
-            Practical articles for business owners, finance teams, operations
-            leaders, manufacturers, distributors, retailers, and growing companies
-            evaluating cloud ERP in Bangladesh and South Asia.
-          </p>
+          <h1>ERP insights for growing businesses</h1>
         </div>
       </section>
 
