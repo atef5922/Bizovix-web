@@ -12,8 +12,8 @@
   </desc>
 
   <g
-    fill="#fff5f2"
-    stroke="#ff746b"
+    fill="#eef7ff"
+    stroke="#0a8ee8"
     stroke-width="1.75"
     stroke-linejoin="round"
     stroke-linecap="round">
@@ -21,8 +21,8 @@
   </g>
 
   <g
-    fill="#fff5f2"
-    stroke="#ff746b"
+    fill="#eef7ff"
+    stroke="#0a8ee8"
     stroke-width="1.5">
     <circle cx="394.85" cy="469.21" r="2.6" vector-effect="non-scaling-stroke" /><circle cx="397.37" cy="493.24" r="2.6" vector-effect="non-scaling-stroke" /><circle cx="399.26" cy="515.93" r="2.1" vector-effect="non-scaling-stroke" /><circle cx="396.11" cy="533.56" r="2.1" vector-effect="non-scaling-stroke" /><circle cx="392.34" cy="552.43" r="2.1" vector-effect="non-scaling-stroke" />
   </g>

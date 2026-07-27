@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, BookOpen, CheckCircle2, ClipboardCheck, FileText, Layers3, Newspaper, Rocket, SearchCheck } from "lucide-react";
+import { ArrowRight, BookOpen, CheckCircle2, ClipboardCheck, FileText, Layers3, Newspaper, SearchCheck } from "lucide-react";
 import { CTASection } from "@/components/sections/MarketingSections";
 import { resources } from "@/src/data/resources";
 import { pageMetadata } from "@/src/lib/seo";
@@ -27,74 +27,65 @@ const planningSteps = [
 
 export default function ResourcesPage() {
   const featured = resources[0];
-  const otherResources = resources.slice(1);
 
   return (
     <>
-      <section className="biz-page-hero resources-hero">
-        <div className="container-shell biz-page-hero-grid">
-          <div className="biz-page-hero-copy">
-            <p className="biz-page-badge"><BookOpen className="h-4 w-4" />Bizovix Resources</p>
-            <h1>ERP knowledge built for better business decisions</h1>
+      <section className="contact-page-hero resources-reference-hero">
+        <div className="container-shell contact-page-hero-inner">
+          <p>Resources</p>
+          <h1>ERP resources for smarter planning</h1>
+        </div>
+      </section>
+
+      <section className="reference-main-section" id="resource-library">
+        <div className="container-shell reference-main-card resources-reference-card">
+          <div className="reference-main-info">
+            <p className="contact-kicker">Bizovix knowledge hub</p>
+            <h2>Use practical ERP guides, checklists, and update notes to prepare better decisions.</h2>
             <p>
-              Use Bizovix ERP guides, readiness checklists, product notes, and planning resources
-              to prepare your team for a clearer cloud ERP evaluation and rollout.
+              These resources help business owners, finance teams, operations leaders, manufacturers,
+              distributors, retailers, and implementation teams understand ERP scope, data readiness,
+              approvals, reporting needs, and rollout planning.
             </p>
-            <div className="biz-hero-actions">
-              <a href="#resource-library">Explore resources <ArrowRight className="h-4 w-4" /></a>
-              <Link href="/blog">Read ERP blog</Link>
+            <div className="reference-featured-resource">
+              <span><BookOpen className="h-5 w-5" />Featured guide</span>
+              <h3>{featured.title}</h3>
+              <p>{featured.summary}</p>
+              <Link href={`/resources/${featured.slug}`}>
+                Open featured resource <ArrowRight className="h-4 w-4" />
+              </Link>
             </div>
           </div>
-          <div className="resources-hero-panel">
-            {planningSteps.map((item, index) => (
-              <span key={item}><strong>{String(index + 1).padStart(2, "0")}</strong>{item}</span>
-            ))}
+
+          <div className="reference-blue-panel resources-blue-panel">
+            <p className="reference-panel-title">Explore ERP planning content built around real business operations and implementation readiness.</p>
+            <div className="resources-reference-list">
+              {resources.map((resource) => {
+                const Icon = resourceIcons[resource.category];
+                return (
+                  <Link href={`/resources/${resource.slug}`} key={resource.slug}>
+                    <Icon className="h-5 w-5" />
+                    <span>
+                      <strong>{resource.title}</strong>
+                      <small>{resource.category} | {resource.readingTime}</small>
+                    </span>
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="biz-section compact" id="resource-library">
-        <div className="container-shell resources-layout">
-          <article className="resource-spotlight-card">
-            <p className="biz-page-badge"><Rocket className="h-4 w-4" />Featured Guide</p>
-            <h2>{featured.title}</h2>
-            <p>{featured.summary}</p>
-            <div className="resource-meta-row">
-              <span>{featured.category}</span>
-              <span>{featured.readingTime}</span>
-            </div>
-            <Link href={`/resources/${featured.slug}`}>
-              Open featured resource <ArrowRight className="h-4 w-4" />
-            </Link>
-          </article>
-
-          <div className="resources-card-column">
-            {otherResources.map((resource) => {
-              const Icon = resourceIcons[resource.category];
-              return (
-                <article className="resource-library-card" key={resource.slug}>
-                  <span><Icon className="h-5 w-5" /></span>
-                  <div>
-                    <p>{resource.category} | {resource.readingTime}</p>
-                    <h3><Link href={`/resources/${resource.slug}`}>{resource.title}</Link></h3>
-                    <small>{resource.summary}</small>
-                    <Link href={`/resources/${resource.slug}`}>Read resource <ArrowRight className="h-4 w-4" /></Link>
-                  </div>
-                </article>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      <section className="biz-section resource-process-section">
+      <section className="reference-support-section">
         <div className="container-shell resource-process-grid">
           <div>
             <p className="biz-page-badge"><SearchCheck className="h-4 w-4" />ERP Planning Path</p>
             <h2>Turn research into a practical implementation conversation</h2>
             <p>
-              The best ERP evaluation starts with real operating questions: which workflows need control,
-              what data must migrate, who approves what, and which reports leadership needs every week.
+              The best ERP evaluation starts with workflow clarity: what needs control,
+              what data must migrate, who approves what, and which reports leadership needs.
             </p>
           </div>
           <div className="resource-check-list">

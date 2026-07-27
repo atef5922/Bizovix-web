@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ArrowRight, BadgeCheck, BriefcaseBusiness, Code2, Headphones, Layers3, Rocket, UsersRound } from "lucide-react";
+import { BadgeCheck, BriefcaseBusiness, CheckCircle2, Code2, Headphones, Layers3, Send, UsersRound } from "lucide-react";
 import { CareerForm } from "@/components/forms/LeadForms";
 import { pageMetadata } from "@/src/lib/seo";
 
@@ -22,38 +22,50 @@ const values = [
   "Practical learning with real business context",
 ];
 
+const hiringSteps = [
+  ["01", "Profile Review", "We review your role interest, work samples, communication, and alignment with Bizovix product needs."],
+  ["02", "Focused Conversation", "A practical discussion around ERP workflows, problem solving, collaboration, and growth expectations."],
+  ["03", "Role Fit Plan", "If there is a fit, we align responsibilities, onboarding focus, and the first outcomes you can own."],
+];
+
 export default function CareerPage() {
   return (
     <>
-      <section className="biz-page-hero career-hero">
-        <div className="container-shell biz-page-hero-grid">
-          <div className="biz-page-hero-copy">
-            <p className="biz-page-badge"><Rocket className="h-4 w-4" />Careers at Bizovix</p>
-            <h1>Build the future of connected ERP for growing businesses</h1>
+      <section className="contact-page-hero career-reference-hero">
+        <div className="container-shell contact-page-hero-inner">
+          <p>Careers</p>
+          <h1>Build your career with Bizovix ERP</h1>
+        </div>
+      </section>
+
+      <section className="reference-main-section">
+        <div className="container-shell reference-main-card career-reference-card">
+          <div className="reference-main-info">
+            <p className="contact-kicker">Join the Bizovix team</p>
+            <h2>Work on cloud ERP products that help growing businesses run with connected clarity.</h2>
             <p>
-              Join a focused team working on cloud ERP software for finance, inventory, purchase,
-              manufacturing, POS, HR payroll, reporting, and implementation-ready business operations.
+              Bizovix is looking for people who care about product craft, customer understanding,
+              reliable execution, and practical business transformation across finance, inventory,
+              purchase, manufacturing, sales, POS, HR payroll, dashboards, and implementation support.
             </p>
-            <div className="biz-hero-actions">
-              <a href="#career-form">Share your profile <ArrowRight className="h-4 w-4" /></a>
-              <span>Product, implementation, support, sales, design, and growth roles</span>
+            <div className="contact-support-list">
+              {values.map((item) => (
+                <span key={item}><BadgeCheck className="h-4 w-4" />{item}</span>
+              ))}
             </div>
           </div>
-          <div className="career-hero-panel">
-            {["Product craft", "ERP domain learning", "Client impact", "Team ownership"].map((item, index) => (
-              <div key={item}>
-                <span>{String(index + 1).padStart(2, "0")}</span>
-                <strong>{item}</strong>
-              </div>
-            ))}
+
+          <div className="reference-blue-panel career-application-panel" id="career-form">
+            <p className="reference-panel-title">Share your profile with Bizovix. Tell us your role interest, experience, portfolio, and why ERP product work interests you.</p>
+            <CareerForm />
           </div>
         </div>
       </section>
 
-      <section className="biz-section compact">
+      <section className="reference-support-section">
         <div className="container-shell">
           <div className="biz-section-heading">
-            <p className="biz-page-badge">Open Work Areas</p>
+            <p className="biz-page-badge"><UsersRound className="h-4 w-4" />Open Work Areas</p>
             <h2>Choose the path where your skills can create real business value</h2>
           </div>
           <div className="biz-feature-grid three">
@@ -61,8 +73,10 @@ export default function CareerPage() {
               const Icon = track.icon;
               return (
                 <article className="biz-feature-card" key={track.title}>
-                  <span><Icon className="h-5 w-5" /></span>
-                  <h3>{track.title}</h3>
+                  <div className="biz-feature-card-head">
+                    <span><Icon className="h-5 w-5" /></span>
+                    <h3>{track.title}</h3>
+                  </div>
                   <p>{track.body}</p>
                 </article>
               );
@@ -71,42 +85,40 @@ export default function CareerPage() {
         </div>
       </section>
 
-      <section className="biz-section career-culture-section">
-        <div className="container-shell career-culture-grid">
-          <div>
-            <p className="biz-page-badge"><UsersRound className="h-4 w-4" />How we work</p>
-            <h2>Small team focus, professional standards, and practical ERP learning</h2>
+      <section className="career-process-section">
+        <div className="container-shell career-process-layout">
+          <div className="career-process-copy">
+            <p className="biz-page-badge"><CheckCircle2 className="h-4 w-4" />Hiring Process</p>
+            <h2>Clear, practical, and focused on real role fit</h2>
             <p>
-              Bizovix values people who can understand business workflows, communicate clearly,
-              improve steadily, and take ownership of useful product and customer outcomes.
+              We keep the career process structured and respectful. The goal is to understand how you think,
+              communicate, learn, and contribute to ERP product, implementation, support, or growth work.
             </p>
           </div>
-          <div className="career-value-list">
-            {values.map((item) => (
-              <span key={item}><BadgeCheck className="h-4 w-4" />{item}</span>
+          <div className="career-process-list">
+            {hiringSteps.map(([number, title, body]) => (
+              <article key={title}>
+                <span>{number}</span>
+                <div>
+                  <h3>{title}</h3>
+                  <p>{body}</p>
+                </div>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="biz-section compact" id="career-form">
-        <div className="container-shell biz-form-layout">
-          <div className="biz-form-copy">
-            <p className="biz-page-badge"><Layers3 className="h-4 w-4" />Career Interest</p>
-            <h2>Share your profile with the Bizovix team</h2>
-            <p>
-              Tell us about your role interest, portfolio, LinkedIn profile, and why you want to work
-              on ERP products for Bangladeshi and South Asian businesses.
-            </p>
-            <div className="biz-mini-steps">
-              {["Profile review", "Role alignment", "Conversation"].map((item, index) => (
-                <span key={item}><strong>{String(index + 1).padStart(2, "0")}</strong>{item}</span>
-              ))}
-            </div>
+      <section className="contact-bottom-cta">
+        <div className="container-shell contact-bottom-inner">
+          <div>
+            <Layers3 className="h-6 w-6" />
+            <h2>Want to grow with ERP product work?</h2>
+            <p>Send your profile and role interest. Our team will review alignment with product, engineering, implementation, growth, or support needs.</p>
           </div>
-          <div className="biz-form-card">
-            <CareerForm />
-          </div>
+          <a href="#career-form">
+            Submit career interest <Send className="h-4 w-4" />
+          </a>
         </div>
       </section>
     </>
