@@ -127,6 +127,18 @@ export function Header() {
 function MegaMenu({ type, pathname, onClose }: { type: Exclude<MenuKey, null>; pathname: string; onClose: () => void }) {
   const items = type === "Industries" ? industryNavigation : type === "Solutions" ? solutionNavigation : resourcesNavigation;
   const grouped = type === "Resources" ? groupResourceItems(resourcesNavigation) : groupItems(items);
+  const featureImage =
+    type === "Industries"
+      ? {
+          src: "/images/submenu/ERP%20for%20Manufacturing.webp",
+          alt: "Bizovix manufacturing ERP workflow preview",
+        }
+      : type === "Solutions"
+        ? {
+            src: "/images/submenu/Connected%20ERP%20Modules.webp",
+            alt: "Bizovix connected ERP modules preview",
+          }
+        : null;
 
   return (
     <div className="mega-wrap" onMouseLeave={onClose}>
@@ -148,6 +160,17 @@ function MegaMenu({ type, pathname, onClose }: { type: Exclude<MenuKey, null>; p
         </div>
         {type !== "Resources" && (
           <div className="mega-feature">
+            {featureImage && (
+              // Static public asset avoids Vinext image optimization runtime issues in the menu.
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={featureImage.src}
+                alt={featureImage.alt}
+                width="520"
+                height="300"
+                className="mega-feature-visual"
+              />
+            )}
             <p>{type === "Industries" ? "ERP for Manufacturing" : "Connected ERP Modules"}</p>
             <h2>{type === "Industries" ? "Plan production, materials, work orders, and costs." : "One platform for the full operating workflow."}</h2>
             <Link href={type === "Industries" ? "/industries/manufacturing" : "/solutions"} onClick={onClose}>
