@@ -6,7 +6,7 @@ import { BrandLockup } from "@/components/layout/BrandLockup";
 
 export function Footer() {
   const industries = industryNavigation.slice(0, 6);
-  const solutions = solutionNavigation.slice(0, 8);
+  const solutions = [{ title: "All Solutions", href: "/solutions" }, ...solutionNavigation.slice(0, 8)];
 
   return (
     <footer className="site-footer">

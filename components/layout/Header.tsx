@@ -14,6 +14,14 @@ import type { IconName } from "@/src/types/site";
 
 type MenuKey = "Industries" | "Solutions" | "Resources" | null;
 
+const allSolutionsNavItem: { title: string; href: string; description: string; icon: IconName; group: string } = {
+  title: "All Solutions",
+  href: "/solutions",
+  description: "Explore the full Bizovix cloud ERP module library.",
+  icon: "Boxes",
+  group: "Overview",
+};
+
 export function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState<MenuKey>(null);
@@ -145,7 +153,7 @@ export function Header() {
 }
 
 function MegaMenu({ type, pathname, onClose }: { type: Exclude<MenuKey, null>; pathname: string; onClose: () => void }) {
-  const items = type === "Industries" ? industryNavigation : type === "Solutions" ? solutionNavigation : resourcesNavigation;
+  const items = type === "Industries" ? industryNavigation : type === "Solutions" ? [allSolutionsNavItem, ...solutionNavigation] : resourcesNavigation;
   const grouped = type === "Resources" ? groupResourceItems(resourcesNavigation) : groupItems(items);
   const featureImage =
     type === "Industries"
@@ -227,7 +235,7 @@ function MobileDrawer({ pathname, onClose, onSearch }: { pathname: string; onClo
             <Link key={item.href} onClick={onClose} className={cn(isNavActive(pathname, item) && "active")} href={item.href}>{item.title}</Link>
           ))}
         </div>
-        <DrawerGroup title="Solutions" pathname={pathname} items={solutionNavigation} onClose={onClose} />
+        <DrawerGroup title="Solutions" pathname={pathname} items={[allSolutionsNavItem, ...solutionNavigation]} onClose={onClose} />
         <DrawerGroup title="Industries" pathname={pathname} items={industryNavigation} onClose={onClose} />
         <DrawerGroup title="Resources" pathname={pathname} items={resourcesNavigation} onClose={onClose} />
         <div className="drawer-actions">
