@@ -585,8 +585,8 @@ export default function Home() {
           </p>
 
           <h2>
-            Innovative ERP Solutions That Power{" "}
-            <span className="title-accent">Business Transformation</span>
+            Smart ERP services for{" "}
+            <span className="title-accent">connected business control</span>
           </h2>
 
           <span>
@@ -734,9 +734,8 @@ export default function Home() {
             </p>
 
             <h2>
-              From complexity to <span>clarity.</span>
-              <br />
-              One ERP platform for <span>every team.</span>
+              Run every department from one{" "}
+              <span>connected ERP workspace.</span>
             </h2>
           </div>
 
