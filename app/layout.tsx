@@ -20,13 +20,13 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     url: siteConfig.url,
     siteName: "Bizovix",
-    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Bizovix ERP dashboard and connected workflow preview" }],
+    images: [{ url: siteConfig.ogImage, width: 1200, height: 630, alt: "Bizovix ERP dashboard and connected workflow preview" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Bizovix Cloud ERP Software",
     description: siteConfig.description,
-    images: ["/opengraph-image"],
+    images: [siteConfig.ogImage],
   },
 };
 
