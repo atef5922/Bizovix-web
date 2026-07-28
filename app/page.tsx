@@ -106,10 +106,10 @@ export default function Home() {
   ];
 
   const coverageStats = [
-    ["8 Countries", "Regional ERP coverage"],
-    ["Multi-Currency", "Local and global transactions"],
-    ["12+ Modules", "Complete business management"],
-    ["Region-Ready", "Tax, payroll and reporting"],
+    ["8 Countries", "Regional ERP coverage", <MapPin key="regional-coverage" className="h-5 w-5" />],
+    ["Multi-Currency", "Local and global transactions", <BarChart3 key="multi-currency" className="h-5 w-5" />],
+    ["12+ Modules", "Complete business management", <Layers3 key="complete-modules" className="h-5 w-5" />],
+    ["Region-Ready", "Tax, payroll and reporting", <ShieldCheck key="region-ready" className="h-5 w-5" />],
   ];
 
   const coveragePoints = [
@@ -213,9 +213,9 @@ export default function Home() {
   ];
 
   const productMetrics = [
-    ["01", "Core ERP suite"],
-    ["6+", "Connected modules"],
-    ["360", "Operational view"],
+    ["01", "Core ERP suite", <PackageCheck key="core-suite" className="h-5 w-5" />],
+    ["6+", "Connected modules", <Layers3 key="connected-modules" className="h-5 w-5" />],
+    ["360", "Operational view", <BarChart3 key="operational-view" className="h-5 w-5" />],
   ];
 
   const productPillars = [
@@ -483,10 +483,13 @@ export default function Home() {
             </p>
 
             <div className="bd-coverage-stats">
-              {coverageStats.map(([value, label]) => (
-                <article key={value}>
-                  <strong>{value}</strong>
-                  <span>{label}</span>
+              {coverageStats.map(([value, label, icon]) => (
+                <article className="home-premium-stat" key={value as string}>
+                  <span className="home-stat-icon">{icon}</span>
+                  <div>
+                    <strong>{value}</strong>
+                    <span>{label}</span>
+                  </div>
                 </article>
               ))}
             </div>
@@ -556,14 +559,20 @@ export default function Home() {
             </p>
 
             <div className="multi-device-stats">
-              <article>
-                <strong>99.9%</strong>
-                <span>Reliable cloud access</span>
+              <article className="home-premium-stat">
+                <span className="home-stat-icon"><ShieldCheck className="h-5 w-5" /></span>
+                <div>
+                  <strong>99.9%</strong>
+                  <span>Reliable cloud access</span>
+                </div>
               </article>
 
-              <article>
-                <strong>Instant</strong>
-                <span>Cross-device sync</span>
+              <article className="home-premium-stat">
+                <span className="home-stat-icon"><Settings2 className="h-5 w-5" /></span>
+                <div>
+                  <strong>Instant</strong>
+                  <span>Cross-device sync</span>
+                </div>
               </article>
             </div>
           </div>
@@ -754,10 +763,13 @@ export default function Home() {
               </p>
 
               <div className="erp-product-metrics" aria-label="Bizovix ERP product highlights">
-                {productMetrics.map(([value, label]) => (
-                  <article key={value}>
-                    <strong>{value}</strong>
-                    <span>{label}</span>
+                {productMetrics.map(([value, label, icon]) => (
+                  <article className="home-premium-stat" key={value as string}>
+                    <span className="home-stat-icon">{icon}</span>
+                    <div>
+                      <strong>{value}</strong>
+                      <span>{label}</span>
+                    </div>
                   </article>
                 ))}
               </div>
