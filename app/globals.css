@@ -325,6 +325,9 @@ img {
 }
 
 .nav-cta {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   min-height: 44px;
   min-width: 158px;
   border-radius: 12px;
@@ -334,9 +337,63 @@ img {
   text-transform: uppercase;
 }
 
+.nav-cta::before {
+  position: absolute;
+  inset: -40% auto -40% -70%;
+  z-index: 0;
+  width: 62%;
+  background: linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, 0.18) 42%, rgba(255, 255, 255, 0.58) 50%, rgba(255, 255, 255, 0.18) 58%, transparent 100%);
+  content: "";
+  transform: skewX(-18deg);
+  animation: nav-download-shine 3.8s ease-in-out infinite;
+}
+
+.nav-cta > * {
+  position: relative;
+  z-index: 1;
+}
+
+.nav-download {
+  gap: 9px;
+}
+
+.nav-download-icon {
+  flex: 0 0 auto;
+  animation: nav-download-bounce 1.9s ease-in-out infinite;
+}
+
 .nav-cta:hover {
   background: #0758d4;
   color: #ffffff;
+  box-shadow: 0 16px 32px rgba(7, 88, 212, 0.3);
+  transform: translateY(-1px);
+}
+
+.nav-cta:hover .nav-download-icon {
+  animation-duration: 1.15s;
+}
+
+@keyframes nav-download-shine {
+  0%,
+  42% {
+    left: -72%;
+  }
+
+  64%,
+  100% {
+    left: 118%;
+  }
+}
+
+@keyframes nav-download-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  48% {
+    transform: translateY(2px);
+  }
 }
 
 .mega-wrap {

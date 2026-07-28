@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { ChevronDown, Mail, MapPin, Menu, Phone, Search, X } from "lucide-react";
+import { ChevronDown, Download, Mail, MapPin, Menu, Phone, Search, X } from "lucide-react";
 import { ButtonLink } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
 import { BrandLockup } from "@/components/layout/BrandLockup";
@@ -124,11 +124,12 @@ export function Header() {
             </button>
             <Link className="signin-link" href="/sign-in">Sign In</Link>
             <ButtonLink
-              className="nav-cta hidden sm:inline-flex"
+              className="nav-cta nav-download hidden sm:inline-flex"
               href={siteConfig.erpDownloadPath}
               download={siteConfig.erpDownloadFileName}
             >
-              Download ERP
+              <Download className="nav-download-icon h-4 w-4" />
+              <span>Download ERP</span>
             </ButtonLink>
             <button className="icon-button mobile-menu-trigger" type="button" onClick={() => setDrawer(true)} aria-label="Open navigation">
               <Menu className="h-5 w-5" />
@@ -231,10 +232,12 @@ function MobileDrawer({ pathname, onClose, onSearch }: { pathname: string; onClo
         <DrawerGroup title="Resources" pathname={pathname} items={resourcesNavigation} onClose={onClose} />
         <div className="drawer-actions">
           <ButtonLink
+            className="nav-download"
             href={siteConfig.erpDownloadPath}
             download={siteConfig.erpDownloadFileName}
           >
-            Download ERP
+            <Download className="nav-download-icon h-4 w-4" />
+            <span>Download ERP</span>
           </ButtonLink>
           <ButtonLink href="/sign-in" variant="secondary">Sign In</ButtonLink>
         </div>
