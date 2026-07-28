@@ -169,54 +169,6 @@ export default function Home() {
     ],
   ];
 
-  const aboutMetrics = [
-    ["12+", "ERP modules"],
-    ["Real-time", "Operational visibility"],
-    ["Role-based", "Secure approvals"],
-  ];
-
-  const aboutGalleryImages = [
-    {
-      className: "about-photo-main",
-      src: "/images/about/about1.webp",
-      alt: "Bizovix ERP consultants reviewing business analytics",
-    },
-    {
-      className: "about-photo-small",
-      src: "/images/about/about2.webp",
-      alt: "Bizovix team planning cloud ERP implementation",
-    },
-    {
-      className: "about-photo-small",
-      src: "/images/submenu/Connected ERP Modules.webp",
-      alt: "Bizovix connected ERP modules preview",
-    },
-  ];
-
-  const aboutSolutionCards = [
-    {
-      title: "Finance & inventory control",
-      body: "Accounting, purchase, vendor bills, stock movement, warehouse records, and approval chains stay connected from entry to report.",
-      icon: <BarChart3 className="h-5 w-5" />,
-    },
-    {
-      title: "Sales, POS & customer flow",
-      body: "Quotations, orders, counter sales, returns, collections, and customer history move through one reliable revenue workflow.",
-      icon: <PackageCheck className="h-5 w-5" />,
-    },
-    {
-      title: "Production & team operations",
-      body: "BOM, work orders, HR, payroll, attendance, dashboards, and management reports align around your actual operating model.",
-      icon: <Factory className="h-5 w-5" />,
-    },
-  ];
-
-  const aboutWorkflow = [
-    ["01", "Map", "Teams, branches and approval paths"],
-    ["02", "Configure", "Modules, roles and reporting logic"],
-    ["03", "Optimize", "Training, adoption and improvements"],
-  ];
-
   const trustReasons = [
     [
       "Business-first ERP implementation",
@@ -347,136 +299,69 @@ export default function Home() {
         aria-label="About Bizovix ERP solutions"
       >
         <div className="container-shell about-preview-grid">
+          <div className="about-preview-media">
+            <img
+              className="about-image-main"
+              src="/images/about/about1.webp"
+              alt="Bizovix ERP consultants reviewing business analytics"
+            />
+
+            <div className="about-experience-badge">
+              <strong>10+</strong>
+              <span>Years ERP Experience</span>
+            </div>
+
+            <img
+              className="about-image-secondary"
+              src="/images/about/about2.webp"
+              alt="Bizovix team planning cloud ERP implementation"
+            />
+          </div>
+
           <div className="about-preview-copy">
-            <p className="about-pill">
-              <span />
-              About Bizovix
-            </p>
+            <p className="about-pill">About Bizovix</p>
 
             <h2>
-              Premium Cloud ERP for Finance, Inventory, Production, and Growth
+              We build cloud ERP solutions for smarter business operations
             </h2>
 
             <p>
               Bizovix helps growing companies in Bangladesh, South Asia,
-              and beyond connect finance, purchase, inventory, sales,
-              POS, manufacturing, HR, payroll, approvals, and reporting
-              in one secure cloud ERP platform. The focus is practical:
-              cleaner workflows, reliable data, and real-time visibility
-              leaders can trust before the next decision.
+              and beyond connect finance, inventory, sales, purchase,
+              production, HR, payroll, approvals, and reporting in one
+              secure cloud ERP platform. Our team focuses on practical
+              implementation, clean workflows, and real-time business
+              visibility that leaders can trust.
             </p>
 
-            <div className="about-metric-row">
-              {aboutMetrics.map(([value, label]) => (
-                <article key={value}>
-                  <strong>{value}</strong>
-                  <span>{label}</span>
-                </article>
+            <div className="about-solution-title">
+              Our Core ERP Solutions
+            </div>
+
+            <div className="about-solution-grid">
+              {[
+                "Accounting & Finance ERP",
+                "Inventory & Warehouse Control",
+                "Sales, POS & CRM Automation",
+                "Manufacturing & Production Planning",
+                "HR, Payroll & Attendance",
+                "Approvals, Dashboards & Reports",
+              ].map((item) => (
+                <span key={item}>
+                  <CheckCircle2 className="h-4 w-4" />
+                  {item}
+                </span>
               ))}
             </div>
 
-            <div className="about-action-row">
-              <ButtonLink
-                href="/demo-request"
-                className="about-demo-cta"
-              >
-                Request a Free Demo
-                <ArrowRight className="h-4 w-4" />
-              </ButtonLink>
-
-              <ButtonLink
-                href="/about-us"
-                variant="secondary"
-                className="about-preview-cta"
-              >
-                Discover More
-              </ButtonLink>
-            </div>
-
-            <div className="about-assurance-row">
-              <span>
-                <ShieldCheck className="h-4 w-4" />
-                Secure implementation
-              </span>
-
-              <span>
-                <CheckCircle2 className="h-4 w-4" />
-                Practical regional workflows
-              </span>
-            </div>
-          </div>
-
-          <div
-            className="about-preview-media"
-            aria-label="Bizovix ERP implementation and analytics preview"
-          >
-            <div className="about-photo-frame">
-              <div className="about-photo-frame-head">
-                <span>Bizovix operating platform</span>
-                <strong>Implementation view</strong>
-              </div>
-
-              <div className="about-photo-grid">
-                {aboutGalleryImages.map((image) => (
-                  <img
-                    className={image.className}
-                    src={image.src}
-                    alt={image.alt}
-                    key={image.src}
-                  />
-                ))}
-              </div>
-
-              <div className="about-photo-footer">
-                <div className="about-experience-badge">
-                  <strong>10+</strong>
-                  <span>Years ERP Experience</span>
-                </div>
-
-                <p>
-                  Finance, stock, sales, production, HR, and approvals are
-                  organized into one implementation plan before go-live.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="container-shell about-solution-panel">
-          <div className="about-solution-title">
-            <span>Our Core ERP Solutions</span>
-            <strong>Connected modules for the full operating cycle</strong>
-          </div>
-
-          <div className="about-solution-grid">
-            {aboutSolutionCards.map((item) => (
-              <article
-                className="about-solution-card"
-                key={item.title}
-              >
-                <div>
-                  <span>{item.icon}</span>
-                  <strong>{item.title}</strong>
-                </div>
-
-                <p>{item.body}</p>
-              </article>
-            ))}
-          </div>
-
-          <div
-            className="about-workflow-strip"
-            aria-label="Bizovix ERP implementation flow"
-          >
-            {aboutWorkflow.map(([step, title, body]) => (
-              <article key={step}>
-                <span>{step}</span>
-                <div>
-                  <strong>{title}</strong>
-                  <p>{body}</p>
-                </div>
-              </article>
-            ))}
+            <ButtonLink
+              href="/about-us"
+              variant="secondary"
+              className="about-preview-cta"
+            >
+              Discover More
+              <ArrowRight className="h-4 w-4" />
+            </ButtonLink>
           </div>
         </div>
       </section>
