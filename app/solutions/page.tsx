@@ -30,7 +30,10 @@ export default function SolutionsPage() {
             <span className="biz-page-badge">
               <Layers3 size={14} /> Connected ERP solutions
             </span>
-            <h1>Cloud ERP modules that connect every operating team</h1>
+            <h1>
+              Cloud ERP modules that connect{" "}
+              <span className="title-accent">every operating team</span>
+            </h1>
             <p>
               Start with the workflows your company needs today and expand Bizovix into a complete ERP platform for finance,
               purchase, inventory, manufacturing, sales, POS, HR, payroll, and reporting.
@@ -67,7 +70,9 @@ export default function SolutionsPage() {
             <span className="biz-page-badge">
               <Workflow size={14} /> ERP module library
             </span>
-            <h2>Explore the workflows Bizovix connects</h2>
+            <h2>
+              Explore the <span className="title-accent">workflows</span> Bizovix connects
+            </h2>
             <p>
               Every solution page explains expected outcomes, daily workflows, and management metrics so teams can plan the
               right ERP scope before implementation starts.

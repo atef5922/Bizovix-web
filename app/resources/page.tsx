@@ -41,7 +41,10 @@ export default function ResourcesPage() {
         <div className="container-shell reference-main-card resources-reference-card">
           <div className="reference-main-info">
             <p className="contact-kicker">Bizovix knowledge hub</p>
-            <h2>Use practical ERP guides, checklists, and update notes to prepare better decisions.</h2>
+            <h2>
+              Use practical ERP guides, checklists, and update notes to prepare{" "}
+              <span className="title-accent">better decisions</span>.
+            </h2>
             <p>
               These resources help business owners, finance teams, operations leaders, manufacturers,
               distributors, retailers, and implementation teams understand ERP scope, data readiness,
@@ -82,7 +85,10 @@ export default function ResourcesPage() {
         <div className="container-shell resource-process-grid">
           <div>
             <p className="biz-page-badge"><SearchCheck className="h-4 w-4" />ERP Planning Path</p>
-            <h2>Turn research into a practical implementation conversation</h2>
+            <h2>
+              Turn research into a practical{" "}
+              <span className="title-accent">implementation conversation</span>
+            </h2>
             <p>
               The best ERP evaluation starts with workflow clarity: what needs control,
               what data must migrate, who approves what, and which reports leadership needs.
@@ -100,7 +106,10 @@ export default function ResourcesPage() {
         <div className="container-shell">
           <div className="biz-section-heading">
             <p className="biz-page-badge"><Layers3 className="h-4 w-4" />Resource Topics</p>
-            <h2>Explore ERP topics by business priority</h2>
+            <h2>
+              Explore ERP topics by{" "}
+              <span className="title-accent">business priority</span>
+            </h2>
           </div>
           <div className="resource-topic-grid">
             {["Accounting", "Inventory", "Manufacturing", "Purchase", "Sales and POS", "HR Payroll", "Approvals", "Dashboards"].map((topic) => (

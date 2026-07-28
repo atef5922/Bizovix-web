@@ -41,7 +41,9 @@ export default function IndustriesPage() {
             <span className="biz-page-badge">
               <MapPin size={14} /> Industry ERP for Bangladesh
             </span>
-            <h1>Focused ERP playbooks for the industries that need Bizovix most</h1>
+            <h1>
+              Focused <span className="title-accent">ERP playbooks</span> for the industries that need Bizovix most
+            </h1>
             <p>
               Bizovix is organized around practical business models: factories, garments operations, pharma warehouses,
               distribution networks, retail stores, and project sites. Each path connects the ERP modules that matter most.
@@ -84,7 +86,9 @@ export default function IndustriesPage() {
             <span className="biz-page-badge">
               <Workflow size={14} /> Focused coverage
             </span>
-            <h2>Choose the closest operating model</h2>
+            <h2>
+              Choose the closest <span className="title-accent">operating model</span>
+            </h2>
             <p>
               The industry menu now focuses on the most relevant ERP use cases for Bizovix customers. Each page explains the
               operational gaps, connected modules, and rollout priorities for that business model.
@@ -123,7 +127,10 @@ export default function IndustriesPage() {
             <span className="biz-page-badge">
               <Layers3 size={14} /> Implementation logic
             </span>
-            <h2>Industry pages are built around adoption, not generic category lists</h2>
+            <h2>
+              Industry pages are built around{" "}
+              <span className="title-accent">adoption</span>, not generic category lists
+            </h2>
             <p>
               Bizovix helps teams identify the operating workflows that should go live first, then connects surrounding ERP
               modules as users, branches, and reporting needs mature.

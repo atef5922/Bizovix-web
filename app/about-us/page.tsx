@@ -98,7 +98,10 @@ export default function AboutPage() {
           </div>
           <div className="about-partner-copy">
             <p className="about-section-pill">Trusted ERP partner</p>
-            <h2>Your cloud ERP solution partner for Bangladesh and beyond</h2>
+            <h2>
+              Your cloud ERP solution partner for{" "}
+              <span className="title-accent">Bangladesh and beyond</span>
+            </h2>
             <h3>Smarter business management through connected ERP implementation</h3>
             <p>
               Bizovix simplifies enterprise management through next-generation
@@ -120,7 +123,10 @@ export default function AboutPage() {
         <div className="container-shell">
           <div className="about-centered-heading">
             <p className="about-section-pill">Who we are</p>
-            <h2>Built to modernize everyday business operations</h2>
+            <h2>
+              Built to modernize{" "}
+              everyday <span className="title-accent">business operations</span>
+            </h2>
             <p>
               Bizovix is designed for companies that need practical ERP adoption,
               local business understanding, and a scalable platform for long-term
@@ -158,7 +164,9 @@ export default function AboutPage() {
         <div className="container-shell">
           <div className="ceo-section-heading">
             <p className="about-section-pill">CEO Message</p>
-            <h2>A message from our founder</h2>
+            <h2>
+              A message from our <span className="title-accent">founder</span>
+            </h2>
             <p>
               Leadership focused on practical ERP adoption, reliable technology,
               and long-term digital growth for Bangladeshi businesses.
@@ -215,7 +223,9 @@ export default function AboutPage() {
         <div className="container-shell">
           <div className="team-section-heading">
             <p className="about-section-pill">Our Team</p>
-            <h2>The people behind Bizovix ERP</h2>
+            <h2>
+              The people behind <span className="title-accent">Bizovix ERP</span>
+            </h2>
             <p>
               A focused group of technology, product, design, marketing, and
               client success professionals working together to make ERP adoption
@@ -266,7 +276,10 @@ export default function AboutPage() {
         <div className="container-shell about-proof-grid">
           <article>
             <p className="about-section-pill">ERP partnership</p>
-            <h2>Implementation support that fits your business reality</h2>
+            <h2>
+              Implementation support that fits{" "}
+              <span className="title-accent">your business reality</span>
+            </h2>
             <p>
               Bizovix helps teams plan ERP adoption with a clear understanding of
               departments, branches, warehouses, user roles, approvals, reporting
@@ -286,7 +299,10 @@ export default function AboutPage() {
           </article>
           <article>
             <p className="about-section-pill">Who Bizovix serves</p>
-            <h2>Relevant for growing companies across key industries</h2>
+            <h2>
+              Relevant for growing companies across{" "}
+              <span className="title-accent">key industries</span>
+            </h2>
             <div className="about-client-list">
               {clients.map((client) => (
                 <span key={client}><CheckCircle2 className="h-4 w-4" />{client}</span>

@@ -34,7 +34,9 @@ export default function CareerPage() {
       <section className="contact-page-hero career-reference-hero">
         <div className="container-shell contact-page-hero-inner">
           <p>Careers</p>
-          <h1>Build your career with Bizovix ERP</h1>
+          <h1>
+            Build your career with <span className="title-accent">Bizovix ERP</span>
+          </h1>
         </div>
       </section>
 
@@ -42,7 +44,9 @@ export default function CareerPage() {
         <div className="container-shell reference-main-card career-reference-card">
           <div className="reference-main-info">
             <p className="contact-kicker">Join the Bizovix team</p>
-            <h2>Work on cloud ERP products that help growing businesses run with connected clarity.</h2>
+            <h2>
+              Work on <span className="title-accent">cloud ERP products</span> that help growing businesses run with connected clarity.
+            </h2>
             <p>
               Bizovix is looking for people who care about product craft, customer understanding,
               reliable execution, and practical business transformation across finance, inventory,
@@ -66,7 +70,10 @@ export default function CareerPage() {
         <div className="container-shell">
           <div className="biz-section-heading">
             <p className="biz-page-badge"><UsersRound className="h-4 w-4" />Open Work Areas</p>
-            <h2>Choose the path where your skills can create real business value</h2>
+            <h2>
+              Choose the path where your skills can create{" "}
+              <span className="title-accent">real business value</span>
+            </h2>
           </div>
           <div className="biz-feature-grid three">
             {careerTracks.map((track) => {
@@ -89,7 +96,10 @@ export default function CareerPage() {
         <div className="container-shell career-process-layout">
           <div className="career-process-copy">
             <p className="biz-page-badge"><CheckCircle2 className="h-4 w-4" />Hiring Process</p>
-            <h2>Clear, practical, and focused on real role fit</h2>
+            <h2>
+              Clear, practical, and focused on{" "}
+              <span className="title-accent">real role fit</span>
+            </h2>
             <p>
               We keep the career process structured and respectful. The goal is to understand how you think,
               communicate, learn, and contribute to ERP product, implementation, support, or growth work.

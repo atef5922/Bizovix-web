@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import {
   ArrowRight,
   BarChart3,
-  Bot,
   Building2,
   CheckCircle2,
   ClipboardCheck,
@@ -18,6 +17,7 @@ import {
 } from "lucide-react";
 
 import { ButtonLink } from "@/components/ui/Button";
+import { AutoPlayVideo } from "@/components/ui/AutoPlayVideo";
 import { CTASection } from "@/components/sections/MarketingSections";
 import { SEOJsonLd } from "@/components/seo/SEOJsonLd";
 import { faqJsonLd, pageMetadata } from "@/src/lib/seo";
@@ -210,13 +210,31 @@ export default function Home() {
     "Manufacturing & Sales",
   ];
 
-  const erpModules = [
-    ["Finance", <BarChart3 key="finance" className="h-4 w-4" />],
-    ["Inventory", <PackageCheck key="inventory" className="h-4 w-4" />],
-    ["Sales & POS", <Building2 key="sales-pos" className="h-4 w-4" />],
-    ["HR & Payroll", <UsersRound key="hr-payroll" className="h-4 w-4" />],
-    ["Production", <Factory key="production" className="h-4 w-4" />],
-    ["Reports", <ClipboardCheck key="reports" className="h-4 w-4" />],
+  const productMetrics = [
+    ["01", "Core ERP suite"],
+    ["6+", "Connected modules"],
+    ["360", "Operational view"],
+  ];
+
+  const productPillars = [
+    {
+      title: productTabs[0],
+      body: "Control ledgers, purchases, stock valuation, warehouses, and branch movement from one reliable operating layer.",
+      icon: <BarChart3 className="h-5 w-5" />,
+      points: ["Accounting control", "Warehouse visibility"],
+    },
+    {
+      title: productTabs[1],
+      body: "Bring finance, inventory, POS, CRM, HR, payroll, production, approvals, vendors, customers, and reports together.",
+      icon: <PackageCheck className="h-5 w-5" />,
+      points: ["Single data source", "Role-based workflows"],
+    },
+    {
+      title: productTabs[2],
+      body: "Connect sales orders, production planning, BOM, costing, delivery, approval chains, and management dashboards.",
+      icon: <Factory className="h-5 w-5" />,
+      points: ["Production planning", "Sales coordination"],
+    },
   ];
 
   const processSteps = [
@@ -359,7 +377,7 @@ export default function Home() {
             </p>
 
             <h2>
-              <span>We</span> build cloud ERP solutions for smarter business operations
+              We build cloud <span>ERP solutions</span> for smarter business operations
             </h2>
 
             <p>
@@ -451,7 +469,8 @@ export default function Home() {
             </p>
 
             <h2>
-              One Powerful ERP Platform for South Asia’s Growing Businesses
+              One Powerful ERP Platform for{" "}
+              <span className="title-accent">South Asia’s Growing Businesses</span>
             </h2>
 
             <p>
@@ -523,7 +542,7 @@ export default function Home() {
             </p>
 
             <h2>
-              The Real Multi-Device ERP Experience
+              The Real <span className="title-accent">Multi-Device ERP</span> Experience
             </h2>
 
             <p>
@@ -566,7 +585,8 @@ export default function Home() {
           </p>
 
           <h2>
-            Innovative ERP Solutions That Power Business Transformation
+            Innovative ERP Solutions That Power{" "}
+            <span className="title-accent">Business Transformation</span>
           </h2>
 
           <span>
@@ -645,7 +665,7 @@ export default function Home() {
           </p>
 
           <h2>
-            Why Businesses Trust Bizovix?
+            Why Businesses Trust <span className="title-accent">Bizovix?</span>
           </h2>
 
           <span>
@@ -675,7 +695,7 @@ export default function Home() {
 
         <div className="container-shell why-trust-detail">
           <h3>
-            Why choose Bizovix ERP for your business?
+            Why choose <span className="title-accent">Bizovix ERP</span> for your business?
           </h3>
 
           <p>
@@ -706,97 +726,73 @@ export default function Home() {
         className="erp-clarity-section"
         aria-label="Bizovix one stop ERP products"
       >
-        <div className="container-shell erp-clarity-head">
-          <p>
-            <PackageCheck className="h-4 w-4" />
-            Our Products
-          </p>
-
-          <h2>
-            From Complexity to Clarity. One ERP for Every Team.
-          </h2>
-        </div>
-
-        <div
-          className="container-shell erp-tab-row"
-          role="list"
-          aria-label="Bizovix ERP product focus"
-        >
-          {productTabs.map((tab) => (
-            <span
-              className={
-                tab === "One Stop ERP"
-                  ? "is-active"
-                  : ""
-              }
-              key={tab}
-              role="listitem"
-            >
-              {tab}
-            </span>
-          ))}
-        </div>
-
-        <div className="container-shell erp-clarity-grid">
-          <div className="erp-clarity-copy">
-            <h3>
-              Your one-stop ERP solution for everything your business
-              needs
-            </h3>
-
+        <div className="container-shell erp-product-shell">
+          <div className="erp-clarity-head">
             <p>
-              Bizovix connects accounting, purchase, inventory, sales,
-              POS, CRM, HR, payroll, production, approvals, vendors,
-              customers, and reports in one cloud ERP platform. Your
-              teams get cleaner workflows, faster decisions, and
-              stronger control without switching between disconnected
-              tools.
+              <PackageCheck className="h-4 w-4" />
+              Our Products
             </p>
 
-            <ButtonLink
-              href="/solutions"
-              variant="secondary"
-              className="erp-clarity-button"
-            >
-              Know More
-              <ArrowRight className="h-4 w-4" />
-            </ButtonLink>
+            <h2>
+              From complexity to <span>clarity.</span>
+              <br />
+              One ERP platform for <span>every team.</span>
+            </h2>
           </div>
 
-          <div
-            className="erp-wheel"
-            aria-label="Bizovix ERP connected modules"
-          >
-            <div className="erp-wheel-center">
-              <strong>ERP</strong>
-              <span>Bizovix Cloud Suite</span>
+          <div className="erp-product-layout">
+            <div className="erp-product-story">
+              <p>
+                Bizovix connects accounting, purchase, inventory, sales,
+                POS, CRM, HR, payroll, production, approvals, vendors,
+                customers, and reports in one cloud ERP platform. Your
+                teams get cleaner workflows, faster decisions, and
+                stronger control without switching between disconnected
+                tools.
+              </p>
+
+              <div className="erp-product-metrics" aria-label="Bizovix ERP product highlights">
+                {productMetrics.map(([value, label]) => (
+                  <article key={value}>
+                    <strong>{value}</strong>
+                    <span>{label}</span>
+                  </article>
+                ))}
+              </div>
+
+              <ButtonLink
+                href="/solutions"
+                variant="secondary"
+                className="erp-clarity-button"
+              >
+                Know More
+                <ArrowRight className="h-4 w-4" />
+              </ButtonLink>
             </div>
 
-            {erpModules.map(
-              ([label, icon], index) => (
-                <div
-                  className={`erp-wheel-item erp-wheel-item-${index + 1}`}
-                  key={label as string}
-                >
-                  {icon}
-                  <span>{label}</span>
+            <div className="erp-product-console" aria-label="Bizovix ERP live workspace video preview">
+              <div className="erp-console-video">
+                <AutoPlayVideo
+                  src="/videos/bizovix-distribution-preview.mp4"
+                  label="Bizovix ERP live workspace auto-playing software preview"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className="erp-product-focus-grid">
+            {productPillars.map((product) => (
+              <article key={product.title}>
+                <div className="erp-product-card-head">
+                  <span>{product.icon}</span>
+                  <h3>{product.title}</h3>
                 </div>
-              ),
-            )}
+                <p>{product.body}</p>
+                <span>{product.points.join(" / ")}</span>
+              </article>
+            ))}
           </div>
-        </div>
 
-        <div className="container-shell erp-ai-row">
-          <div className="erp-ai-callout">
-            <Bot className="h-7 w-7" />
-
-            <div>
-              <span>Click here for</span>
-              <strong>
-                AI-Powered ERP Recommendation Support
-              </strong>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -811,7 +807,8 @@ export default function Home() {
           </p>
 
           <h2>
-            How Bizovix Helps Your Business Go Live
+            How Bizovix Helps Your Business{" "}
+            <span className="title-accent">Go Live</span>
           </h2>
 
           <p>

@@ -12,11 +12,15 @@ export const metadata: Metadata = pageMetadata({
 export default function DemoRequestPage() {
   return (
     <>
-      <PageHero badge="Demo request" title="Request a personalized Bizovix ERP demo" description="Share your company context so the demo can focus on the modules, workflows, and reporting needs that matter most." />
+      <PageHero
+        badge="Demo request"
+        title={<>Request a personalized <span className="title-accent">Bizovix ERP demo</span></>}
+        description="Share your company context so the demo can focus on the modules, workflows, and reporting needs that matter most."
+      />
       <section className="section">
         <div className="container-shell two-column demo-layout">
           <div>
-            <SectionHeading title="What happens next" description="The Bizovix team reviews your industry, company size, required solutions, and preferred contact method before arranging a consultation." />
+            <SectionHeading title={<>What happens <span className="title-accent">next</span></>} description="The Bizovix team reviews your industry, company size, required solutions, and preferred contact method before arranging a consultation." />
             <div className="process-mini-list">
               {[
                 ["01", "Workflow discovery", "We identify the departments, branches, users, approvals, and reports your team needs."],

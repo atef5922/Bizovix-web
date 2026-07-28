@@ -36,7 +36,10 @@ export default function ContactPage() {
         <div className="container-shell contact-main-card">
           <div className="contact-main-info">
             <p className="contact-kicker">Bizovix ERP support</p>
-            <h2>Our team is ready to assist you with consultation, setup, and after-sales support.</h2>
+            <h2>
+              Our team is ready to assist you with{" "}
+              <span className="title-accent">consultation</span>, setup, and after-sales support.
+            </h2>
             <p>
               Whether you are planning your first cloud ERP implementation or upgrading an existing
               workflow, Bizovix helps you make informed decisions around finance, inventory, purchase,
@@ -67,7 +70,10 @@ export default function ContactPage() {
         <div className="container-shell contact-map-heading">
           <div>
             <p className="contact-kicker">Find us</p>
-            <h2>Bizovix works with growing businesses across Bangladesh and South Asia</h2>
+            <h2>
+              Bizovix works with growing businesses across{" "}
+              <span className="title-accent">Bangladesh and South Asia</span>
+            </h2>
           </div>
           <Link href="/demo-request">
             Request ERP consultation <ArrowRight className="h-4 w-4" />

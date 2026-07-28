@@ -12,7 +12,11 @@ export const metadata: Metadata = pageMetadata({
 export default function SignInPage() {
   return (
     <>
-      <PageHero badge="Customer portal" title="Sign in to Bizovix" description="Customer authentication is prepared for the production application. For demo access, request a guided product walkthrough." />
+      <PageHero
+        badge="Customer portal"
+        title={<>Sign in to <span className="title-accent">Bizovix</span></>}
+        description="Customer authentication is prepared for the production application. For demo access, request a guided product walkthrough."
+      />
       <section className="section">
         <div className="container-shell two-column">
           <div className="feature-list-panel">

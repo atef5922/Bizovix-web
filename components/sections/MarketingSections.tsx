@@ -13,7 +13,7 @@ export function PageHero({
   children,
 }: {
   badge?: string;
-  title: string;
+  title: React.ReactNode;
   description: string;
   children?: React.ReactNode;
 }) {
@@ -38,7 +38,7 @@ export function PageHero({
   );
 }
 
-export function SectionHeading({ eyebrow, title, description }: { eyebrow?: string; title: string; description?: string }) {
+export function SectionHeading({ eyebrow, title, description }: { eyebrow?: string; title: React.ReactNode; description?: string }) {
   return (
     <div className="section-heading">
       {eyebrow && <p className="eyebrow">{eyebrow}</p>}

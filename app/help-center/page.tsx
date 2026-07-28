@@ -11,12 +11,16 @@ export const metadata: Metadata = pageMetadata({
 export default function HelpCenterPage() {
   return (
     <>
-      <PageHero badge="Help center" title="Support for teams adopting connected ERP workflows" description="Find prepared paths for onboarding, support, implementation questions, and product guidance." />
+      <PageHero
+        badge="Help center"
+        title={<>Support for teams adopting <span className="title-accent">connected ERP workflows</span></>}
+        description="Find prepared paths for onboarding, support, implementation questions, and product guidance."
+      />
       <section className="section">
         <div className="container-shell">
           <SectionHeading
             eyebrow="Support paths"
-            title="Choose the help route that matches your ERP need"
+            title={<>Choose the help route that matches your <span className="title-accent">ERP need</span></>}
             description="Bizovix support content is organized for business users, department managers, implementation teams, and decision makers."
           />
           <div className="card-grid">

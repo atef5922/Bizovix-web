@@ -11,12 +11,16 @@ export const metadata: Metadata = pageMetadata({
 export default function DocumentationPage() {
   return (
     <>
-      <PageHero badge="Documentation" title="Bizovix documentation hub" description="A prepared home for module guides, workflow setup notes, implementation handbooks, and future customer-facing product documentation." />
+      <PageHero
+        badge="Documentation"
+        title={<>Bizovix <span className="title-accent">documentation hub</span></>}
+        description="A prepared home for module guides, workflow setup notes, implementation handbooks, and future customer-facing product documentation."
+      />
       <section className="section">
         <div className="container-shell">
           <SectionHeading
             eyebrow="Knowledge base"
-            title="ERP documentation areas prepared for scale"
+            title={<>ERP documentation areas prepared for <span className="title-accent">scale</span></>}
             description="These documentation paths help teams evaluate Bizovix before implementation and support customers after rollout."
           />
           <div className="card-grid">

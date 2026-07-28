@@ -17,7 +17,9 @@ export default function PricingPage() {
         <div className="container-shell">
           <div className="pricing-page-hero-inner">
             <p className="pricing-page-eyebrow">PRICING</p>
-            <h1>Simple, Transparent ERP Pricing</h1>
+            <h1>
+              Simple, Transparent <span className="title-accent">ERP Pricing</span>
+            </h1>
             <p>
               Choose the plan that fits your business. Compare flexible monthly
               and annual options designed for growing companies across South Asia.
