@@ -1,6 +1,21 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, Download, Layers3, ShieldCheck, Workflow } from "lucide-react";
+import {
+  ArrowRight,
+  BarChart3,
+  Banknote,
+  CheckCircle2,
+  Download,
+  Factory,
+  Layers3,
+  PackageSearch,
+  ReceiptText,
+  ShieldCheck,
+  ShoppingCart,
+  Store,
+  Users,
+  Workflow,
+} from "lucide-react";
 import { CTASection } from "@/components/sections/MarketingSections";
 import { Icon } from "@/components/ui/Icon";
 import { siteConfig } from "@/src/config/site";
@@ -20,7 +35,16 @@ const solutionGroups = solutions.reduce<Record<string, typeof solutions>>((group
   return groups;
 }, {});
 
-const operatingCycle = ["Accounting", "Purchase", "Inventory", "Manufacturing", "Sales", "POS", "HR", "Reports"];
+const operatingCycle = [
+  { title: "Accounting", icon: <Banknote size={18} /> },
+  { title: "Purchase", icon: <ShoppingCart size={18} /> },
+  { title: "Inventory", icon: <PackageSearch size={18} /> },
+  { title: "Manufacturing", icon: <Factory size={18} /> },
+  { title: "Sales", icon: <ReceiptText size={18} /> },
+  { title: "POS", icon: <Store size={18} /> },
+  { title: "HR", icon: <Users size={18} /> },
+  { title: "Reports", icon: <BarChart3 size={18} /> },
+];
 
 export default function SolutionsPage() {
   return (
@@ -55,9 +79,12 @@ export default function SolutionsPage() {
             </div>
             <div className="erp-cycle-grid">
               {operatingCycle.map((item, index) => (
-                <span key={item}>
-                  <b>{String(index + 1).padStart(2, "0")}</b>
-                  {item}
+                <span className="erp-cycle-card" key={item.title}>
+                  <span className="erp-cycle-icon">{item.icon}</span>
+                  <span className="erp-cycle-copy">
+                    <b>{String(index + 1).padStart(2, "0")}</b>
+                    <span>{item.title}</span>
+                  </span>
                 </span>
               ))}
             </div>
