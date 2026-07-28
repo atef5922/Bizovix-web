@@ -2277,12 +2277,50 @@ img {
 }
 
 .solution-orbit-center {
+  position: relative;
   display: grid;
   justify-items: center;
   gap: 20px;
 }
 
+.solution-orbit-center::before,
+.solution-orbit-center::after {
+  grid-area: 1 / 1;
+  align-self: start;
+  justify-self: center;
+  width: min(100%, 376px);
+  aspect-ratio: 1 / 1;
+  border-radius: 999px;
+  content: "";
+  pointer-events: none;
+}
+
+.solution-orbit-center::before {
+  z-index: 1;
+  margin-top: -8px;
+  background: conic-gradient(from 0deg, rgba(7, 88, 212, 0), #1186ee, #13b7a3, rgba(7, 88, 212, 0));
+  animation: orbit-ring-spin 8s linear infinite;
+  padding: 2px;
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+}
+
+.solution-orbit-center::after {
+  z-index: 0;
+  margin-top: -8px;
+  border: 1px solid rgba(17, 134, 238, 0.2);
+  box-shadow:
+    0 0 0 10px rgba(17, 134, 238, 0.04),
+    0 0 42px rgba(19, 183, 163, 0.16);
+  animation: orbit-ring-pulse 3.4s ease-in-out infinite;
+}
+
 .solution-orbit-center img {
+  position: relative;
+  z-index: 2;
+  grid-area: 1 / 1;
   display: block;
   width: min(100%, 360px);
   aspect-ratio: 1 / 1;
@@ -2294,6 +2332,9 @@ img {
 }
 
 .solution-orbit-cta {
+  position: relative;
+  z-index: 2;
+  grid-area: 2 / 1;
   min-height: 42px;
   border: 2px solid #0f3b9e;
   border-radius: 999px;
@@ -2306,6 +2347,25 @@ img {
 .solution-orbit-cta:hover {
   background: #0f3b9e;
   color: #ffffff;
+}
+
+@keyframes orbit-ring-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes orbit-ring-pulse {
+  0%,
+  100% {
+    opacity: 0.72;
+    transform: scale(0.985);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.025);
+  }
 }
 
 .why-trust-section {
