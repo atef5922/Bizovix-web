@@ -113,6 +113,7 @@ export default function AboutPage() {
             <div className="about-contact-row">
               <span><Mail className="h-4 w-4" />{siteConfig.salesEmail}</span>
               <span><Phone className="h-4 w-4" />{siteConfig.salesPhone}</span>
+              <span><Phone className="h-4 w-4" />{siteConfig.salesPhoneSecondary}</span>
               <span><MapPin className="h-4 w-4" />{siteConfig.address}</span>
             </div>
           </div>

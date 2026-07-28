@@ -20,6 +20,8 @@ const supportItems = [
 
 export default function ContactPage() {
   const phoneHref = siteConfig.salesPhone.replace(/\s/g, "");
+  const secondaryPhoneHref = siteConfig.salesPhoneSecondary.replace(/\s/g, "");
+  const mapQuery = encodeURIComponent(siteConfig.address);
 
   return (
     <>
@@ -48,6 +50,7 @@ export default function ContactPage() {
 
             <div className="contact-detail-list">
               <a href={`tel:${phoneHref}`}><Phone className="h-5 w-5" /><span>{siteConfig.salesPhone}</span></a>
+              <a href={`tel:${secondaryPhoneHref}`}><Phone className="h-5 w-5" /><span>{siteConfig.salesPhoneSecondary}</span></a>
               <a href={`mailto:${siteConfig.salesEmail}`}><Mail className="h-5 w-5" /><span>{siteConfig.salesEmail}</span></a>
               <span><MapPin className="h-5 w-5" />{siteConfig.address}</span>
             </div>
@@ -81,14 +84,14 @@ export default function ContactPage() {
         </div>
         <div className="contact-map-frame">
           <iframe
-            title="Bizovix office location in Dhaka, Bangladesh"
-            src="https://www.google.com/maps?q=Dhaka%2C%20Bangladesh&output=embed"
+            title="Bizovix office location at Umesh Datta Road, Bakshibazar, Dhaka"
+            src={`https://www.google.com/maps?q=${mapQuery}&output=embed`}
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
           />
           <div className="contact-map-card">
             <Building2 className="h-5 w-5" />
-            <strong>Bangladesh</strong>
+            <strong>Bakshibazar, Dhaka</strong>
             <span>ERP consultation, implementation planning, and product support</span>
           </div>
         </div>
