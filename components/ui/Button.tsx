@@ -15,12 +15,22 @@ export function ButtonLink({
   children,
   variant = "primary",
   className,
+  download,
 }: {
   href: string;
   children: ReactNode;
   variant?: ButtonProps["variant"];
   className?: string;
+  download?: boolean | string;
 }) {
+  if (download) {
+    return (
+      <a className={cn(buttonClasses(variant), className)} href={href} download={download}>
+        {children}
+      </a>
+    );
+  }
+
   return (
     <Link className={cn(buttonClasses(variant), className)} href={href}>
       {children}

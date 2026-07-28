@@ -1,8 +1,8 @@
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, ShieldCheck } from "lucide-react";
+import { ArrowRight, CheckCircle2, Download, ShieldCheck } from "lucide-react";
 import { ButtonLink } from "@/components/ui/Button";
-import { DemoModalButton } from "@/components/ui/SiteTools";
 import { Icon } from "@/components/ui/Icon";
+import { siteConfig } from "@/src/config/site";
 import { workflows } from "@/src/data/workflows";
 import type { Industry, Solution } from "@/src/types/site";
 
@@ -61,26 +61,32 @@ export function Breadcrumbs({ items }: { items: Array<{ title: string; href: str
   );
 }
 
-export function CTASection({ title = "Ready to connect your business operations?", description = "Request a personalized Bizovix demo and review the workflows, modules, and implementation path that fit your company." }) {
+export function CTASection({ title = "Ready to connect your business operations?", description = "Download Bizovix ERP software and start working with connected finance, inventory, sales, production, HR, approvals, and reporting workflows." }) {
   return (
     <section className="cta-band">
       <div className="container-shell cta-inner">
         <div className="cta-copy">
-          <p className="cta-eyebrow">Demo request</p>
+          <p className="cta-eyebrow">ERP Software</p>
           <h2>{title}</h2>
           <p>{description}</p>
-          <div className="cta-points" aria-label="Demo request benefits">
-            <span><CheckCircle2 className="h-4 w-4" />Workflow consultation</span>
-            <span><CheckCircle2 className="h-4 w-4" />Module fit review</span>
-            <span><CheckCircle2 className="h-4 w-4" />Implementation roadmap</span>
+          <div className="cta-points" aria-label="ERP software download benefits">
+            <span><CheckCircle2 className="h-4 w-4" />Official ERP installer</span>
+            <span><CheckCircle2 className="h-4 w-4" />Connected modules</span>
+            <span><CheckCircle2 className="h-4 w-4" />Business-ready workspace</span>
           </div>
         </div>
         <div className="cta-actions">
-          <ButtonLink href="/demo-request" className="cta-primary-button">
-            Request a Free Demo <ArrowRight className="h-4 w-4" />
+          <ButtonLink
+            href={siteConfig.erpDownloadPath}
+            download={siteConfig.erpDownloadFileName}
+            className="cta-primary-button"
+          >
+            Download ERP Software <Download className="h-4 w-4" />
           </ButtonLink>
           <div className="cta-secondary-wrap">
-            <DemoModalButton label="Open Quick Form" />
+            <ButtonLink href="/solutions" variant="secondary">
+              View ERP Modules <ArrowRight className="h-4 w-4" />
+            </ButtonLink>
           </div>
         </div>
       </div>
@@ -118,7 +124,7 @@ export function TrustBand() {
         {[
           ["Bangladesh-fit operations", "Designed around manufacturing, commerce, approvals, branches, and day-to-day business reality."],
           ["Modular rollout", "Start with the modules your team needs most and expand as processes mature."],
-          ["Implementation support", "Demo, onboarding, configuration, and training content are built into the conversion path."],
+          ["Implementation support", "Onboarding, configuration, and training content are built into the conversion path."],
           ["Responsible claims", "The site avoids fake ratings, fake clients, unsupported certifications, and hidden SEO shortcuts."],
         ].map(([title, body]) => (
           <article key={title}>
@@ -145,7 +151,7 @@ export function SolutionPageContent({ solution }: { solution: Solution }) {
               <span>Real-time reports</span>
             </div>
             <div className="button-row">
-              <ButtonLink href="/demo-request">Request Demo</ButtonLink>
+              <ButtonLink href={siteConfig.erpDownloadPath} download={siteConfig.erpDownloadFileName}>Download ERP</ButtonLink>
               <ButtonLink href="/solutions" variant="secondary">View All Solutions</ButtonLink>
             </div>
           </div>
@@ -183,7 +189,7 @@ export function IndustryPageContent({ industry }: { industry: Industry }) {
               <span>Management visibility</span>
             </div>
             <div className="button-row">
-              <ButtonLink href="/demo-request">Request Demo</ButtonLink>
+              <ButtonLink href={siteConfig.erpDownloadPath} download={siteConfig.erpDownloadFileName}>Download ERP</ButtonLink>
               <ButtonLink href="/industries" variant="secondary">View All Industries</ButtonLink>
             </div>
           </div>
@@ -192,7 +198,7 @@ export function IndustryPageContent({ industry }: { industry: Industry }) {
       </section>
       <section className="section soft">
         <div className="container-shell">
-          <SectionHeading title={`${industry.title} use cases`} description="Bizovix content is organized around practical workflows companies can evaluate during a demo." />
+          <SectionHeading title={`${industry.title} use cases`} description="Bizovix content is organized around practical workflows companies can evaluate before installing the ERP software." />
           <div className="card-grid">
             {industry.useCases.map((useCase) => (
               <article className="feature-card" key={useCase}>

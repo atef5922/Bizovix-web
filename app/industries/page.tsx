@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, Layers3, MapPin, ShieldCheck, Workflow } from "lucide-react";
+import { ArrowRight, CheckCircle2, Download, Layers3, MapPin, ShieldCheck, Workflow } from "lucide-react";
 import { CTASection } from "@/components/sections/MarketingSections";
 import { Icon } from "@/components/ui/Icon";
+import { siteConfig } from "@/src/config/site";
 import { industries } from "@/src/data/industries";
 import { pageMetadata } from "@/src/lib/seo";
 
@@ -49,9 +50,9 @@ export default function IndustriesPage() {
               distribution networks, retail stores, and project sites. Each path connects the ERP modules that matter most.
             </p>
             <div className="erp-hero-actions">
-              <Link href="/demo-request" className="erp-primary-link">
-                Plan industry demo <ArrowRight size={16} />
-              </Link>
+              <a href={siteConfig.erpDownloadPath} download={siteConfig.erpDownloadFileName} className="erp-primary-link">
+                Download ERP software <Download size={16} />
+              </a>
               <Link href="/solutions" className="erp-secondary-link">
                 View ERP modules
               </Link>

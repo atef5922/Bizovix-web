@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Building2, Mail, MapPin, MessageCircle, Phone, Send, ShieldCheck } from "lucide-react";
+import { ArrowRight, Building2, Download, Mail, MapPin, MessageCircle, Phone, Send, ShieldCheck } from "lucide-react";
 import { ContactForm } from "@/components/forms/LeadForms";
 import { SEOJsonLd } from "@/components/seo/SEOJsonLd";
 import { siteConfig } from "@/src/config/site";
@@ -8,12 +8,12 @@ import { organizationJsonLd, pageMetadata } from "@/src/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
   title: "Contact Bizovix",
-  description: "Contact Bizovix for ERP software demos, implementation planning, sales support, partnerships, and cloud ERP guidance in Bangladesh and South Asia.",
+  description: "Contact Bizovix for ERP software download support, implementation planning, sales support, partnerships, and cloud ERP guidance in Bangladesh and South Asia.",
   path: "/contact",
 });
 
 const supportItems = [
-  "ERP demo and requirement review",
+  "ERP software download and setup guidance",
   "Implementation planning and rollout guidance",
   "Support, partnership, and product questions",
 ];
@@ -75,9 +75,9 @@ export default function ContactPage() {
               <span className="title-accent">Bangladesh and South Asia</span>
             </h2>
           </div>
-          <Link href="/demo-request">
-            Request ERP consultation <ArrowRight className="h-4 w-4" />
-          </Link>
+          <a href={siteConfig.erpDownloadPath} download={siteConfig.erpDownloadFileName}>
+            Download ERP software <Download className="h-4 w-4" />
+          </a>
         </div>
         <div className="contact-map-frame">
           <iframe
@@ -101,9 +101,9 @@ export default function ContactPage() {
             <h2>Need faster ERP guidance?</h2>
             <p>Share your company size, industry, branch count, and required modules so our team can route your request correctly.</p>
           </div>
-          <Link href="/demo-request">
-            Start with a demo request <Send className="h-4 w-4" />
-          </Link>
+          <a href={siteConfig.erpDownloadPath} download={siteConfig.erpDownloadFileName}>
+            Download ERP software <Send className="h-4 w-4" />
+          </a>
         </div>
       </section>
     </>

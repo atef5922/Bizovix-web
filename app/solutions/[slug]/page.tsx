@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowRight, CheckCircle2, Layers3, Route, Workflow } from "lucide-react";
+import { ArrowLeft, ArrowRight, CheckCircle2, Download, Layers3, Route, Workflow } from "lucide-react";
 import { CTASection } from "@/components/sections/MarketingSections";
 import { SEOJsonLd } from "@/components/seo/SEOJsonLd";
 import { AutoPlayVideo } from "@/components/ui/AutoPlayVideo";
@@ -324,9 +324,9 @@ export default async function SolutionDetailPage({ params }: { params: Promise<{
             <h1>{solution.title} for growing business teams</h1>
             <p>{solution.hero}</p>
             <div className="erp-detail-hero-actions">
-              <Link href="/demo-request" className="erp-primary-link">
-                Request demo <ArrowRight size={16} />
-              </Link>
+              <a href={siteConfig.erpDownloadPath} download={siteConfig.erpDownloadFileName} className="erp-primary-link">
+                Download ERP software <Download size={16} />
+              </a>
               <Link href="/pricing" className="erp-secondary-link">
                 View pricing
               </Link>

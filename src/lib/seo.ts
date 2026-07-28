@@ -81,7 +81,7 @@ export function softwareJsonLd() {
     name: "Bizovix Cloud ERP",
     applicationCategory: "BusinessApplication",
     operatingSystem: "Web",
-    offers: { "@type": "Offer", price: "0", priceCurrency: "USD", availability: "https://schema.org/InStock", description: "Demo and implementation pricing are discussed with the Bizovix team." },
+    offers: { "@type": "Offer", price: "0", priceCurrency: "USD", availability: "https://schema.org/InStock", description: "ERP software download and implementation pricing are discussed with the Bizovix team." },
   };
 }
 

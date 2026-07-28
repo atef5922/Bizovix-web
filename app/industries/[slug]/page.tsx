@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowRight, CheckCircle2, ClipboardCheck, Layers3, Route, ShieldCheck } from "lucide-react";
+import { ArrowLeft, ArrowRight, CheckCircle2, ClipboardCheck, Download, Layers3, Route, ShieldCheck } from "lucide-react";
 import { CTASection } from "@/components/sections/MarketingSections";
 import { SEOJsonLd } from "@/components/seo/SEOJsonLd";
 import { AutoPlayVideo } from "@/components/ui/AutoPlayVideo";
@@ -194,9 +194,9 @@ export default async function IndustryDetailPage({ params }: { params: Promise<{
             <h1>{industry.title} ERP software for connected operations</h1>
             <p>{detail.intro}</p>
             <div className="erp-detail-hero-actions">
-              <Link href="/demo-request" className="erp-primary-link">
-                Request demo <ArrowRight size={16} />
-              </Link>
+              <a href={siteConfig.erpDownloadPath} download={siteConfig.erpDownloadFileName} className="erp-primary-link">
+                Download ERP software <Download size={16} />
+              </a>
               <Link href="/pricing" className="erp-secondary-link">
                 View pricing
               </Link>
@@ -310,7 +310,7 @@ export default async function IndustryDetailPage({ params }: { params: Promise<{
         </div>
       </section>
 
-      <CTASection title={`Plan a Bizovix ERP demo for ${industry.title}`} />
+      <CTASection title={`Download Bizovix ERP software for ${industry.title}`} />
     </>
   );
 }

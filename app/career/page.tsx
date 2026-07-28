@@ -34,9 +34,7 @@ export default function CareerPage() {
       <section className="contact-page-hero career-reference-hero">
         <div className="container-shell contact-page-hero-inner">
           <p>Careers</p>
-          <h1>
-            Build your career with <span className="title-accent">Bizovix ERP</span>
-          </h1>
+          <h1>Build your career with Bizovix ERP</h1>
         </div>
       </section>
 

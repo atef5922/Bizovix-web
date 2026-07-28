@@ -19,6 +19,7 @@ import { industries } from "@/src/data/industries";
 import { pricingPlans } from "@/src/data/pricing";
 import { resources } from "@/src/data/resources";
 import { solutions } from "@/src/data/solutions";
+import { siteConfig } from "@/src/config/site";
 import { cn } from "@/src/lib/utils";
 
 export function SolutionExplorer() {
@@ -270,7 +271,8 @@ export function PricingToggle() {
                 </p>
 
                 <ButtonLink
-                  href="/demo-request"
+                  href={siteConfig.erpDownloadPath}
+                  download={siteConfig.erpDownloadFileName}
                   variant={
                     plan.highlighted
                       ? "primary"
@@ -278,7 +280,7 @@ export function PricingToggle() {
                   }
                   className="pricing-get-started"
                 >
-                  Get started
+                  Download ERP
                 </ButtonLink>
 
                 <div className="pricing-feature-heading">

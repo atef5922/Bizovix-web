@@ -5,6 +5,7 @@ import {
   Building2,
   CheckCircle2,
   ClipboardCheck,
+  Download,
   Factory,
   Layers3,
   LifeBuoy,
@@ -20,6 +21,7 @@ import { ButtonLink } from "@/components/ui/Button";
 import { AutoPlayVideo } from "@/components/ui/AutoPlayVideo";
 import { CTASection } from "@/components/sections/MarketingSections";
 import { SEOJsonLd } from "@/components/seo/SEOJsonLd";
+import { siteConfig } from "@/src/config/site";
 import { faqJsonLd, pageMetadata } from "@/src/lib/seo";
 import { faqs } from "@/src/data/faqs";
 
@@ -298,11 +300,12 @@ export default function Home() {
 
                 <div className="banner-actions">
                   <ButtonLink
-                    href="/demo-request"
+                    href={siteConfig.erpDownloadPath}
+                    download={siteConfig.erpDownloadFileName}
                     className="banner-action-primary"
                   >
-                    Request Demo
-                    <ArrowRight className="h-3.5 w-3.5" />
+                    Download ERP
+                    <Download className="h-3.5 w-3.5" />
                   </ButtonLink>
 
                   <ButtonLink

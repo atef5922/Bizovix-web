@@ -1,5 +1,5 @@
 import { wait } from "@/src/lib/utils";
-import type { ServiceResponse } from "./demo.service";
+import type { ServiceResponse } from "./service-response";
 
 export async function submitContact<T extends Record<string, unknown>>(payload: T): Promise<ServiceResponse<T>> {
   await wait();

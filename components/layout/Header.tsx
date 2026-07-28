@@ -123,7 +123,13 @@ export function Header() {
               <Search className="h-5 w-5" />
             </button>
             <Link className="signin-link" href="/sign-in">Sign In</Link>
-            <ButtonLink className="nav-cta hidden sm:inline-flex" href="/demo-request">Demo Request</ButtonLink>
+            <ButtonLink
+              className="nav-cta hidden sm:inline-flex"
+              href={siteConfig.erpDownloadPath}
+              download={siteConfig.erpDownloadFileName}
+            >
+              Download ERP
+            </ButtonLink>
             <button className="icon-button mobile-menu-trigger" type="button" onClick={() => setDrawer(true)} aria-label="Open navigation">
               <Menu className="h-5 w-5" />
             </button>
@@ -186,9 +192,19 @@ function MegaMenu({ type, pathname, onClose }: { type: Exclude<MenuKey, null>; p
             )}
             <p>{type === "Industries" ? "ERP for Manufacturing" : "Connected ERP Modules"}</p>
             <h2>{type === "Industries" ? "Plan production, materials, work orders, and costs." : "One platform for the full operating workflow."}</h2>
-            <Link href={type === "Industries" ? "/industries/manufacturing" : "/solutions"} onClick={onClose}>
-              {type === "Industries" ? "Explore Manufacturing ERP" : "Request Product Tour"}
-            </Link>
+            {type === "Industries" ? (
+              <Link href="/industries/manufacturing" onClick={onClose}>
+                Explore Manufacturing ERP
+              </Link>
+            ) : (
+              <a
+                href={siteConfig.erpDownloadPath}
+                download={siteConfig.erpDownloadFileName}
+                onClick={onClose}
+              >
+                Download ERP Software
+              </a>
+            )}
           </div>
         )}
       </div>
@@ -214,7 +230,12 @@ function MobileDrawer({ pathname, onClose, onSearch }: { pathname: string; onClo
         <DrawerGroup title="Industries" pathname={pathname} items={industryNavigation} onClose={onClose} />
         <DrawerGroup title="Resources" pathname={pathname} items={resourcesNavigation} onClose={onClose} />
         <div className="drawer-actions">
-          <ButtonLink href="/demo-request">Demo Request</ButtonLink>
+          <ButtonLink
+            href={siteConfig.erpDownloadPath}
+            download={siteConfig.erpDownloadFileName}
+          >
+            Download ERP
+          </ButtonLink>
           <ButtonLink href="/sign-in" variant="secondary">Sign In</ButtonLink>
         </div>
       </div>

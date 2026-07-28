@@ -28,7 +28,7 @@ export default function HelpCenterPage() {
               ["Implementation support", "Plan onboarding, user roles, branch setup, approval paths, and data preparation."],
               ["Training requests", "Prepare finance, inventory, production, sales, POS, HR, and reporting users for adoption."],
               ["Workflow questions", "Clarify how purchase, sales, stock, accounting, payroll, and dashboards connect."],
-              ["Account assistance", "Route access, billing, demo, contact, and product questions to the right team."],
+              ["Account assistance", "Route access, billing, download, contact, and product questions to the right team."],
             ].map(([title, body]) => (
               <article className="feature-card" key={title}>
                 <h3>{title}</h3>

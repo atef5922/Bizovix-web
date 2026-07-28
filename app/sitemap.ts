@@ -9,7 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [
     "/",
     "/pricing",
-    "/demo-request",
+    "/download",
     "/sign-in",
     "/about-us",
     "/career",
@@ -40,6 +40,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: absoluteUrl(route),
     lastModified: new Date("2026-07-22"),
     changeFrequency: route === "/" ? "weekly" : "monthly",
-    priority: route === "/" ? 1 : route.includes("demo-request") ? 0.9 : 0.7,
+    priority: route === "/" ? 1 : route === "/download" ? 0.9 : 0.7,
   }));
 }

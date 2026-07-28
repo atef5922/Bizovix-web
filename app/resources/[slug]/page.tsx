@@ -33,14 +33,14 @@ export default async function ResourceDetailPage({ params }: { params: Promise<{
         <article className="container-shell article-body">
           <p><strong>Reading time:</strong> {resource.readingTime}</p>
           <h2>What this resource helps you clarify</h2>
-          <p>Use this page to align leadership, finance, operations, warehouse, production, sales, and HR teams before a Bizovix demo. The goal is to identify workflows, reporting needs, approval paths, users, branches, and data migration scope early.</p>
+          <p>Use this page to align leadership, finance, operations, warehouse, production, sales, and HR teams before installing Bizovix ERP. The goal is to identify workflows, reporting needs, approval paths, users, branches, and data migration scope early.</p>
           <h2>Related Bizovix areas</h2>
           <div className="button-row">
             {resource.related.map((item) => <Link className="nav-link active" href="/solutions" key={item}>{item}</Link>)}
           </div>
         </article>
       </section>
-      <CTASection title="Bring your questions into a guided ERP demo" />
+      <CTASection title="Download Bizovix ERP software for connected operations" />
     </>
   );
 }

@@ -1,9 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ArrowUp, MonitorPlay, X } from "lucide-react";
-import { Button } from "./Button";
-import { DemoRequestForm } from "@/components/forms/LeadForms";
+import { ArrowUp } from "lucide-react";
 import { siteConfig } from "@/src/config/site";
 
 export function SiteTools() {
@@ -67,37 +65,5 @@ function WhatsAppLogo() {
       <path fill="#25D366" d="M24.02 4C12.98 4 4 12.86 4 23.75c0 3.55.97 7.02 2.82 10.05L4.98 44l10.42-2.72a20.24 20.24 0 0 0 8.62 1.94C35.06 43.22 44 34.36 44 23.47 44 12.6 35.06 4 24.02 4Z" />
       <path fill="#fff" d="M34.74 29.62c-.52-.26-3.08-1.5-3.56-1.67-.48-.18-.83-.26-1.18.26-.35.52-1.35 1.67-1.65 2.02-.3.34-.61.39-1.13.13-.52-.26-2.2-.8-4.19-2.56-1.55-1.38-2.6-3.08-2.9-3.6-.3-.52-.03-.8.23-1.06.24-.23.52-.6.78-.9.26-.31.35-.52.52-.87.17-.34.09-.65-.04-.91-.13-.26-1.18-2.82-1.61-3.86-.43-1-.86-.86-1.18-.87l-1-.02c-.35 0-.91.13-1.39.65-.48.52-1.83 1.78-1.83 4.34s1.87 5.04 2.13 5.39c.26.34 3.68 5.56 8.92 7.8 1.25.54 2.22.86 2.98 1.1 1.25.39 2.39.34 3.29.21 1-.15 3.08-1.24 3.52-2.43.43-1.19.43-2.21.3-2.43-.13-.22-.48-.35-1-.61Z" />
     </svg>
-  );
-}
-
-export function DemoModalButton({ label = "Request Product Tour" }: { label?: string }) {
-  const [open, setOpen] = useState(false);
-
-  useEffect(() => {
-    const onKey = (event: KeyboardEvent) => event.key === "Escape" && setOpen(false);
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, []);
-
-  return (
-    <>
-      <Button type="button" variant="secondary" onClick={() => setOpen(true)}>
-        <MonitorPlay className="h-4 w-4" /> {label}
-      </Button>
-      {open && (
-        <div className="dialog-backdrop" role="dialog" aria-modal="true" aria-label="Request a Bizovix demo">
-          <div className="modal-panel">
-            <div className="modal-head">
-              <div>
-                <p className="eyebrow">Product tour</p>
-                <h2>Tell us what you need to connect</h2>
-              </div>
-              <button className="icon-button" type="button" onClick={() => setOpen(false)} aria-label="Close demo request"><X className="h-5 w-5" /></button>
-            </div>
-            <DemoRequestForm compact />
-          </div>
-        </div>
-      )}
-    </>
   );
 }

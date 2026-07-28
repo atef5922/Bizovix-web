@@ -119,7 +119,7 @@ export default function ResourcesPage() {
         </div>
       </section>
 
-      <CTASection title="Use these resources in a focused Bizovix ERP demo" />
+      <CTASection title="Use these resources before installing Bizovix ERP" />
     </>
   );
 }

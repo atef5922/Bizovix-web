@@ -12233,6 +12233,75 @@ main .erp-fit-card--dark p {
   color: rgba(255, 255, 255, 0.86);
 }
 
+/* Unified section badge style */
+main .eyebrow,
+main .about-section-pill,
+main .pricing-page-eyebrow,
+main .biz-page-badge,
+main .contact-kicker,
+main .blog-section-heading .blog-hero-badge,
+main .cta-eyebrow,
+main .about-pill,
+main .bd-coverage-pill,
+main .multi-device-pill,
+main .brand-carousel-head > p,
+main .solution-orbit-head > p,
+main .why-trust-head > p,
+main .erp-clarity-head > p,
+main .process-pill {
+  display: inline-flex;
+  width: fit-content;
+  min-height: 30px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 0 !important;
+  border-radius: 7px;
+  background: #0758d4 !important;
+  color: #ffffff !important;
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: 0;
+  line-height: 1;
+  text-transform: none;
+  padding: 0 18px;
+  box-shadow: 0 12px 26px rgba(7, 88, 212, 0.2) !important;
+}
+
+main .pricing-page-eyebrow,
+main .blog-section-heading .blog-hero-badge {
+  margin-inline: auto;
+}
+
+main .eyebrow::before,
+main .about-section-pill::before,
+main .pricing-page-eyebrow::before,
+main .contact-kicker::before,
+main .blog-section-heading .blog-hero-badge::before,
+main .cta-eyebrow::before {
+  flex: 0 0 auto;
+  width: 14px;
+  height: 14px;
+  background: currentColor;
+  content: "";
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m12 3 8 4.5v9L12 21l-8-4.5v-9L12 3Z'/%3E%3Cpath d='m12 12 8-4.5'/%3E%3Cpath d='m12 12v9'/%3E%3Cpath d='m12 12-8-4.5'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m12 3 8 4.5v9L12 21l-8-4.5v-9L12 3Z'/%3E%3Cpath d='m12 12 8-4.5'/%3E%3Cpath d='m12 12v9'/%3E%3Cpath d='m12 12-8-4.5'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+main .biz-page-badge svg,
+main .about-pill svg,
+main .bd-coverage-pill svg,
+main .multi-device-pill svg,
+main .brand-carousel-head > p svg,
+main .solution-orbit-head > p svg,
+main .why-trust-head > p svg,
+main .erp-clarity-head > p svg,
+main .process-pill svg {
+  flex: 0 0 auto;
+  color: currentColor !important;
+  fill: transparent;
+}
+
 /* Compact homepage section rhythm */
 .about-preview {
   padding: clamp(64px, 5vw, 84px) 0 clamp(44px, 4vw, 62px);

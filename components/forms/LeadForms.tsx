@@ -6,7 +6,6 @@ import { z } from "zod";
 import { Button } from "@/components/ui/Button";
 import { submitCareer } from "@/src/services/career.service";
 import { submitContact } from "@/src/services/contact.service";
-import { submitDemoRequest } from "@/src/services/demo.service";
 import { subscribeNewsletter } from "@/src/services/newsletter.service";
 
 type Errors = Record<string, string>;
@@ -14,21 +13,6 @@ type Errors = Record<string, string>;
 const email = z.string().trim().email("Enter a valid email address.");
 const phone = z.string().trim().min(6, "Enter a valid phone number.");
 const required = (label: string) => z.string().trim().min(2, `${label} is required.`);
-
-const demoSchema = z.object({
-  fullName: required("Full name"),
-  workEmail: email,
-  phone,
-  companyName: required("Company name"),
-  jobTitle: required("Job title"),
-  country: required("Country"),
-  industry: required("Industry"),
-  companySize: required("Company size"),
-  requiredSolutions: z.array(z.string()).min(1, "Select at least one solution."),
-  preferredContact: required("Preferred contact method"),
-  message: z.string().trim().min(10, "Tell us a little about your needs."),
-  consent: z.literal(true, { error: "Consent is required." }),
-});
 
 const contactSchema = z.object({
   fullName: required("Full name"),
@@ -51,65 +35,6 @@ const careerSchema = z.object({
 });
 
 const newsletterSchema = z.object({ email });
-
-export function DemoRequestForm({ compact = false }: { compact?: boolean }) {
-  const form = useForm<Record<string, unknown>>({ defaultValues: { requiredSolutions: [] as string[], consent: false } });
-  const [state, setState] = useFormState();
-
-  async function onSubmit(values: Record<string, unknown>) {
-    setState({ status: "loading", errors: {} });
-    const parsed = demoSchema.safeParse(values);
-    if (!parsed.success) return setState({ status: "error", errors: flattenErrors(parsed.error) });
-    const result = await submitDemoRequest(parsed.data);
-    setState(result.ok ? { status: "success", message: "Demo request received. The Bizovix team can now review your context.", errors: {} } : { status: "error", errors: { form: result.error } });
-    if (result.ok) form.reset();
-  }
-
-  return (
-    <form className="form-grid" onSubmit={form.handleSubmit(onSubmit)} noValidate>
-      <Status state={state} />
-      <Field label="Full name" error={state.errors.fullName}><input autoComplete="name" {...form.register("fullName")} /></Field>
-      <Field label="Work email" error={state.errors.workEmail}><input type="email" autoComplete="email" inputMode="email" {...form.register("workEmail")} /></Field>
-      <Field label="Phone" error={state.errors.phone}><input type="tel" autoComplete="tel" inputMode="tel" {...form.register("phone")} /></Field>
-      {!compact && <Field label="Company name" error={state.errors.companyName}><input autoComplete="organization" {...form.register("companyName")} /></Field>}
-      {!compact && <Field label="Job title" error={state.errors.jobTitle}><input autoComplete="organization-title" {...form.register("jobTitle")} /></Field>}
-      {!compact && <Field label="Country" error={state.errors.country}><input autoComplete="country-name" {...form.register("country")} /></Field>}
-      <Field label="Industry" error={state.errors.industry}>
-        <select {...form.register("industry")} defaultValue="">
-          <option value="" disabled>Select industry</option>
-          {["Manufacturing", "Garments and Textile", "Pharmaceuticals", "Wholesale and Distribution", "Retail and POS", "Construction"].map((item) => <option key={item}>{item}</option>)}
-        </select>
-      </Field>
-      <Field label="Company size" error={state.errors.companySize}>
-        <select {...form.register("companySize")} defaultValue="">
-          <option value="" disabled>Select size</option>
-          {["1-20", "21-100", "101-500", "501-1000", "1000+"].map((item) => <option key={item}>{item}</option>)}
-        </select>
-      </Field>
-      <fieldset className="md:col-span-2">
-        <legend>Required solutions</legend>
-        <div className="checkbox-grid">
-          {["Accounting", "Purchase", "Inventory", "Manufacturing", "Sales", "POS", "HR and Payroll", "Client and Vendor"].map((item) => (
-            <label key={item} className="check-row"><input type="checkbox" value={item} {...form.register("requiredSolutions")} />{item}</label>
-          ))}
-        </div>
-        {state.errors.requiredSolutions && <p className="field-error">{state.errors.requiredSolutions}</p>}
-      </fieldset>
-      <Field label="Preferred contact method" error={state.errors.preferredContact}>
-        <select {...form.register("preferredContact")} defaultValue="">
-          <option value="" disabled>Select method</option>
-          <option>Email</option>
-          <option>Phone</option>
-          <option>WhatsApp</option>
-        </select>
-      </Field>
-      <Field label="Message" error={state.errors.message} wide><textarea rows={4} {...form.register("message")} /></Field>
-      <label className="check-row md:col-span-2"><input type="checkbox" {...form.register("consent")} />I agree to be contacted about Bizovix ERP.</label>
-      {state.errors.consent && <p className="field-error md:col-span-2">{state.errors.consent}</p>}
-      <Button className="md:col-span-2" type="submit" disabled={state.status === "loading"}>{state.status === "loading" ? "Submitting..." : "Request Demo"}</Button>
-    </form>
-  );
-}
 
 export function ContactForm() {
   const form = useForm<Record<string, unknown>>();

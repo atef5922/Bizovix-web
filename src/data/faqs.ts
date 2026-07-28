@@ -9,11 +9,11 @@ export const faqs = [
   },
   {
     question: "Does Bizovix include implementation and training?",
-    answer: "The site is prepared around an implementation-led sales process. Demo requests collect the context needed for consultation, configuration planning, and training discussion.",
+    answer: "Bizovix is prepared around an implementation-led software rollout. Downloading the ERP software helps teams begin setup, configuration planning, and training discussion.",
   },
   {
     question: "How is pricing handled?",
-    answer: "ERP pricing depends on modules, users, branches, data migration, and implementation scope. Bizovix uses demo-led consultation instead of publishing unsupported fixed prices.",
+    answer: "ERP pricing depends on modules, users, branches, data migration, and implementation scope. Bizovix keeps pricing conversations aligned with the actual software setup and business requirements.",
   },
   {
     question: "Can Bizovix support multiple branches or companies?",

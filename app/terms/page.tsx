@@ -4,7 +4,7 @@ import { pageMetadata } from "@/src/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
   title: "Terms",
-  description: "Read Bizovix website terms prepared for ERP demo requests, product discussions, pricing conversations, implementation scope, and SaaS service communication.",
+  description: "Read Bizovix website terms prepared for ERP software downloads, product discussions, pricing conversations, implementation scope, and SaaS service communication.",
   path: "/terms",
 });
 
@@ -15,7 +15,7 @@ export default function TermsPage() {
       <section className="section">
         <div className="container-shell article-body">
           <h2>Website use</h2>
-          <p>Visitors may use the website to learn about Bizovix ERP, compare solutions, request demos, contact the team, and review educational resources.</p>
+          <p>Visitors may use the website to learn about Bizovix ERP, compare solutions, download ERP software, contact the team, and review educational resources.</p>
           <h2>Product discussions</h2>
           <p>ERP proposals, pricing, implementation scope, service levels, integrations, customization, and support responsibilities should be confirmed through an official agreement.</p>
           <h2>Content accuracy</h2>

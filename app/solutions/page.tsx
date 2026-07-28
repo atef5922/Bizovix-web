@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, Layers3, ShieldCheck, Workflow } from "lucide-react";
+import { ArrowRight, CheckCircle2, Download, Layers3, ShieldCheck, Workflow } from "lucide-react";
 import { CTASection } from "@/components/sections/MarketingSections";
 import { Icon } from "@/components/ui/Icon";
+import { siteConfig } from "@/src/config/site";
 import { solutions } from "@/src/data/solutions";
 import { pageMetadata } from "@/src/lib/seo";
 
@@ -39,9 +40,9 @@ export default function SolutionsPage() {
               purchase, inventory, manufacturing, sales, POS, HR, payroll, and reporting.
             </p>
             <div className="erp-hero-actions">
-              <Link href="/demo-request" className="erp-primary-link">
-                Request solution demo <ArrowRight size={16} />
-              </Link>
+              <a href={siteConfig.erpDownloadPath} download={siteConfig.erpDownloadFileName} className="erp-primary-link">
+                Download ERP software <Download size={16} />
+              </a>
               <Link href="/industries" className="erp-secondary-link">
                 View industries
               </Link>

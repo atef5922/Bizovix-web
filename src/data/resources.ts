@@ -19,11 +19,11 @@ export const resources: ResourceItem[] = [
   },
   {
     slug: "checklists",
-    title: "ERP Demo Preparation Checklist",
+    title: "ERP Software Readiness Checklist",
     category: "Checklists",
-    summary: "A checklist for gathering process, data, reporting, and approval needs before requesting an ERP demo.",
+    summary: "A checklist for gathering process, data, reporting, and approval needs before installing ERP software.",
     readingTime: "6 min read",
-    related: ["Demo", "Implementation", "Reporting"],
+    related: ["Download", "Implementation", "Reporting"],
   },
   {
     slug: "product-updates",

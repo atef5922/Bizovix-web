@@ -8,6 +8,8 @@ export const siteConfig = {
   address: process.env.NEXT_PUBLIC_OFFICE_ADDRESS || "Dhaka, Bangladesh",
   whatsapp: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "+8801700000000",
   messenger: process.env.NEXT_PUBLIC_MESSENGER_URL || "https://m.me/bizovix",
+  erpDownloadPath: "/software/Bizovix-ERP-Setup-0.1.0.exe",
+  erpDownloadFileName: "Bizovix-ERP-Setup-0.1.0.exe",
   description:
     "Bizovix is a cloud ERP SaaS platform for accounting, purchase, inventory, manufacturing, sales, POS, HR, payroll, reporting, and multi-branch operations.",
 };

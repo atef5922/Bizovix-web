@@ -21,9 +21,7 @@ export default function BlogPage() {
       <section className="blog-hero">
         <div className="container-shell blog-hero-inner">
           <p className="blog-hero-badge">Bizovix Blog</p>
-          <h1>
-            <span className="title-accent">ERP insights</span> for growing businesses
-          </h1>
+          <h1>ERP insights for growing businesses</h1>
         </div>
       </section>
 
@@ -86,7 +84,7 @@ export default function BlogPage() {
         </div>
       </section>
 
-      <CTASection title="Turn ERP research into a practical product demo" />
+      <CTASection title="Turn ERP research into a practical software setup" />
     </>
   );
 }
