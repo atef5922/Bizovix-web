@@ -328,11 +328,12 @@ img {
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  min-height: 44px;
-  min-width: 158px;
+  min-height: 42px;
+  min-width: 148px;
   border-radius: 12px;
   background: #0764EE;
   color: #ffffff;
+  font-size: 12px;
   box-shadow: 0 12px 26px rgba(8, 120, 183, 0.26);
   text-transform: uppercase;
 }
@@ -3392,6 +3393,7 @@ img {
 }
 
 .cta-primary-button {
+  width: 100%;
   min-height: 48px;
   border-radius: 8px;
   background: #ffffff;
@@ -3404,6 +3406,7 @@ img {
   color: #0764EE;
 }
 
+.cta-secondary-wrap > a,
 .cta-secondary-wrap > button {
   width: 100%;
   min-height: 48px;
@@ -3414,6 +3417,7 @@ img {
   box-shadow: none;
 }
 
+.cta-secondary-wrap > a:hover,
 .cta-secondary-wrap > button:hover {
   border-color: rgba(255, 255, 255, 0.58);
   background: rgba(255, 255, 255, 0.16);
@@ -3576,6 +3580,47 @@ img {
   color: rgba(255, 255, 255, 0.7);
   font-size: 13px;
   line-height: 1.65;
+}
+
+.footer-newsletter form {
+  display: grid;
+  gap: 10px;
+}
+
+.footer-newsletter .field {
+  display: grid;
+  gap: 7px;
+}
+
+.footer-newsletter .field span {
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 12px;
+  font-weight: 750;
+}
+
+.footer-newsletter .field input {
+  width: 100%;
+  min-height: 46px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 10px;
+  background: #ffffff;
+  color: #050B18;
+  font-size: 14px;
+  padding: 0 14px;
+  box-shadow: inset 0 1px 0 rgba(5, 11, 24, 0.04);
+}
+
+.footer-newsletter .field input:focus {
+  border-color: #1186EE;
+  outline: 3px solid rgba(17, 134, 238, 0.22);
+}
+
+.footer-newsletter .button {
+  width: 100%;
+  min-height: 48px;
+  border-radius: 10px;
+  font-size: 14px;
+  box-shadow: 0 14px 28px rgba(7, 100, 238, 0.24);
 }
 
 .footer-bottom {
