@@ -1334,17 +1334,16 @@ img {
 
 .brand-carousel-section {
   overflow: hidden;
-  background:
-    radial-gradient(circle at 50% 110%, rgba(7, 100, 238, 0.42), transparent 34%),
-    linear-gradient(135deg, #061235 0%, #0a1a54 48%, #071333 100%);
-  color: #ffffff;
-  padding: clamp(22px, 2.8vw, 34px) 0;
+  border-block: 1px solid #edf2f7;
+  background: #ffffff;
+  color: #071833;
+  padding: clamp(24px, 3.2vw, 38px) 0;
 }
 
 .brand-carousel-head {
   display: grid;
   gap: 8px;
-  margin-bottom: 14px;
+  margin-bottom: 20px;
   text-align: center;
 }
 
@@ -1362,17 +1361,17 @@ img {
   display: flex;
   align-items: center;
   overflow: hidden;
-  width: min(100%, 1120px);
+  width: min(100% - 36px, 1210px);
   margin-inline: auto;
   padding: 0;
-  mask-image: linear-gradient(90deg, transparent 0%, black 9%, black 91%, transparent 100%);
+  mask-image: none;
 }
 
 .brand-carousel-track {
   display: flex;
   width: max-content;
-  gap: 14px;
-  animation: brandSlide 24s linear infinite;
+  gap: 16px;
+  animation: brandSlide 26s linear infinite;
 }
 
 .brand-carousel-wrap:hover .brand-carousel-track {
@@ -1381,20 +1380,20 @@ img {
 
 .brand-card {
   display: grid;
-  flex: 0 0 160px;
-  min-height: 70px;
+  flex: 0 0 clamp(170px, 15vw, 188px);
+  min-height: 78px;
   place-items: center;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.96);
-  padding: 10px 16px;
-  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(211, 222, 237, 0.95);
+  border-radius: 14px;
+  background: #ffffff;
+  padding: 12px 18px;
+  box-shadow: 0 10px 24px rgba(15, 39, 84, 0.05);
 }
 
 .brand-card img {
   display: block;
-  max-height: 48px;
-  max-width: 118px;
+  max-height: 44px;
+  max-width: 132px;
   width: auto;
   object-fit: contain;
   object-position: center;
@@ -4676,17 +4675,19 @@ legend {
   }
 
   .brand-carousel-wrap {
+    width: min(100% - 28px, 520px);
     padding: 0;
   }
 
   .brand-carousel-track {
     gap: 10px;
-    animation-duration: 20s;
+    animation-duration: 22s;
   }
 
   .brand-card {
-    flex-basis: 126px;
-    min-height: 62px;
+    flex-basis: 136px;
+    min-height: 64px;
+    border-radius: 12px;
     padding: 8px 12px;
   }
 
