@@ -175,20 +175,38 @@ export default function Home() {
     ["Role-based", "Secure approvals"],
   ];
 
+  const aboutGalleryImages = [
+    {
+      className: "about-photo-main",
+      src: "/images/about/about1.webp",
+      alt: "Bizovix ERP consultants reviewing business analytics",
+    },
+    {
+      className: "about-photo-small",
+      src: "/images/about/about2.webp",
+      alt: "Bizovix team planning cloud ERP implementation",
+    },
+    {
+      className: "about-photo-small",
+      src: "/images/submenu/Connected ERP Modules.webp",
+      alt: "Bizovix connected ERP modules preview",
+    },
+  ];
+
   const aboutSolutionCards = [
     {
-      title: "Finance, purchase and inventory",
-      body: "Connect accounts, vendor bills, stock movement, warehouses, and approvals so every transaction keeps its operational context.",
+      title: "Finance & inventory control",
+      body: "Accounting, purchase, vendor bills, stock movement, warehouse records, and approval chains stay connected from entry to report.",
       icon: <BarChart3 className="h-5 w-5" />,
     },
     {
-      title: "Sales, POS and customer flow",
-      body: "Keep quotations, orders, counter sales, returns, collections, and customer records moving through one cleaner revenue workflow.",
+      title: "Sales, POS & customer flow",
+      body: "Quotations, orders, counter sales, returns, collections, and customer history move through one reliable revenue workflow.",
       icon: <PackageCheck className="h-5 w-5" />,
     },
     {
-      title: "Production and team operations",
-      body: "Align BOM, work orders, HR, payroll, attendance, dashboards, and management reports around how your company actually runs.",
+      title: "Production & team operations",
+      body: "BOM, work orders, HR, payroll, attendance, dashboards, and management reports align around your actual operating model.",
       icon: <Factory className="h-5 w-5" />,
     },
   ];
@@ -373,10 +391,17 @@ export default function Home() {
               >
                 Discover More
               </ButtonLink>
+            </div>
 
-              <span className="about-security-note">
+            <div className="about-assurance-row">
+              <span>
                 <ShieldCheck className="h-4 w-4" />
-                Secure implementation with practical regional workflows
+                Secure implementation
+              </span>
+
+              <span>
+                <CheckCircle2 className="h-4 w-4" />
+                Practical regional workflows
               </span>
             </div>
           </div>
@@ -385,47 +410,33 @@ export default function Home() {
             className="about-preview-media"
             aria-label="Bizovix ERP implementation and analytics preview"
           >
-            <div className="about-visual-frame">
-              <img
-                className="about-image-main"
-                src="/images/about/about1.webp"
-                alt="Bizovix ERP consultants reviewing business analytics"
-              />
+            <div className="about-photo-frame">
+              <div className="about-photo-frame-head">
+                <span>Bizovix operating platform</span>
+                <strong>Implementation view</strong>
+              </div>
 
-              <div className="about-dashboard-card">
-                <div>
-                  <span>Live control room</span>
-                  <strong>ERP health</strong>
-                </div>
+              <div className="about-photo-grid">
+                {aboutGalleryImages.map((image) => (
+                  <img
+                    className={image.className}
+                    src={image.src}
+                    alt={image.alt}
+                    key={image.src}
+                  />
+                ))}
+              </div>
 
-                <div className="about-progress-row">
-                  <span />
-                  <span />
-                  <span />
+              <div className="about-photo-footer">
+                <div className="about-experience-badge">
+                  <strong>10+</strong>
+                  <span>Years ERP Experience</span>
                 </div>
 
                 <p>
-                  Finance, stock, sales and approvals synced in one view.
+                  Finance, stock, sales, production, HR, and approvals are
+                  organized into one implementation plan before go-live.
                 </p>
-              </div>
-
-              <div className="about-experience-badge">
-                <strong>10+</strong>
-                <span>Years ERP Experience</span>
-              </div>
-
-              <img
-                className="about-image-secondary"
-                src="/images/about/about2.webp"
-                alt="Bizovix team planning cloud ERP implementation"
-              />
-
-              <div className="about-live-panel">
-                <CheckCircle2 className="h-4 w-4" />
-                <div>
-                  <strong>Go-live ready</strong>
-                  <span>Configured around real teams</span>
-                </div>
               </div>
             </div>
           </div>
@@ -438,20 +449,18 @@ export default function Home() {
           </div>
 
           <div className="about-solution-grid">
-            {aboutSolutionCards.map((item, index) => (
-              <details
+            {aboutSolutionCards.map((item) => (
+              <article
                 className="about-solution-card"
                 key={item.title}
-                open={index === 0}
               >
-                <summary>
+                <div>
                   <span>{item.icon}</span>
                   <strong>{item.title}</strong>
-                  <ArrowRight className="h-4 w-4" />
-                </summary>
+                </div>
 
                 <p>{item.body}</p>
-              </details>
+              </article>
             ))}
           </div>
 
