@@ -169,6 +169,22 @@ export default function Home() {
     ],
   ];
 
+  const aboutStats = [
+    ["350+", "Happy Clients", <UsersRound key="clients" className="h-6 w-6" />],
+    ["15+", "Industries Served", <Building2 key="industries" className="h-6 w-6" />],
+    ["5+", "Countries", <MapPin key="countries" className="h-6 w-6" />],
+    ["99.9%", "System Uptime", <ShieldCheck key="uptime" className="h-6 w-6" />],
+  ];
+
+  const aboutSolutions = [
+    ["Accounting & Finance ERP", <ClipboardCheck key="accounting" className="h-4 w-4" />],
+    ["Inventory & Warehouse Control", <PackageCheck key="inventory-control" className="h-4 w-4" />],
+    ["Sales, POS & CRM Automation", <Building2 key="sales-crm" className="h-4 w-4" />],
+    ["Manufacturing & Production Planning", <Factory key="manufacturing-planning" className="h-4 w-4" />],
+    ["HR, Payroll & Attendance", <UsersRound key="payroll-attendance" className="h-4 w-4" />],
+    ["Approvals, Dashboards & Reports", <BarChart3 key="approvals-reports" className="h-4 w-4" />],
+  ];
+
   const trustReasons = [
     [
       "Business-first ERP implementation",
@@ -300,38 +316,58 @@ export default function Home() {
       >
         <div className="container-shell about-preview-grid">
           <div className="about-preview-media">
-            <img
-              className="about-image-main"
-              src="/images/about/about1.webp"
-              alt="Bizovix ERP consultants reviewing business analytics"
-            />
+            <div className="about-photo-pattern" aria-hidden="true" />
+            <div className="about-photo-shape about-photo-shape-one" aria-hidden="true" />
+            <div className="about-photo-shape about-photo-shape-two" aria-hidden="true" />
 
-            <div className="about-experience-badge">
-              <strong>10+</strong>
-              <span>Years ERP Experience</span>
+            <div className="about-image-frame about-image-frame-main">
+              <img
+                src="/images/about/about1.webp"
+                alt="Bizovix ERP consultants reviewing business analytics"
+              />
             </div>
 
-            <img
-              className="about-image-secondary"
-              src="/images/about/about2.webp"
-              alt="Bizovix team planning cloud ERP implementation"
-            />
+            <div className="about-image-stack">
+              <div className="about-image-frame about-image-frame-small">
+                <img
+                  src="/images/about/about2.webp"
+                  alt="Bizovix team planning cloud ERP implementation"
+                />
+              </div>
+
+              <div className="about-image-frame about-image-frame-small">
+                <img
+                  src="/images/about/about3.webp"
+                  alt="Bizovix ERP team collaborating on business operations"
+                />
+              </div>
+            </div>
+
+            <div className="about-experience-badge">
+              <span>
+                <ShieldCheck className="h-7 w-7" />
+              </span>
+              <strong>10+</strong>
+              <small>Years of ERP Excellence</small>
+            </div>
           </div>
 
           <div className="about-preview-copy">
-            <p className="about-pill">About Bizovix</p>
+            <p className="about-pill">
+              <Building2 className="h-4 w-4" />
+              About Bizovix
+            </p>
 
             <h2>
-              We build cloud ERP solutions for smarter business operations
+              <span>We</span> build cloud ERP solutions for smarter business operations
             </h2>
 
             <p>
-              Bizovix helps growing companies in Bangladesh, South Asia,
-              and beyond connect finance, inventory, sales, purchase,
-              production, HR, payroll, approvals, and reporting in one
-              secure cloud ERP platform. Our team focuses on practical
-              implementation, clean workflows, and real-time business
-              visibility that leaders can trust.
+              Bizovix empowers growing businesses in Bangladesh, South Asia,
+              and beyond to streamline operations and drive growth. Our secure
+              cloud ERP platform connects finance, inventory, sales, HR, and
+              more-enabling real-time control, automation, and data-driven
+              decisions.
             </p>
 
             <div className="about-solution-title">
@@ -339,29 +375,35 @@ export default function Home() {
             </div>
 
             <div className="about-solution-grid">
-              {[
-                "Accounting & Finance ERP",
-                "Inventory & Warehouse Control",
-                "Sales, POS & CRM Automation",
-                "Manufacturing & Production Planning",
-                "HR, Payroll & Attendance",
-                "Approvals, Dashboards & Reports",
-              ].map((item) => (
-                <span key={item}>
-                  <CheckCircle2 className="h-4 w-4" />
+              {aboutSolutions.map(([item, icon]) => (
+                <span key={item as string}>
+                  {icon}
                   {item}
                 </span>
               ))}
             </div>
 
-            <ButtonLink
-              href="/about-us"
-              variant="secondary"
-              className="about-preview-cta"
-            >
-              Discover More
-              <ArrowRight className="h-4 w-4" />
-            </ButtonLink>
+            <div className="about-preview-actions">
+              <ButtonLink
+                href="/about-us"
+                className="about-preview-cta"
+              >
+                Discover More
+                <ArrowRight className="h-4 w-4" />
+              </ButtonLink>
+            </div>
+
+            <div className="about-stat-strip">
+              {aboutStats.map(([value, label, icon]) => (
+                <article key={value as string}>
+                  {icon}
+                  <div>
+                    <strong>{value}</strong>
+                    <span>{label}</span>
+                  </div>
+                </article>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -371,7 +413,10 @@ export default function Home() {
         aria-label="Brands and industries powered by Bizovix ERP"
       >
         <div className="container-shell brand-carousel-head">
-          <p>Connected ERP for ambitious teams</p>
+          <p>
+            <Layers3 className="h-4 w-4" />
+            Connected ERP for ambitious teams
+          </p>
         </div>
 
         <div className="brand-carousel-wrap">
@@ -510,7 +555,10 @@ export default function Home() {
         aria-label="Bizovix ERP services for business transformation"
       >
         <div className="container-shell solution-orbit-head">
-          <p>Services</p>
+          <p>
+            <Layers3 className="h-4 w-4" />
+            Services
+          </p>
 
           <h2>
             Innovative ERP Solutions That Power Business Transformation
@@ -586,7 +634,10 @@ export default function Home() {
         aria-label="Why businesses trust Bizovix ERP"
       >
         <div className="container-shell why-trust-head">
-          <p>Why Choose Us</p>
+          <p>
+            <ShieldCheck className="h-4 w-4" />
+            Why Choose Us
+          </p>
 
           <h2>
             Why Businesses Trust Bizovix?
@@ -651,7 +702,10 @@ export default function Home() {
         aria-label="Bizovix one stop ERP products"
       >
         <div className="container-shell erp-clarity-head">
-          <p>Our Products</p>
+          <p>
+            <PackageCheck className="h-4 w-4" />
+            Our Products
+          </p>
 
           <h2>
             From Complexity to Clarity. One ERP for Every Team.
