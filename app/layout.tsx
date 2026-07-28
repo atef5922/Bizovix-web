@@ -15,10 +15,6 @@ export const metadata: Metadata = {
   },
   description: siteConfig.description,
   applicationName: "Bizovix",
-  icons: {
-    icon: "/favicon.svg",
-    shortcut: "/favicon.svg",
-  },
   openGraph: {
     title: "Bizovix Cloud ERP Software",
     description: siteConfig.description,
@@ -43,6 +39,12 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/favicon.ico?v=2" sizes="32x32" />
+        <link rel="icon" href="/favicon-32x32.png?v=2" type="image/png" sizes="32x32" />
+        <link rel="shortcut icon" href="/favicon.ico?v=2" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2" />
+      </head>
       <body>
         <Header />
         <main id="main-content">{children}</main>

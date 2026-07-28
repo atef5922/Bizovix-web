@@ -517,6 +517,11 @@ export default function Home() {
       >
         <div className="container-shell multi-device-grid">
           <div className="multi-device-copy">
+            <p className="multi-device-pill">
+              <Settings2 className="h-4 w-4" />
+              Multi-Device ERP
+            </p>
+
             <h2>
               The Real Multi-Device ERP Experience
             </h2>
@@ -800,6 +805,11 @@ export default function Home() {
         aria-label="Bizovix ERP implementation process"
       >
         <div className="container-shell process-head">
+          <p className="process-pill">
+            <Rocket className="h-4 w-4" />
+            Go-Live Process
+          </p>
+
           <h2>
             How Bizovix Helps Your Business Go Live
           </h2>

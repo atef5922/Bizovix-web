@@ -2034,7 +2034,8 @@ img {
 }
 
 .multi-device-section {
-  background: #ffffff;
+  border-block: 1px solid rgba(214, 225, 242, 0.78);
+  background: linear-gradient(180deg, #eef6ff 0%, #f8fbff 100%);
   padding: clamp(58px, 6.5vw, 96px) 0;
 }
 
@@ -2058,7 +2059,11 @@ img {
   letter-spacing: 0;
 }
 
-.multi-device-copy p {
+.multi-device-pill + h2 {
+  margin-top: 16px;
+}
+
+.multi-device-copy p:not(.multi-device-pill) {
   margin: 20px 0 0;
   color: #5d6678;
   font-size: 15px;
@@ -2113,9 +2118,7 @@ img {
 }
 
 .solution-orbit-section {
-  background:
-    radial-gradient(circle at 50% 42%, rgba(7, 100, 238, 0.08), transparent 28%),
-    linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+  background: #ffffff;
   padding: clamp(58px, 6.5vw, 94px) 0;
 }
 
@@ -2450,9 +2453,11 @@ img {
 .about-pill,
 .brand-carousel-head p,
 .bd-coverage-pill,
+.multi-device-pill,
 .solution-orbit-head p,
 .why-trust-head > p,
-.erp-clarity-head p {
+.erp-clarity-head p,
+.process-pill {
   display: inline-flex;
   width: fit-content;
   min-height: 30px;
@@ -2476,16 +2481,19 @@ img {
 .brand-carousel-head p,
 .solution-orbit-head p,
 .why-trust-head > p,
-.erp-clarity-head p {
+.erp-clarity-head p,
+.process-pill {
   justify-self: center;
 }
 
 .about-pill svg,
 .brand-carousel-head p svg,
 .bd-coverage-pill svg,
+.multi-device-pill svg,
 .solution-orbit-head p svg,
 .why-trust-head > p svg,
-.erp-clarity-head p svg {
+.erp-clarity-head p svg,
+.process-pill svg {
   flex: 0 0 auto;
   color: currentColor;
   fill: transparent;
@@ -2746,7 +2754,11 @@ img {
   letter-spacing: 0;
 }
 
-.process-head p {
+.process-pill + h2 {
+  margin-top: 16px;
+}
+
+.process-head p:not(.process-pill) {
   max-width: 720px;
   margin: 12px 0 0;
   color: #5d6678;
@@ -4462,7 +4474,7 @@ legend {
     font-size: clamp(1.8rem, 8vw, 2.35rem);
   }
 
-  .multi-device-copy p {
+  .multi-device-copy p:not(.multi-device-pill) {
     font-size: 14px;
     line-height: 1.7;
   }
@@ -7163,7 +7175,7 @@ legend {
 .about-centered-heading p,
 .about-proof-grid p,
 .bd-coverage-copy > p,
-.multi-device-copy > p,
+.multi-device-copy > p:not(.multi-device-pill),
 .solution-orbit-heading p,
 .why-trust-heading p,
 .process-heading p,
