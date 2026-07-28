@@ -169,6 +169,36 @@ export default function Home() {
     ],
   ];
 
+  const aboutMetrics = [
+    ["12+", "ERP modules"],
+    ["Real-time", "Operational visibility"],
+    ["Role-based", "Secure approvals"],
+  ];
+
+  const aboutSolutionCards = [
+    {
+      title: "Finance, purchase and inventory",
+      body: "Connect accounts, vendor bills, stock movement, warehouses, and approvals so every transaction keeps its operational context.",
+      icon: <BarChart3 className="h-5 w-5" />,
+    },
+    {
+      title: "Sales, POS and customer flow",
+      body: "Keep quotations, orders, counter sales, returns, collections, and customer records moving through one cleaner revenue workflow.",
+      icon: <PackageCheck className="h-5 w-5" />,
+    },
+    {
+      title: "Production and team operations",
+      body: "Align BOM, work orders, HR, payroll, attendance, dashboards, and management reports around how your company actually runs.",
+      icon: <Factory className="h-5 w-5" />,
+    },
+  ];
+
+  const aboutWorkflow = [
+    ["01", "Map", "Teams, branches and approval paths"],
+    ["02", "Configure", "Modules, roles and reporting logic"],
+    ["03", "Optimize", "Training, adoption and improvements"],
+  ];
+
   const trustReasons = [
     [
       "Business-first ERP implementation",
@@ -299,69 +329,145 @@ export default function Home() {
         aria-label="About Bizovix ERP solutions"
       >
         <div className="container-shell about-preview-grid">
-          <div className="about-preview-media">
-            <img
-              className="about-image-main"
-              src="/images/about/about1.webp"
-              alt="Bizovix ERP consultants reviewing business analytics"
-            />
-
-            <div className="about-experience-badge">
-              <strong>10+</strong>
-              <span>Years ERP Experience</span>
-            </div>
-
-            <img
-              className="about-image-secondary"
-              src="/images/about/about2.webp"
-              alt="Bizovix team planning cloud ERP implementation"
-            />
-          </div>
-
           <div className="about-preview-copy">
-            <p className="about-pill">About Bizovix</p>
+            <p className="about-pill">
+              <span />
+              About Bizovix
+            </p>
 
             <h2>
-              We build cloud ERP solutions for smarter business operations
+              Premium Cloud ERP for Finance, Inventory, Production, and Growth
             </h2>
 
             <p>
               Bizovix helps growing companies in Bangladesh, South Asia,
-              and beyond connect finance, inventory, sales, purchase,
-              production, HR, payroll, approvals, and reporting in one
-              secure cloud ERP platform. Our team focuses on practical
-              implementation, clean workflows, and real-time business
-              visibility that leaders can trust.
+              and beyond connect finance, purchase, inventory, sales,
+              POS, manufacturing, HR, payroll, approvals, and reporting
+              in one secure cloud ERP platform. The focus is practical:
+              cleaner workflows, reliable data, and real-time visibility
+              leaders can trust before the next decision.
             </p>
 
-            <div className="about-solution-title">
-              Our Core ERP Solutions
-            </div>
-
-            <div className="about-solution-grid">
-              {[
-                "Accounting & Finance ERP",
-                "Inventory & Warehouse Control",
-                "Sales, POS & CRM Automation",
-                "Manufacturing & Production Planning",
-                "HR, Payroll & Attendance",
-                "Approvals, Dashboards & Reports",
-              ].map((item) => (
-                <span key={item}>
-                  <CheckCircle2 className="h-4 w-4" />
-                  {item}
-                </span>
+            <div className="about-metric-row">
+              {aboutMetrics.map(([value, label]) => (
+                <article key={value}>
+                  <strong>{value}</strong>
+                  <span>{label}</span>
+                </article>
               ))}
             </div>
 
-            <ButtonLink
-              href="/about-us"
-              variant="secondary"
-              className="about-preview-cta"
-            >
-              Discover More
-              <ArrowRight className="h-4 w-4" />
-            </ButtonLink>
+            <div className="about-action-row">
+              <ButtonLink
+                href="/demo-request"
+                className="about-demo-cta"
+              >
+                Request a Free Demo
+                <ArrowRight className="h-4 w-4" />
+              </ButtonLink>
+
+              <ButtonLink
+                href="/about-us"
+                variant="secondary"
+                className="about-preview-cta"
+              >
+                Discover More
+              </ButtonLink>
+
+              <span className="about-security-note">
+                <ShieldCheck className="h-4 w-4" />
+                Secure implementation with practical regional workflows
+              </span>
+            </div>
+          </div>
+
+          <div
+            className="about-preview-media"
+            aria-label="Bizovix ERP implementation and analytics preview"
+          >
+            <div className="about-visual-frame">
+              <img
+                className="about-image-main"
+                src="/images/about/about1.webp"
+                alt="Bizovix ERP consultants reviewing business analytics"
+              />
+
+              <div className="about-dashboard-card">
+                <div>
+                  <span>Live control room</span>
+                  <strong>ERP health</strong>
+                </div>
+
+                <div className="about-progress-row">
+                  <span />
+                  <span />
+                  <span />
+                </div>
+
+                <p>
+                  Finance, stock, sales and approvals synced in one view.
+                </p>
+              </div>
+
+              <div className="about-experience-badge">
+                <strong>10+</strong>
+                <span>Years ERP Experience</span>
+              </div>
+
+              <img
+                className="about-image-secondary"
+                src="/images/about/about2.webp"
+                alt="Bizovix team planning cloud ERP implementation"
+              />
+
+              <div className="about-live-panel">
+                <CheckCircle2 className="h-4 w-4" />
+                <div>
+                  <strong>Go-live ready</strong>
+                  <span>Configured around real teams</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="container-shell about-solution-panel">
+          <div className="about-solution-title">
+            <span>Our Core ERP Solutions</span>
+            <strong>Connected modules for the full operating cycle</strong>
+          </div>
+
+          <div className="about-solution-grid">
+            {aboutSolutionCards.map((item, index) => (
+              <details
+                className="about-solution-card"
+                key={item.title}
+                open={index === 0}
+              >
+                <summary>
+                  <span>{item.icon}</span>
+                  <strong>{item.title}</strong>
+                  <ArrowRight className="h-4 w-4" />
+                </summary>
+
+                <p>{item.body}</p>
+              </details>
+            ))}
+          </div>
+
+          <div
+            className="about-workflow-strip"
+            aria-label="Bizovix ERP implementation flow"
+          >
+            {aboutWorkflow.map(([step, title, body]) => (
+              <article key={step}>
+                <span>{step}</span>
+                <div>
+                  <strong>{title}</strong>
+                  <p>{body}</p>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
