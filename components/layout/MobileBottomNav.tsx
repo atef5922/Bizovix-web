@@ -44,17 +44,9 @@ export function MobileBottomNav() {
   }, []);
 
   useEffect(() => {
-    const previousPadding = document.body.style.paddingBottom;
-
     if (enabled) {
-      document.body.style.paddingBottom = "calc(70px + env(safe-area-inset-bottom))";
-    } else {
-      document.body.style.paddingBottom = previousPadding;
+      document.body.style.paddingBottom = "0px";
     }
-
-    return () => {
-      document.body.style.paddingBottom = previousPadding;
-    };
   }, [enabled]);
 
   const navStyle = useMemo<CSSProperties>(

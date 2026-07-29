@@ -13953,8 +13953,8 @@ main .process-pill svg {
     display: none !important;
   }
 
-  body {
-    padding-bottom: calc(70px + env(safe-area-inset-bottom));
+  .site-footer {
+    padding-bottom: calc(66px + env(safe-area-inset-bottom));
   }
 
   .mobile-bottom-nav {
