@@ -5,6 +5,8 @@ import { resources } from "@/src/data/resources";
 import { solutions } from "@/src/data/solutions";
 import { absoluteUrl } from "@/src/lib/utils";
 
+export const dynamic = "force-static";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [
     "/",
