@@ -13362,3 +13362,104 @@ main .process-pill svg {
     padding: 16px;
   }
 }
+
+@media (max-width: 640px) {
+  .nav-actions {
+    gap: 8px;
+  }
+
+  .search-trigger {
+    display: inline-flex;
+    min-height: 36px;
+    min-width: 36px;
+  }
+
+  .mobile-menu-trigger {
+    min-height: 36px;
+    min-width: 36px;
+  }
+
+  .banner-slider {
+    height: min(430px, calc(100svh - 58px));
+    min-height: 390px;
+    max-height: 450px;
+  }
+
+  .banner-image {
+    object-fit: cover;
+    object-position: 66% center;
+  }
+
+  .banner-slide::before {
+    background:
+      linear-gradient(180deg, rgba(1, 8, 28, 0.72) 0%, rgba(1, 8, 28, 0.5) 34%, rgba(1, 8, 28, 0.74) 100%),
+      linear-gradient(90deg, rgba(1, 8, 28, 0.92) 0%, rgba(1, 8, 28, 0.58) 58%, rgba(1, 8, 28, 0.18) 100%);
+  }
+
+  .banner-content {
+    inset: 0;
+    display: flex;
+    width: 100%;
+    max-width: none;
+    height: 100%;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 42px 14px 72px;
+    transform: none;
+  }
+
+  .banner-kicker {
+    align-self: flex-start;
+    min-height: 26px;
+    margin: 0;
+    padding-inline: 10px;
+    font-size: 10px;
+  }
+
+  .banner-kicker span {
+    height: 7px;
+    width: 7px;
+  }
+
+  .banner-content h2 {
+    max-width: 252px;
+    margin-top: 12px;
+    font-size: clamp(1.35rem, 6.6vw, 1.68rem);
+    line-height: 1.05;
+  }
+
+  .banner-rule {
+    width: 38px;
+    margin-top: 10px;
+  }
+
+  .banner-copy {
+    display: none;
+  }
+
+  .banner-actions {
+    display: grid;
+    width: 100%;
+    margin-top: auto;
+    gap: 5px;
+    padding: 4px;
+  }
+
+  .banner-action-primary,
+  .banner-action-secondary {
+    min-height: 30px;
+    width: 100%;
+    justify-content: center;
+    padding-inline: 10px;
+    font-size: 10.5px;
+  }
+
+  .banner-nav {
+    display: none;
+  }
+
+  .banner-dots {
+    bottom: 16px;
+    padding: 5px 8px;
+  }
+}
