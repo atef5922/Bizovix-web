@@ -8341,6 +8341,263 @@ main .pricing-price-row strong {
   }
 }
 
+/* About page production mobile fit pass */
+@media (max-width: 640px) {
+  .about-page-hero,
+  .about-partner-section,
+  .about-who-section,
+  .ceo-message-section,
+  .team-section,
+  .about-blue-cta,
+  .about-proof-section {
+    overflow: hidden;
+  }
+
+  .about-page-hero {
+    min-height: 230px;
+    padding-block: 28px;
+    background-position: 58% center;
+  }
+
+  .about-page-hero::before {
+    background:
+      linear-gradient(90deg, rgba(6, 18, 43, 0.76), rgba(6, 28, 72, 0.58)),
+      radial-gradient(circle at 82% 32%, rgba(7, 100, 238, 0.2), transparent 30%),
+      radial-gradient(circle at 12% 86%, rgba(19, 183, 163, 0.16), transparent 26%);
+  }
+
+  .about-page-hero-inner {
+    width: min(100% - 28px, 430px);
+    padding-block: 0;
+    text-align: left;
+  }
+
+  .about-page-badge {
+    margin: 0 0 12px;
+  }
+
+  main .about-page-hero h1 {
+    max-width: 360px;
+    font-size: clamp(1.58rem, 7.2vw, 2rem);
+    line-height: 1.12;
+  }
+
+  .about-partner-section,
+  .about-who-section,
+  .ceo-message-section,
+  .team-section,
+  .about-proof-section {
+    padding-block: 24px;
+  }
+
+  .about-partner-grid,
+  .about-mission-grid,
+  .ceo-message-card,
+  .about-proof-grid {
+    gap: 16px;
+  }
+
+  .about-partner-image {
+    border-radius: 12px;
+    box-shadow: 0 18px 42px rgba(7, 26, 51, 0.11);
+  }
+
+  .about-partner-image img {
+    width: 100%;
+    min-height: 0;
+    height: clamp(190px, 58vw, 250px);
+    object-fit: cover;
+  }
+
+  .about-partner-copy,
+  .about-centered-heading,
+  .ceo-section-heading,
+  .team-section-heading,
+  .about-proof-grid article {
+    min-width: 0;
+  }
+
+  .about-partner-copy h2,
+  .about-centered-heading h2,
+  .about-proof-grid h2 {
+    margin-top: 12px;
+  }
+
+  .about-partner-copy h3 {
+    font-size: 0.96rem;
+    line-height: 1.35;
+  }
+
+  .about-contact-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+    margin-top: 16px;
+  }
+
+  .about-contact-row span,
+  .about-contact-row span:nth-child(3) {
+    display: inline-flex;
+    width: 100%;
+    min-width: 0;
+    justify-content: flex-start;
+    border-radius: 10px;
+    padding: 9px 10px;
+    white-space: normal;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    text-align: left;
+  }
+
+  .about-contact-row span:nth-child(3) {
+    display: none;
+  }
+
+  .about-mission-card {
+    border-radius: 12px;
+    padding: 18px;
+    box-shadow: 0 16px 38px rgba(7, 26, 51, 0.08);
+  }
+
+  .about-mission-card > span {
+    width: 44px;
+    height: 44px;
+  }
+
+  .ceo-message-card {
+    border-radius: 16px;
+    padding: 12px;
+    box-shadow: 0 18px 52px rgba(7, 26, 51, 0.1);
+  }
+
+  .ceo-profile-panel {
+    min-height: 0;
+    border-radius: 14px;
+    padding: 12px;
+  }
+
+  .ceo-portrait-wrap {
+    min-height: 0;
+    height: clamp(250px, 82vw, 330px);
+    border-radius: 12px;
+  }
+
+  .ceo-portrait-wrap img {
+    min-height: 0;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  .ceo-profile-meta {
+    border-radius: 12px;
+    padding: 12px;
+  }
+
+  .ceo-message-copy {
+    border-radius: 14px;
+    padding: 18px;
+  }
+
+  .ceo-message-title-row {
+    align-items: flex-start;
+  }
+
+  .ceo-message-copy h3 {
+    font-size: clamp(1.18rem, 5.4vw, 1.5rem);
+  }
+
+  .ceo-message-copy p {
+    line-height: 1.6;
+  }
+
+  .ceo-message-tags {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .ceo-message-tags span {
+    border-radius: 9px;
+    text-align: center;
+  }
+
+  .team-slider {
+    width: calc(100% + 28px);
+    margin-inline: -14px;
+    padding: 2px 0 8px;
+  }
+
+  .team-track {
+    gap: 10px;
+  }
+
+  .team-card {
+    flex-basis: clamp(138px, 42vw, 160px);
+    border-radius: 12px;
+  }
+
+  .team-photo {
+    aspect-ratio: 1 / 1;
+    margin: 8px 8px 0;
+  }
+
+  .team-card-body {
+    min-height: 74px;
+    padding: 10px 8px 12px;
+  }
+
+  .team-card-body h3,
+  .team-card-body p {
+    overflow-wrap: anywhere;
+  }
+
+  .about-blue-cta {
+    padding-block: 28px;
+  }
+
+  .about-blue-cta-inner {
+    gap: 14px;
+  }
+
+  .about-blue-cta-button {
+    min-height: 42px;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .about-proof-grid article {
+    border-radius: 12px;
+    padding: 18px;
+  }
+
+  .about-proof-points span,
+  .about-client-list span {
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .about-proof-points svg,
+  .about-client-list svg {
+    margin-top: 2px;
+  }
+}
+
+@media (max-width: 380px) {
+  main .about-page-hero h1 {
+    font-size: clamp(1.42rem, 7.6vw, 1.72rem);
+  }
+
+  .about-page-badge,
+  .about-section-pill {
+    max-width: 100%;
+    white-space: normal;
+  }
+
+  .team-card {
+    flex-basis: 132px;
+  }
+}
+
 /* Career, contact, and resources pages */
 .biz-page-hero {
   position: relative;
