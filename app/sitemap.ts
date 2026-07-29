@@ -23,8 +23,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/faq",
     "/documentation",
     "/help-center",
-    "/en",
-    "/bn",
   ];
 
   const dynamicRoutes = [

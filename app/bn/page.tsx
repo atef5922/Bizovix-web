@@ -3,11 +3,21 @@ import Link from "next/link";
 import { PageHero } from "@/components/sections/MarketingSections";
 import { pageMetadata } from "@/src/lib/seo";
 
-export const metadata: Metadata = pageMetadata({
-  title: "Bangla ERP Site",
-  description: "Bizovix Bangla page prepared for future localized ERP content for businesses in Bangladesh.",
-  path: "/bn",
-});
+export const metadata: Metadata = {
+  ...pageMetadata({
+    title: "Bangla ERP Site",
+    description: "Bizovix Bangla page prepared for future localized ERP content for businesses in Bangladesh.",
+    path: "/",
+  }),
+  robots: {
+    index: false,
+    follow: true,
+    googleBot: {
+      index: false,
+      follow: true,
+    },
+  },
+};
 
 export default function BanglaEntryPage() {
   return (

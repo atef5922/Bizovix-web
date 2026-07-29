@@ -1,5 +1,19 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { siteConfig } from "@/src/config/site";
+
+export const metadata: Metadata = {
+  title: "Page Not Found",
+  description: "The requested Bizovix page is not available.",
+  robots: {
+    index: false,
+    follow: false,
+    googleBot: {
+      index: false,
+      follow: false,
+    },
+  },
+};
 
 export default function NotFound() {
   return (
