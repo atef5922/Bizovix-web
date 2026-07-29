@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState, type ReactNode } from "react";
-import { Bell, Boxes, Building2, ChevronDown, ChevronRight, Copyright, Factory, Mail, MapPin, Phone } from "lucide-react";
+import { Bell, Boxes, Building2, ChevronDown, ChevronRight, Cloud, Copyright, Factory, Mail, MapPin, Phone, ShieldCheck } from "lucide-react";
 import { resourcesNavigation, solutionNavigation, industryNavigation } from "@/src/data/navigation";
 import { siteConfig } from "@/src/config/site";
 import { NewsletterForm } from "@/components/forms/LeadForms";
@@ -28,9 +28,9 @@ export function Footer() {
               <span><MapPin size={14} />{siteConfig.address}</span>
             </div>
             <div className="footer-proof-row" aria-label="Bizovix platform highlights">
-              <span>Cloud ERP</span>
-              <span>BD-ready</span>
-              <span>Secure rollout</span>
+              <span><Cloud size={13} /> Cloud ERP</span>
+              <span><MapPin size={13} /> BD-ready</span>
+              <span><ShieldCheck size={13} /> Secure rollout</span>
             </div>
           </div>
 

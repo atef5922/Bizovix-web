@@ -74,6 +74,11 @@ const teamMembers = [
     role: "Sales Executive",
     image: "/images/team/maoya.webp",
   },
+  {
+    name: "Naimul Islam Galib",
+    role: "Coordinator",
+    image: "/images/team/galib.webp",
+  },
 ];
 
 export default function AboutPage() {

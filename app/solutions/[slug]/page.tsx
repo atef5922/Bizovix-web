@@ -52,14 +52,14 @@ const solutionVideoMap: Record<string, { src: string; label: string }> = {
 };
 
 const solutionVisualMap: Record<string, string> = {
-  accounting: "/images/submenu/Connected%20ERP%20Modules.webp",
-  purchase: "/images/submenu/Connected%20ERP%20Modules.webp",
-  inventory: "/images/submenu/Connected%20ERP%20Modules.webp",
-  manufacturing: "/images/submenu/ERP%20for%20Manufacturing.webp",
-  sales: "/images/submenu/Connected%20ERP%20Modules.webp",
-  "point-of-sale": "/images/submenu/Connected%20ERP%20Modules.webp",
-  "hr-payroll": "/images/submenu/Connected%20ERP%20Modules.webp",
-  "client-vendor": "/images/submenu/Connected%20ERP%20Modules.webp",
+  accounting: "/images/solutions/Accounting%20module.webp",
+  purchase: "/images/solutions/Purchase%20module.webp",
+  inventory: "/images/solutions/Inventory%20module.webp",
+  manufacturing: "/images/solutions/Manufacturing%20module.webp",
+  sales: "/images/solutions/Sales%20module.webp",
+  "point-of-sale": "/images/solutions/POS%20module.webp",
+  "hr-payroll": "/images/solutions/HR%20and%20payroll%20module.webp",
+  "client-vendor": "/images/solutions/Relationship%20module.webp",
 };
 
 const solutionPlaybooks: Record<
