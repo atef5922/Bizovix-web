@@ -1,6 +1,8 @@
+"use client";
+
 import Link from "next/link";
-import type { ReactNode } from "react";
-import { Bell, Boxes, Building2, ChevronRight, Copyright, Factory, Mail, MapPin, Phone } from "lucide-react";
+import { useState, type ReactNode } from "react";
+import { Bell, Boxes, Building2, ChevronDown, ChevronRight, Copyright, Factory, Mail, MapPin, Phone } from "lucide-react";
 import { resourcesNavigation, solutionNavigation, industryNavigation } from "@/src/data/navigation";
 import { siteConfig } from "@/src/config/site";
 import { NewsletterForm } from "@/components/forms/LeadForms";
@@ -61,9 +63,21 @@ export function Footer() {
 }
 
 function FooterColumn({ title, icon, items }: { title: string; icon: ReactNode; items: Array<{ title: string; href: string }> }) {
+  const [open, setOpen] = useState(false);
+
   return (
-    <div className="footer-column">
-      <h2>{icon}{title}</h2>
+    <div className="footer-column" data-open={open ? "true" : "false"}>
+      <h2>
+        <button
+          className="footer-column-heading"
+          type="button"
+          aria-expanded={open}
+          onClick={() => setOpen((current) => !current)}
+        >
+          <span>{icon}{title}</span>
+          <ChevronDown className="footer-column-toggle" size={16} />
+        </button>
+      </h2>
       <ul>
         {items.map((item) => (
           <li key={item.href}>

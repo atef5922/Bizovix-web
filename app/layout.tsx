@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { MobileBottomNav } from "@/components/layout/MobileBottomNav";
 import { SiteTools } from "@/components/ui/SiteTools";
 import { SEOJsonLd } from "@/components/seo/SEOJsonLd";
 import { organizationJsonLd, softwareJsonLd } from "@/src/lib/seo";
@@ -53,6 +54,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <Header />
         <main id="main-content">{children}</main>
         <Footer />
+        <MobileBottomNav />
         <SiteTools />
         <SEOJsonLd data={organizationJsonLd()} />
         <SEOJsonLd data={softwareJsonLd()} />

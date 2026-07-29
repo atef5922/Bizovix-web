@@ -18,6 +18,7 @@ import {
 
 import { ButtonLink } from "@/components/ui/Button";
 import { AutoPlayVideo } from "@/components/ui/AutoPlayVideo";
+import { MobileReadMore } from "@/components/ui/MobileReadMore";
 import { CTASection } from "@/components/sections/MarketingSections";
 import { HeroBanner } from "@/components/sections/HeroBanner";
 import { SEOJsonLd } from "@/components/seo/SEOJsonLd";
@@ -274,11 +275,13 @@ export default function Home() {
             </h2>
 
             <p>
-              Bizovix empowers growing businesses in Bangladesh, South Asia,
-              and beyond to streamline operations and drive growth. Our secure
-              cloud ERP platform connects finance, inventory, sales, HR, and
-              more-enabling real-time control, automation, and data-driven
-              decisions.
+              <MobileReadMore>
+                Bizovix empowers growing businesses in Bangladesh, South Asia,
+                and beyond to streamline operations and drive growth. Our secure
+                cloud ERP platform connects finance, inventory, sales, HR, and
+                more-enabling real-time control, automation, and data-driven
+                decisions.
+              </MobileReadMore>
             </p>
 
             <div className="about-solution-title">
@@ -367,9 +370,11 @@ export default function Home() {
             </h2>
 
             <p>
-              Bizovix helps manufacturers, distributors, retailers, service providers, and multi-branch 
-              companies across South Asia manage finance, inventory, sales, purchasing, production, HR, payroll, 
-              approvals, and reporting through one secure and scalable cloud ERP platform.
+              <MobileReadMore>
+                Bizovix helps manufacturers, distributors, retailers, service providers, and multi-branch 
+                companies across South Asia manage finance, inventory, sales, purchasing, production, HR, payroll, 
+                approvals, and reporting through one secure and scalable cloud ERP platform.
+              </MobileReadMore>
             </p>
 
             <div className="bd-coverage-stats">
@@ -442,10 +447,12 @@ export default function Home() {
             </h2>
 
             <p>
-              Bizovix cloud ERP keeps finance, inventory, sales,
-              purchase, production, and approvals synced across mobile,
-              laptop, and desktop, so your team can manage operations
-              from head office, warehouse, showroom, or on the move.
+              <MobileReadMore>
+                Bizovix cloud ERP keeps finance, inventory, sales,
+                purchase, production, and approvals synced across mobile,
+                laptop, and desktop, so your team can manage operations
+                from head office, warehouse, showroom, or on the move.
+              </MobileReadMore>
             </p>
 
             <div className="multi-device-stats">
@@ -492,9 +499,11 @@ export default function Home() {
           </h2>
 
           <span>
-            From cloud ERP implementation to inventory, manufacturing,
-            finance, and approvals, Bizovix delivers dependable software
-            built for long-term operational growth.
+            <MobileReadMore>
+              From cloud ERP implementation to inventory, manufacturing,
+              finance, and approvals, Bizovix delivers dependable software
+              built for long-term operational growth.
+            </MobileReadMore>
           </span>
         </div>
 
@@ -571,9 +580,11 @@ export default function Home() {
           </h2>
 
           <span>
-            Empowering businesses across Bangladesh and South Asia with
-            secure cloud ERP, regional implementation, and practical
-            automation that helps teams grow with confidence.
+            <MobileReadMore>
+              Empowering businesses across Bangladesh and South Asia with
+              secure cloud ERP, regional implementation, and practical
+              automation that helps teams grow with confidence.
+            </MobileReadMore>
           </span>
         </div>
 
@@ -644,12 +655,14 @@ export default function Home() {
           <div className="erp-product-layout">
             <div className="erp-product-story">
               <p>
-                Bizovix connects accounting, purchase, inventory, sales,
-                POS, CRM, HR, payroll, production, approvals, vendors,
-                customers, and reports in one cloud ERP platform. Your
-                teams get cleaner workflows, faster decisions, and
-                stronger control without switching between disconnected
-                tools.
+                <MobileReadMore>
+                  Bizovix connects accounting, purchase, inventory, sales,
+                  POS, CRM, HR, payroll, production, approvals, vendors,
+                  customers, and reports in one cloud ERP platform. Your
+                  teams get cleaner workflows, faster decisions, and
+                  stronger control without switching between disconnected
+                  tools.
+                </MobileReadMore>
               </p>
 
               <div className="erp-product-metrics" aria-label="Bizovix ERP product highlights">
@@ -716,9 +729,11 @@ export default function Home() {
           </h2>
 
           <p>
-            Transforming operational challenges into connected cloud ERP
-            success through a clear, practical, and support-focused
-            rollout process.
+            <MobileReadMore>
+              Transforming operational challenges into connected cloud ERP
+              success through a clear, practical, and support-focused
+              rollout process.
+            </MobileReadMore>
           </p>
         </div>
 

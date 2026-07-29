@@ -324,6 +324,10 @@ img {
   display: none;
 }
 
+.mobile-download-trigger {
+  display: none;
+}
+
 .nav-cta {
   position: relative;
   isolation: isolate;
@@ -616,6 +620,14 @@ img {
   min-height: 560px;
   max-height: 820px;
   isolation: isolate;
+}
+
+.mobile-read-more {
+  display: contents;
+}
+
+.mobile-read-more-toggle {
+  display: none;
 }
 
 .banner-swiper,
@@ -3903,6 +3915,29 @@ img {
   text-transform: uppercase;
 }
 
+.footer-column-heading {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  padding: 0;
+  text-transform: inherit;
+}
+
+.footer-column-heading span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-column-toggle {
+  display: none;
+}
+
 .footer-column h2 svg,
 .footer-newsletter h2 svg {
   flex: 0 0 auto;
@@ -4487,6 +4522,10 @@ legend {
   background: rgba(7, 100, 238, 0.24);
   content: "";
   animation: contact-pulse 2s ease-out infinite;
+}
+
+.mobile-bottom-nav {
+  display: none;
 }
 
 .article-body {
@@ -13299,18 +13338,72 @@ main .process-pill svg {
     gap: 22px;
   }
 
+  .footer-newsletter {
+    display: none;
+  }
+
+  .footer-column {
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.055);
+  }
+
+  .footer-column h2 {
+    display: block;
+  }
+
+  .footer-column-heading {
+    width: 100%;
+    min-height: 44px;
+    justify-content: space-between;
+    padding: 0 14px;
+  }
+
+  .footer-column-toggle {
+    display: block;
+    color: #69e7ff;
+    transition: transform 180ms ease;
+  }
+
+  .footer-column[data-open="true"] .footer-column-toggle {
+    transform: rotate(180deg);
+  }
+
   .footer-column ul {
+    display: none;
     gap: 9px;
-    margin-top: 12px;
+    margin: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 12px 14px 14px;
+  }
+
+  .footer-column[data-open="true"] ul {
+    display: grid;
   }
 
   .footer-bottom {
-    gap: 12px;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 10px;
     margin-top: 30px;
+    padding-top: 18px;
+    padding-bottom: 8px;
+    text-align: center;
+  }
+
+  .footer-bottom p {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .footer-credit {
+    justify-self: center;
   }
 
   .footer-bottom div {
-    gap: 12px;
+    justify-content: center;
+    gap: 10px 14px;
   }
 
   .chat-action,
@@ -13366,6 +13459,13 @@ main .process-pill svg {
 @media (max-width: 640px) {
   .nav-actions {
     gap: 8px;
+  }
+
+  .mobile-download-trigger {
+    display: inline-flex;
+    min-height: 36px;
+    min-width: 36px;
+    color: #0764ee;
   }
 
   .search-trigger {
@@ -13461,5 +13561,522 @@ main .process-pill svg {
   .banner-dots {
     bottom: 16px;
     padding: 5px 8px;
+  }
+
+  .mobile-read-more {
+    display: block !important;
+    width: 100%;
+  }
+
+  .mobile-read-more-copy {
+    display: -webkit-box;
+    overflow: hidden;
+    max-height: 1.62em;
+    line-height: inherit;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+  }
+
+  .mobile-read-more[data-expanded="true"] .mobile-read-more-copy {
+    display: block;
+    overflow: visible;
+    max-height: none;
+    -webkit-line-clamp: unset;
+  }
+
+  .mobile-read-more-toggle {
+    display: inline-flex;
+    min-height: 28px;
+    align-items: center;
+    margin-top: 5px;
+    border: 0;
+    background: transparent;
+    color: #0764ee;
+    font-size: 11px;
+    font-weight: 850;
+    line-height: 1;
+    padding: 0;
+    text-transform: uppercase;
+  }
+}
+
+@media (max-width: 640px) {
+  .about-preview {
+    padding: 34px 0 32px;
+  }
+
+  .about-preview-grid {
+    width: min(100% - 28px, 1640px);
+    gap: 22px;
+  }
+
+  .about-preview-media {
+    grid-template-columns: minmax(0, 1.12fr) minmax(82px, 0.78fr);
+    align-items: stretch;
+    gap: 8px;
+    padding: 4px 0 0;
+  }
+
+  .about-photo-shape,
+  .about-photo-pattern {
+    display: none;
+  }
+
+  .about-image-stack {
+    align-self: stretch;
+    gap: 8px;
+  }
+
+  .about-image-frame {
+    border-width: 4px;
+    border-radius: 14px;
+    box-shadow: 0 16px 34px rgba(15, 39, 84, 0.14);
+  }
+
+  .about-image-frame-main {
+    aspect-ratio: 1 / 1.08;
+  }
+
+  .about-image-frame-small {
+    aspect-ratio: 1 / 1;
+  }
+
+  .about-experience-badge {
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    grid-template-columns: 34px 1fr;
+    gap: 8px;
+    min-width: min(190px, 70%);
+    border-radius: 8px;
+    padding: 9px 11px;
+    box-shadow: 0 16px 32px rgba(7, 100, 238, 0.2);
+  }
+
+  .about-experience-badge > span {
+    height: 34px;
+    width: 34px;
+  }
+
+  .about-experience-badge > span svg {
+    height: 18px;
+    width: 18px;
+  }
+
+  .about-experience-badge strong {
+    font-size: 1.18rem;
+  }
+
+  .about-experience-badge small {
+    font-size: 0.62rem;
+  }
+
+  .about-preview-copy {
+    max-width: none;
+  }
+
+  .about-pill {
+    min-height: 28px;
+    gap: 8px;
+    font-size: 10.5px;
+  }
+
+  .about-preview-copy h2 {
+    margin: 12px 0 12px;
+    font-size: clamp(1.35rem, 6.2vw, 1.85rem);
+    line-height: 1.14;
+  }
+
+  .about-preview-copy > p:not(.about-pill) {
+    font-size: 13px;
+    line-height: 1.62;
+  }
+
+  .about-solution-title {
+    margin-top: 18px;
+    font-size: 14px;
+  }
+
+  .about-solution-grid {
+    margin-top: 10px;
+  }
+
+  .about-solution-grid span {
+    min-height: 44px;
+    gap: 10px;
+    font-size: 0.82rem;
+  }
+
+  .about-solution-grid svg {
+    height: 28px;
+    width: 28px;
+    padding: 7px;
+  }
+
+  .about-preview-actions {
+    margin-top: 18px;
+  }
+
+  .about-preview-cta {
+    min-height: 42px;
+    border-radius: 9px;
+  }
+
+  main .about-preview .about-stat-strip {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    margin-top: 18px;
+    border-radius: 10px;
+  }
+
+  main .about-preview .about-stat-strip article,
+  main .about-preview .about-stat-strip article + article,
+  main .about-preview .about-stat-strip article:nth-child(3),
+  main .about-preview .about-stat-strip article:nth-child(4) {
+    grid-template-columns: 30px minmax(0, 1fr);
+    gap: 8px;
+    min-width: 0;
+    min-height: 68px;
+    border: 0;
+    padding: 12px 10px;
+  }
+
+  main .about-preview .about-stat-strip article:nth-child(even) {
+    border-left: 1px solid rgba(181, 196, 220, 0.62);
+  }
+
+  main .about-preview .about-stat-strip article:nth-child(n + 3) {
+    border-top: 1px solid rgba(181, 196, 220, 0.62);
+  }
+
+  main .about-preview .about-stat-strip svg {
+    height: 22px;
+    width: 22px;
+  }
+
+  main .about-preview .about-stat-strip strong {
+    font-size: 1rem;
+  }
+
+  main .about-preview .about-stat-strip span {
+    margin-top: 3px;
+    font-size: 0.61rem;
+    line-height: 1.2;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 900px) {
+  .mobile-read-more {
+    display: block !important;
+    width: 100%;
+  }
+
+  .mobile-read-more-copy {
+    display: -webkit-box;
+    overflow: hidden;
+    max-height: 1.62em;
+    line-height: inherit;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+  }
+
+  .mobile-read-more[data-expanded="true"] .mobile-read-more-copy {
+    display: block;
+    overflow: visible;
+    max-height: none;
+    -webkit-line-clamp: unset;
+  }
+
+  .mobile-read-more-toggle {
+    display: inline-flex;
+    min-height: 28px;
+    align-items: center;
+    margin-top: 5px;
+    border: 0;
+    background: transparent;
+    color: #0764ee;
+    font-size: 11px;
+    font-weight: 850;
+    line-height: 1;
+    padding: 0;
+    text-transform: uppercase;
+  }
+}
+
+@media (max-width: 640px) {
+  main .bd-coverage-section .bd-map-card.south-asia-map-card {
+    overflow: hidden;
+    height: 430px;
+    min-height: 430px;
+    margin-top: 0;
+  }
+
+  main .bd-coverage-section .south-asia-map-wrap {
+    top: 54%;
+    width: 74%;
+    height: 58%;
+  }
+
+  main .bd-coverage-section .south-asia-map-hub {
+    top: 54%;
+    left: 51%;
+  }
+
+  main .bd-coverage-section .south-asia-map-hub img {
+    width: 58px;
+  }
+
+  main .bd-coverage-section .south-asia-map-hub strong {
+    font-size: 10px;
+  }
+
+  main .bd-coverage-section .south-asia-map-point {
+    max-width: 104px;
+    gap: 4px;
+  }
+
+  main .bd-coverage-section .south-asia-map-point::before {
+    display: none;
+  }
+
+  main .bd-coverage-section .south-asia-map-point > span {
+    width: 9px;
+    height: 9px;
+    border-width: 2px;
+    box-shadow:
+      0 0 0 4px rgba(7, 100, 238, 0.12),
+      0 8px 14px rgba(7, 100, 238, 0.16);
+  }
+
+  main .bd-coverage-section .south-asia-map-point p {
+    min-width: 88px;
+    max-width: 94px;
+    padding: 5px 6px;
+    font-size: 7.5px;
+    line-height: 1.28;
+  }
+
+  main .bd-coverage-section .south-asia-map-point strong {
+    font-size: 8.5px;
+  }
+
+  main .bd-coverage-section .south-asia-point-pakistan {
+    top: 5%;
+    left: 3%;
+  }
+
+  main .bd-coverage-section .south-asia-point-nepal {
+    top: 5%;
+    right: 3%;
+  }
+
+  main .bd-coverage-section .south-asia-point-bangladesh {
+    top: 31%;
+    left: 60%;
+  }
+
+  main .bd-coverage-section .south-asia-point-india {
+    bottom: 6%;
+    left: 3%;
+  }
+
+  main .bd-coverage-section .south-asia-point-sri-lanka {
+    bottom: 10%;
+    left: 58%;
+  }
+
+  main .solution-orbit-section {
+    padding: 36px 0;
+  }
+
+  main .solution-orbit-layout {
+    gap: 18px;
+    margin-top: 22px;
+  }
+
+  main .solution-orbit-center {
+    gap: 14px;
+  }
+
+  main .solution-orbit-center::before,
+  main .solution-orbit-center::after {
+    width: min(72vw, 232px);
+    margin-top: 0;
+  }
+
+  main .solution-orbit-center img {
+    width: min(66vw, 216px);
+    border-width: 6px;
+  }
+
+  main .solution-orbit-cta {
+    min-height: 38px;
+    padding-inline: 20px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 420px) {
+  main .bd-coverage-section .bd-map-card.south-asia-map-card {
+    height: 410px;
+    min-height: 410px;
+  }
+
+  main .bd-coverage-section .south-asia-map-wrap {
+    top: 55%;
+    width: 78%;
+    height: 56%;
+  }
+
+  main .bd-coverage-section .south-asia-map-hub {
+    top: 55%;
+  }
+
+  main .bd-coverage-section .south-asia-map-point p {
+    min-width: 84px;
+    max-width: 90px;
+  }
+
+  main .bd-coverage-section .south-asia-point-bangladesh {
+    top: 32%;
+    left: 58%;
+  }
+
+  main .bd-coverage-section .south-asia-point-sri-lanka {
+    bottom: 11%;
+    left: 56%;
+  }
+}
+
+@media (max-width: 900px) {
+  .site-footer .footer-newsletter {
+    display: none !important;
+  }
+
+  body {
+    padding-bottom: calc(70px + env(safe-area-inset-bottom));
+  }
+
+  .mobile-bottom-nav {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 80;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    min-height: calc(62px + env(safe-area-inset-bottom));
+    border-top: 1px solid rgba(200, 214, 232, 0.92);
+    background: rgba(255, 255, 255, 0.96);
+    box-shadow: 0 -14px 30px rgba(15, 39, 84, 0.12);
+    padding: 6px max(10px, env(safe-area-inset-left)) calc(6px + env(safe-area-inset-bottom)) max(10px, env(safe-area-inset-right));
+    transform: translateY(0);
+    transition: transform 220ms ease, opacity 220ms ease;
+    backdrop-filter: blur(14px);
+  }
+
+  .mobile-bottom-nav.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(110%);
+  }
+
+  .mobile-bottom-nav-link {
+    position: relative;
+    display: grid;
+    min-width: 0;
+    place-items: center;
+    gap: 3px;
+    color: #536179;
+    font-size: 10px;
+    font-weight: 800;
+    line-height: 1;
+    text-align: center;
+  }
+
+  .mobile-bottom-nav-link::before {
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    width: 26px;
+    height: 3px;
+    border-radius: 999px;
+    background: transparent;
+    content: "";
+    transform: translateX(-50%);
+  }
+
+  .mobile-bottom-nav-link svg {
+    color: currentColor;
+    stroke-width: 2.25;
+  }
+
+  .mobile-bottom-nav-link.is-active {
+    color: #0764ee;
+  }
+
+  .mobile-bottom-nav-link.is-active::before {
+    background: #13b7d8;
+  }
+
+  .chat-action {
+    bottom: calc(82px + env(safe-area-inset-bottom)) !important;
+  }
+
+  .back-top {
+    bottom: calc(140px + env(safe-area-inset-bottom)) !important;
+  }
+}
+
+@media (max-width: 640px) {
+  main .bd-coverage-section .bd-coverage-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 10px;
+  }
+
+  main .bd-coverage-section .bd-coverage-stats article.home-premium-stat {
+    overflow: visible;
+    grid-template-columns: 34px minmax(0, 1fr);
+    gap: 8px;
+    min-width: 0;
+    min-height: 58px;
+    border-radius: 10px;
+    padding: 9px 8px;
+  }
+
+  main .bd-coverage-section .home-premium-stat .home-stat-icon {
+    height: 34px;
+    width: 34px;
+    border-radius: 9px;
+  }
+
+  main .bd-coverage-section .home-premium-stat .home-stat-icon svg {
+    height: 18px;
+    width: 18px;
+  }
+
+  main .bd-coverage-section .bd-coverage-stats article.home-premium-stat strong {
+    overflow: visible;
+    font-size: clamp(0.86rem, 4.2vw, 1.12rem);
+    line-height: 1.08;
+    white-space: normal;
+    word-break: keep-all;
+  }
+}
+
+@media (max-width: 380px) {
+  main .bd-coverage-section .bd-coverage-stats article.home-premium-stat {
+    grid-template-columns: 30px minmax(0, 1fr);
+    gap: 7px;
+    padding-inline: 7px;
+  }
+
+  main .bd-coverage-section .home-premium-stat .home-stat-icon {
+    height: 30px;
+    width: 30px;
+  }
+
+  main .bd-coverage-section .bd-coverage-stats article.home-premium-stat strong {
+    font-size: clamp(0.78rem, 4vw, 1rem);
   }
 }

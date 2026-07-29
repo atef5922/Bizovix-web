@@ -130,6 +130,14 @@ export function Header() {
             <button className="icon-button search-trigger" type="button" onClick={() => setSearch(true)} aria-label="Search">
               <Search className="h-5 w-5" />
             </button>
+            <a
+              className="icon-button mobile-download-trigger"
+              href={siteConfig.erpDownloadPath}
+              download={siteConfig.erpDownloadFileName}
+              aria-label="Download ERP"
+            >
+              <Download className="h-5 w-5" />
+            </a>
             <Link className="signin-link" href="/sign-in">Sign In</Link>
             <ButtonLink
               className="nav-cta nav-download hidden sm:inline-flex"
