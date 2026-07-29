@@ -49,7 +49,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <link rel="shortcut icon" href="/favicon.ico?v=2" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2" />
       </head>
-      <body>
+      <body suppressHydrationWarning>
         <Header />
         <main id="main-content">{children}</main>
         <Footer />

@@ -33,28 +33,28 @@ export const metadata: Metadata = pageMetadata({
 export default function Home() {
   const brandCards = [
     {
-      name: "Walton",
+      name: "Renex",
       logo: "/images/brands/renex-Logo.webp",
     },
     {
-      name: "PRAN",
+      name: "Sasha Corporation",
       logo: "/images/brands/sasha-corporation-final-l.webp",
     },
     {
-      name: "RFL",
+      name: "Mugnee",
       logo: "/images/brands/mugnee.webp",
     },
     {
-      name: "Akij Group",
-      logo: "/images/brands/akij.png",
+      name: "Vertex",
+      logo: "/images/brands/vertex.webp",
     },
     {
-      name: "Beximco",
-      logo: "/images/brands/beximco.png",
+      name: "DeltaN",
+      logo: "/images/brands/deltan.webp",
     },
     {
-      name: "Keya Group",
-      logo: "/images/brands/keya-group.png",
+      name: "Lumora",
+      logo: "/images/brands/lumora.webp",
     },
   ];
 
@@ -326,7 +326,7 @@ export default function Home() {
         <div className="container-shell brand-carousel-head">
           <p>
             <Layers3 className="h-4 w-4" />
-            Connected ERP for ambitious teams
+            Trusted by teams building smarter operations
           </p>
         </div>
 
