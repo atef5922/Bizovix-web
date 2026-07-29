@@ -1749,13 +1749,15 @@ img {
 /* Bangladesh — middle left */
 .south-asia-point-bangladesh {
   top: 43%;
-  left: -1%;
+  right: auto;
+  left: 72%;
+  flex-direction: row;
 }
 
 .south-asia-point-bangladesh::before {
   top: 8px;
   left: 14px;
-  transform: rotate(8deg);
+  transform: rotate(0deg);
   transform-origin: left center;
 }
 
@@ -1775,29 +1777,30 @@ img {
 
 /* India — lower left */
 .south-asia-point-india {
-  bottom: 10%;
-  left: 4%;
+  bottom: 16%;
+  left: 6%;
 }
 
 .south-asia-point-india::before {
   top: 8px;
   left: 14px;
-  transform: rotate(-24deg);
+  transform: rotate(-18deg);
   transform-origin: left center;
 }
 
 /* Sri Lanka — lower right */
 .south-asia-point-sri-lanka {
-  right: 0;
-  bottom: 24%;
-  flex-direction: row-reverse;
+  right: auto;
+  bottom: 17%;
+  left: 73%;
+  flex-direction: row;
 }
 
 .south-asia-point-sri-lanka::before {
   top: 8px;
-  right: 14px;
-  transform: rotate(164deg);
-  transform-origin: right center;
+  left: 14px;
+  transform: rotate(0deg);
+  transform-origin: left center;
 }
 
 /* =========================================================
@@ -1863,7 +1866,9 @@ img {
   }
 
   .south-asia-point-bangladesh {
-    left: -3%;
+    right: auto;
+    left: 70%;
+    flex-direction: row;
   }
 
   .south-asia-point-nepal {
@@ -1871,11 +1876,15 @@ img {
   }
 
   .south-asia-point-india {
-    left: 0;
+    bottom: 15%;
+    left: 2%;
   }
 
   .south-asia-point-sri-lanka {
-    right: -3%;
+    right: auto;
+    bottom: 17%;
+    left: 70%;
+    flex-direction: row;
   }
 }
 
@@ -1920,7 +1929,9 @@ img {
 
   .south-asia-point-bangladesh {
     top: 42%;
-    left: 0;
+    right: auto;
+    left: 68%;
+    flex-direction: row;
   }
 
   .south-asia-point-nepal {
@@ -1929,13 +1940,15 @@ img {
   }
 
   .south-asia-point-india {
-    bottom: 9%;
+    bottom: 15%;
     left: 4%;
   }
 
   .south-asia-point-sri-lanka {
-    right: 0;
-    bottom: 23%;
+    right: auto;
+    bottom: 18%;
+    left: 70%;
+    flex-direction: row;
   }
 }
 
@@ -2027,17 +2040,21 @@ img {
 
   .south-asia-point-bangladesh {
     top: 24%;
-    left: 0;
+    right: auto;
+    left: 60%;
+    flex-direction: row;
   }
 
   .south-asia-point-india {
-    bottom: 1%;
+    bottom: 8%;
     left: 0;
   }
 
   .south-asia-point-sri-lanka {
-    right: 0;
-    bottom: 14%;
+    right: auto;
+    bottom: 15%;
+    left: 58%;
+    flex-direction: row;
   }
 }
 
