@@ -618,16 +618,47 @@ img {
   isolation: isolate;
 }
 
-.banner-slide {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
+.banner-swiper,
+.banner-swiper .swiper-wrapper,
+.banner-swiper .swiper-slide {
+  height: 100%;
+}
+
+.banner-swiper {
+  position: relative;
+  z-index: 1;
+  display: block;
   overflow: hidden;
-  opacity: 0;
-  pointer-events: none;
+  width: 100%;
+}
+
+.banner-swiper .swiper-wrapper {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  width: 100%;
+  box-sizing: content-box;
+  transition-property: transform;
+}
+
+.banner-swiper .swiper-slide {
+  position: relative;
+  display: block;
+  flex-shrink: 0;
+  width: 100%;
+  transition-property: transform;
+}
+
+.banner-slide {
+  position: relative;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
+  opacity: 1;
+  pointer-events: auto;
   transform: none;
-  visibility: hidden;
-  animation: bannerFade 15s infinite;
+  visibility: visible;
+  animation: none;
 }
 
 .banner-image {
@@ -784,11 +815,29 @@ img {
 
 .banner-dots {
   position: absolute;
-  right: clamp(22px, 4vw, 64px);
-  bottom: clamp(28px, 4vw, 62px);
-  z-index: 2;
+  left: 50%;
+  bottom: clamp(22px, 3vw, 42px);
+  z-index: 4;
   display: flex;
-  gap: 8px;
+  align-items: center;
+  gap: 7px;
+  border-radius: 999px;
+  background: rgba(4, 13, 36, 0.34);
+  padding: 7px 10px;
+  transform: translateX(-50%);
+  backdrop-filter: blur(10px);
+}
+
+.banner-dots button {
+  display: grid;
+  width: 12px;
+  height: 12px;
+  place-items: center;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
 }
 
 .banner-dots span {
@@ -796,6 +845,54 @@ img {
   width: 8px;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.52);
+  transition: width 180ms ease, background 180ms ease;
+}
+
+.banner-dots button.is-active {
+  width: 22px;
+}
+
+.banner-dots button.is-active span {
+  width: 18px;
+  background: #16e7b1;
+}
+
+.banner-nav {
+  position: absolute;
+  top: 50%;
+  z-index: 4;
+  display: grid;
+  width: 52px;
+  height: 52px;
+  place-items: center;
+  border: 2px solid rgba(255, 255, 255, 0.86);
+  border-radius: 999px;
+  background: rgba(2, 10, 32, 0.22);
+  color: #ffffff;
+  cursor: pointer;
+  transform: translateY(-50%);
+  transition: background 180ms ease, border-color 180ms ease, transform 180ms ease;
+  backdrop-filter: blur(5px);
+}
+
+.banner-nav:hover {
+  border-color: #ffffff;
+  background: rgba(2, 10, 32, 0.44);
+  transform: translateY(-50%) scale(1.04);
+}
+
+.banner-nav svg {
+  width: 30px;
+  height: 30px;
+  stroke-width: 2.3;
+}
+
+.banner-nav-prev {
+  left: clamp(18px, 2.8vw, 42px);
+}
+
+.banner-nav-next {
+  right: clamp(18px, 2.8vw, 42px);
 }
 
 @keyframes bannerFade {
@@ -4641,8 +4738,25 @@ legend {
   }
 
   .banner-dots {
-    right: 22px;
-    bottom: 116px;
+    bottom: 22px;
+  }
+
+  .banner-nav {
+    width: 42px;
+    height: 42px;
+  }
+
+  .banner-nav svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .banner-nav-prev {
+    left: 12px;
+  }
+
+  .banner-nav-next {
+    right: 12px;
   }
 
   .hero,

@@ -5,7 +5,6 @@ import {
   Building2,
   CheckCircle2,
   ClipboardCheck,
-  Download,
   Factory,
   Layers3,
   LifeBuoy,
@@ -20,8 +19,8 @@ import {
 import { ButtonLink } from "@/components/ui/Button";
 import { AutoPlayVideo } from "@/components/ui/AutoPlayVideo";
 import { CTASection } from "@/components/sections/MarketingSections";
+import { HeroBanner } from "@/components/sections/HeroBanner";
 import { SEOJsonLd } from "@/components/seo/SEOJsonLd";
-import { siteConfig } from "@/src/config/site";
 import { faqJsonLd, pageMetadata } from "@/src/lib/seo";
 import { faqs } from "@/src/data/faqs";
 
@@ -32,64 +31,18 @@ export const metadata: Metadata = pageMetadata({
 });
 
 export default function Home() {
-  const bannerSlides = [
-    {
-      image: "banner1.webp",
-      badge: "Next-Gen Cloud ERP Platform",
-      title: (
-        <>
-          One Platform.
-          <br />
-          Limitless Potential.
-          <br />
-          <span>Built for the Future.</span>
-        </>
-      ),
-      description:
-        "Bizovix ERP unifies your operations, automates workflows, and delivers real-time insights so you can make smarter decisions and scale with confidence.",
-    },
-    {
-      image: "banner2.webp",
-      badge: "Innovating The Future",
-      title: (
-        <>
-          Bridging Borders,
-          <br />
-          Building Digital
-          <br />
-          <span>Futures</span>
-        </>
-      ),
-      description:
-        "Your business software expert for connected teams, cloud operations, secure workflows, and confident growth.",
-    },
-    {
-      image: "banner3.webp",
-      badge: "Innovating The Future",
-      title: (
-        <>
-          Empowering Progress Through
-          <br />
-          <span>Innovation and Intelligence</span>
-        </>
-      ),
-      description:
-        "Business operation with vision and intelligence, built for faster decisions across finance, inventory, sales, and production.",
-    },
-  ];
-
   const brandCards = [
     {
       name: "Walton",
-      logo: "/images/brands/walton.svg",
+      logo: "/images/brands/renex-Logo.webp",
     },
     {
       name: "PRAN",
-      logo: "/images/brands/pran.png",
+      logo: "/images/brands/sasha-corporation-final-l.webp",
     },
     {
       name: "RFL",
-      logo: "/images/brands/rfl.png",
+      logo: "/images/brands/mugnee.webp",
     },
     {
       name: "Akij Group",
@@ -266,70 +219,7 @@ export default function Home() {
     <>
       <SEOJsonLd data={faqJsonLd(faqs)} />
 
-      <section
-        className="banner-hero"
-        aria-label="Bizovix cloud ERP overview"
-      >
-        <div className="banner-slider">
-          {bannerSlides.map((banner, index) => (
-            <div
-              key={banner.image}
-              className="banner-slide"
-              style={{
-                animationDelay: `${index * 5}s`,
-              }}
-            >
-              <img
-                src={`/images/banner/${banner.image}`}
-                alt=""
-                className="banner-image"
-                aria-hidden="true"
-              />
-
-              <div className="banner-content">
-                <p className="banner-kicker">
-                  <span />
-                  {banner.badge}
-                </p>
-
-                <h2>{banner.title}</h2>
-
-                <div className="banner-rule" />
-
-                <p className="banner-copy">{banner.description}</p>
-
-                <div className="banner-actions">
-                  <ButtonLink
-                    href={siteConfig.erpDownloadPath}
-                    download={siteConfig.erpDownloadFileName}
-                    className="banner-action-primary"
-                  >
-                    Download ERP
-                    <Download className="h-3.5 w-3.5" />
-                  </ButtonLink>
-
-                  <ButtonLink
-                    href="/solutions"
-                    variant="secondary"
-                    className="banner-action-secondary"
-                  >
-                    Explore Solutions
-                  </ButtonLink>
-                </div>
-              </div>
-            </div>
-          ))}
-
-          <div
-            className="banner-dots"
-            aria-hidden="true"
-          >
-            <span />
-            <span />
-            <span />
-          </div>
-        </div>
-      </section>
+      <HeroBanner />
 
       <section
         className="about-preview"
