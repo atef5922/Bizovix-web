@@ -4290,7 +4290,8 @@ legend {
 .dialog-backdrop {
   position: fixed;
   inset: 0;
-  z-index: 80;
+  z-index: 120;
+  overflow: hidden;
   background: rgba(7, 26, 51, 0.45);
   backdrop-filter: blur(8px);
 }
@@ -4305,10 +4306,13 @@ legend {
 
 .drawer-panel {
   margin-left: auto;
-  min-height: 100%;
+  height: 100dvh;
+  max-height: 100dvh;
   width: min(100%, 430px);
   overflow-y: auto;
+  overscroll-behavior: contain;
   padding: 18px;
+  -webkit-overflow-scrolling: touch;
 }
 
 .drawer-head {
@@ -4338,7 +4342,7 @@ legend {
 
 .drawer-links a,
 .drawer-group a,
-.drawer-group summary {
+.drawer-group-trigger {
   position: relative;
   display: flex;
   min-height: 46px;
@@ -4354,7 +4358,7 @@ legend {
 .drawer-links a:hover,
 .drawer-group a.active,
 .drawer-group a:hover,
-.drawer-group summary:hover {
+.drawer-group-trigger:hover {
   background: var(--surface-soft);
   color: var(--primary);
 }
@@ -4380,9 +4384,21 @@ legend {
   padding: 8px 0;
 }
 
-.drawer-group summary {
+.drawer-group-trigger {
+  width: 100%;
+  border: 0;
+  background: transparent;
   justify-content: space-between;
   cursor: pointer;
+  text-align: left;
+}
+
+.drawer-group-trigger svg {
+  transition: transform 180ms ease;
+}
+
+.drawer-group.is-open .drawer-group-trigger svg {
+  transform: rotate(180deg);
 }
 
 .drawer-actions {
@@ -13151,16 +13167,73 @@ main .process-pill svg {
 
   .drawer-panel {
     width: 100%;
+    height: 100dvh;
+    max-height: 100dvh;
     border-radius: 0;
-    padding: 16px;
+    padding: 16px 16px calc(96px + env(safe-area-inset-bottom));
+  }
+
+  .drawer-head {
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(226, 232, 240, 0.9);
+  }
+
+  .drawer-search {
+    min-height: 44px;
+    margin: 14px 0;
+    border-radius: 12px;
+    background: #f7fbff;
+    color: #334155;
+    font-size: 13px;
+    font-weight: 800;
+  }
+
+  .drawer-links {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    margin-bottom: 10px;
   }
 
   .drawer-links a,
   .drawer-group a,
-  .drawer-group summary {
+  .drawer-group-trigger {
     min-height: 44px;
     padding-inline: 10px;
     font-size: 14px;
+  }
+
+  .drawer-links a {
+    justify-content: center;
+    border: 1px solid rgba(226, 232, 240, 0.92);
+    background: #ffffff;
+  }
+
+  .drawer-group {
+    overflow: hidden;
+    margin-top: 10px;
+    border: 1px solid rgba(226, 232, 240, 0.92);
+    border-radius: 14px;
+    background: #ffffff;
+    padding: 0;
+  }
+
+  .drawer-group-trigger {
+    min-height: 46px;
+    background: #f8fbff;
+  }
+
+  .drawer-group div {
+    gap: 4px;
+    max-height: min(46vh, 360px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    border-top: 1px solid rgba(226, 232, 240, 0.92);
+    padding: 8px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .drawer-actions {
+    margin-top: 14px;
   }
 
   .banner-content {

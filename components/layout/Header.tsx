@@ -22,6 +22,8 @@ const allSolutionsNavItem: { title: string; href: string; description: string; i
   group: "Overview",
 };
 
+const drawerPrimaryNavigation = mainNavigation.filter((item) => !["Solutions", "Industries", "Resources"].includes(item.title));
+
 export function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState<MenuKey>(null);
@@ -69,6 +71,18 @@ export function Header() {
       window.removeEventListener("keydown", onKey);
     };
   }, []);
+
+  useEffect(() => {
+    const previousOverflow = document.body.style.overflow;
+
+    if (drawer) {
+      document.body.style.overflow = "hidden";
+    }
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [drawer]);
 
   const searchItems = useMemo(
     () => [...solutionNavigation, ...industryNavigation, ...resourcesNavigation, { title: "Pricing", href: "/pricing", description: "Implementation-led ERP pricing paths." }],
@@ -154,7 +168,7 @@ export function Header() {
         </nav>
         {open && <MegaMenu type={open} pathname={pathname} onClose={() => setOpen(null)} />}
       </header>
-      {drawer && <MobileDrawer pathname={pathname} onClose={() => setDrawer(false)} onSearch={() => setSearch(true)} />}
+      {drawer && <MobileDrawer pathname={pathname} onClose={() => setDrawer(false)} onSearch={() => { setDrawer(false); setSearch(true); }} />}
       {search && <SearchDialog items={searchItems} onClose={() => setSearch(false)} />}
     </>
   );
@@ -230,6 +244,8 @@ function MegaMenu({ type, pathname, onClose }: { type: Exclude<MenuKey, null>; p
 }
 
 function MobileDrawer({ pathname, onClose, onSearch }: { pathname: string; onClose: () => void; onSearch: () => void }) {
+  const [openGroup, setOpenGroup] = useState<"Solutions" | "Industries" | "Resources" | null>(null);
+
   return (
     <div className="drawer-backdrop" role="dialog" aria-modal="true" aria-label="Mobile navigation">
       <div className="drawer-panel">
@@ -239,13 +255,13 @@ function MobileDrawer({ pathname, onClose, onSearch }: { pathname: string; onClo
         </div>
         <button className="drawer-search" type="button" onClick={onSearch}><Search className="h-5 w-5" /> Search Bizovix</button>
         <div className="drawer-links">
-          {mainNavigation.map((item) => (
+          {drawerPrimaryNavigation.map((item) => (
             <Link key={item.href} onClick={onClose} className={cn(isNavActive(pathname, item) && "active")} href={item.href}>{item.title}</Link>
           ))}
         </div>
-        <DrawerGroup title="Solutions" pathname={pathname} items={[allSolutionsNavItem, ...solutionNavigation]} onClose={onClose} />
-        <DrawerGroup title="Industries" pathname={pathname} items={industryNavigation} onClose={onClose} />
-        <DrawerGroup title="Resources" pathname={pathname} items={resourcesNavigation} onClose={onClose} />
+        <DrawerGroup title="Solutions" open={openGroup === "Solutions"} onToggle={() => setOpenGroup((current) => current === "Solutions" ? null : "Solutions")} pathname={pathname} items={[allSolutionsNavItem, ...solutionNavigation]} onClose={onClose} />
+        <DrawerGroup title="Industries" open={openGroup === "Industries"} onToggle={() => setOpenGroup((current) => current === "Industries" ? null : "Industries")} pathname={pathname} items={industryNavigation} onClose={onClose} />
+        <DrawerGroup title="Resources" open={openGroup === "Resources"} onToggle={() => setOpenGroup((current) => current === "Resources" ? null : "Resources")} pathname={pathname} items={resourcesNavigation} onClose={onClose} />
         <div className="drawer-actions">
           <ButtonLink
             className="nav-download"
@@ -262,11 +278,14 @@ function MobileDrawer({ pathname, onClose, onSearch }: { pathname: string; onClo
   );
 }
 
-function DrawerGroup({ title, pathname, items, onClose }: { title: string; pathname: string; items: Array<{ title: string; href: string; icon?: IconName }>; onClose: () => void }) {
+function DrawerGroup({ title, open, onToggle, pathname, items, onClose }: { title: "Solutions" | "Industries" | "Resources"; open: boolean; onToggle: () => void; pathname: string; items: Array<{ title: string; href: string; icon?: IconName }>; onClose: () => void }) {
   return (
-    <details className="drawer-group">
-      <summary>{title}<ChevronDown className="h-4 w-4" /></summary>
-      <div>
+    <section className={cn("drawer-group", open && "is-open")}>
+      <button className="drawer-group-trigger" type="button" aria-expanded={open} onClick={onToggle}>
+        {title}
+        <ChevronDown className="h-4 w-4" />
+      </button>
+      <div hidden={!open}>
         {items.map((item) => (
           <Link key={item.href} href={item.href} className={cn(isPathActive(pathname, item.href) && "active")} onClick={onClose}>
             {item.icon && <Icon name={item.icon} className="h-4 w-4" />}
@@ -274,7 +293,7 @@ function DrawerGroup({ title, pathname, items, onClose }: { title: string; pathn
           </Link>
         ))}
       </div>
-    </details>
+    </section>
   );
 }
 
