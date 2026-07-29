@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowRight, CheckCircle2, Download, Layers3, Route, Workflow } from "lucide-react";
+import { ArrowLeft, CheckCircle2, Download, Layers3, Route, Workflow } from "lucide-react";
 import { CTASection } from "@/components/sections/MarketingSections";
 import { SEOJsonLd } from "@/components/seo/SEOJsonLd";
 import { AutoPlayVideo } from "@/components/ui/AutoPlayVideo";

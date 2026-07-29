@@ -10,7 +10,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/",
     "/pricing",
     "/download",
-    "/sign-in",
     "/about-us",
     "/career",
     "/contact",
@@ -24,7 +23,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/faq",
     "/documentation",
     "/help-center",
-    "/not-found",
     "/en",
     "/bn",
   ];

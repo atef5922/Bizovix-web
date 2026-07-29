@@ -3,11 +3,21 @@ import { PageHero } from "@/components/sections/MarketingSections";
 import { siteConfig } from "@/src/config/site";
 import { pageMetadata } from "@/src/lib/seo";
 
-export const metadata: Metadata = pageMetadata({
+export const metadata: Metadata = {
+  ...pageMetadata({
   title: "Sign In",
   description: "Bizovix customer portal sign-in page for future ERP access and secure business workflow previews.",
   path: "/sign-in",
-});
+  }),
+  robots: {
+    index: false,
+    follow: false,
+    googleBot: {
+      index: false,
+      follow: false,
+    },
+  },
+};
 
 export default function SignInPage() {
   return (

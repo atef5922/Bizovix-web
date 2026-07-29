@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { ArrowRight, Building2, Download, Mail, MapPin, MessageCircle, Phone, Send, ShieldCheck } from "lucide-react";
+import { Building2, Download, Mail, MapPin, MessageCircle, Phone, Send, ShieldCheck } from "lucide-react";
 import { ContactForm } from "@/components/forms/LeadForms";
 import { SEOJsonLd } from "@/components/seo/SEOJsonLd";
 import { siteConfig } from "@/src/config/site";

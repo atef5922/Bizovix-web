@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: "Bizovix",
   tagline: "Built for Bangladesh. Ready for the World.",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://bizovix-web.vercel.app",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://bizovix.com",
   ogImage: "/og-image.png",
   salesPhone: process.env.NEXT_PUBLIC_SALES_PHONE || "+880 1958-645415",
   salesPhoneSecondary: process.env.NEXT_PUBLIC_SALES_PHONE_SECONDARY || "+880 1958-645426",
