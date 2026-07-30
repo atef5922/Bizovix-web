@@ -12,6 +12,7 @@ const nextConfig: NextConfig = {
   ...(isStaticExport
     ? {
         output: "export",
+        trailingSlash: true,
       }
     : {
         async redirects() {
