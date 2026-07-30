@@ -85,7 +85,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             </div>
           </div>
           <div className="blog-detail-hero-media">
-            <img src={postImage} alt={post.title} />
+            <img src={postImage} alt={post.title} loading="lazy" decoding="async" />
           </div>
         </div>
       </section>
@@ -146,7 +146,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             {relatedPosts.map((item) => (
               <article className="blog-card" key={item.slug}>
                 <Link className="blog-card-media" href={`/blog/${item.slug}`}>
-                  <img src={item.image ?? fallbackImage} alt={item.title} />
+                  <img src={item.image ?? fallbackImage} alt={item.title} loading="lazy" decoding="async" />
                   <span>{formatDate(item.updated)}</span>
                 </Link>
                 <div className="blog-card-body">

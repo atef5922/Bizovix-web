@@ -29,7 +29,7 @@ export default function BlogPage() {
         <div className="container-shell">
           <article className="blog-featured-card">
             <div className="blog-featured-media">
-              <img src={featuredPost.image ?? fallbackImage} alt={featuredPost.title} />
+              <img src={featuredPost.image ?? fallbackImage} alt={featuredPost.title} loading="lazy" decoding="async" />
             </div>
             <div className="blog-featured-copy">
               <span className="blog-card-category">{featuredPost.category}</span>
@@ -61,7 +61,7 @@ export default function BlogPage() {
             {posts.map((post) => (
               <article className="blog-card" key={post.slug}>
                 <Link className="blog-card-media" href={`/blog/${post.slug}`}>
-                  <img src={post.image ?? fallbackImage} alt={post.title} />
+                  <img src={post.image ?? fallbackImage} alt={post.title} loading="lazy" decoding="async" />
                   <span>{formatDate(post.updated)}</span>
                 </Link>
                 <div className="blog-card-body">

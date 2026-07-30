@@ -392,7 +392,7 @@ export default async function SolutionDetailPage({ params }: { params: Promise<{
             <div className="industry-module-visual" aria-hidden="true">
               <span className="industry-module-orb" />
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={visual} alt="" />
+              <img src={visual} alt="" loading="lazy" decoding="async" />
               <div className="industry-module-chip industry-module-chip--top">
                 <Icon name={solution.icon} />
                 <span>{solution.group}</span>

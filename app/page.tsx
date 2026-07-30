@@ -236,6 +236,8 @@ export default function Home() {
               <img
                 src="/images/about/about1.webp"
                 alt="Bizovix ERP consultants reviewing business analytics"
+                loading="lazy"
+                decoding="async"
               />
             </div>
 
@@ -244,6 +246,8 @@ export default function Home() {
                 <img
                   src="/images/about/about2.webp"
                   alt="Bizovix team planning cloud ERP implementation"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
 
@@ -251,6 +255,8 @@ export default function Home() {
                 <img
                   src="/images/about/about3.webp"
                   alt="Bizovix ERP team collaborating on business operations"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
             </div>
@@ -346,6 +352,8 @@ export default function Home() {
                 <img
                   src={brand.logo}
                   alt=""
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
             ))}
@@ -399,6 +407,8 @@ export default function Home() {
                 className="bd-map-image south-asia-map-image"
                 src="/images/maps/south-asia.svg"
                 alt="Map of South Asia showing Bizovix ERP coverage"
+                loading="lazy"
+                decoding="async"
               />
             </div>
 
@@ -407,6 +417,8 @@ export default function Home() {
                 src="/brand/bizovix-logo-nav.png"
                 alt=""
                 aria-hidden="true"
+                loading="lazy"
+                decoding="async"
               />
 
               <strong>Bizovix ERP</strong>
@@ -478,6 +490,8 @@ export default function Home() {
             <img
               src="/images/The-Real-Multi-Device-Experience.webp"
               alt="Bizovix ERP dashboard syncing between mobile and laptop"
+              loading="lazy"
+              decoding="async"
             />
           </div>
         </div>
@@ -532,6 +546,8 @@ export default function Home() {
             <img
               src="/images/Home-circle.webp"
               alt="Bizovix ERP user working on cloud business software"
+              loading="lazy"
+              decoding="async"
             />
 
             <ButtonLink

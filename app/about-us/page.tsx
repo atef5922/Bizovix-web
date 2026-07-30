@@ -99,7 +99,7 @@ export default function AboutPage() {
       <section className="about-partner-section">
         <div className="container-shell about-partner-grid">
           <div className="about-partner-image">
-            <img src="/images/about/about1.webp" alt="Bizovix ERP implementation team working with business software" />
+            <img src="/images/about/about1.webp" alt="Bizovix ERP implementation team working with business software" loading="lazy" decoding="async" />
           </div>
           <div className="about-partner-copy">
             <p className="about-section-pill">Trusted ERP partner</p>
@@ -151,7 +151,7 @@ export default function AboutPage() {
               </p>
             </article>
             <div className="about-circle-image">
-              <img src="/images/about/about2.webp" alt="Business team reviewing ERP analytics and digital transformation planning" />
+              <img src="/images/about/about2.webp" alt="Business team reviewing ERP analytics and digital transformation planning" loading="lazy" decoding="async" />
             </div>
             <article className="about-mission-card">
               <span><Eye className="h-7 w-7" /></span>
@@ -181,7 +181,7 @@ export default function AboutPage() {
           <div className="ceo-message-card">
             <div className="ceo-profile-panel">
               <div className="ceo-portrait-wrap">
-                <img src="/images/ceo/ceo.webp" alt="Md. Saiful Islam Shajib, Founder and CEO of Bizovix" />
+                <img src="/images/ceo/ceo.webp" alt="Md. Saiful Islam Shajib, Founder and CEO of Bizovix" loading="lazy" decoding="async" />
               </div>
               <div className="ceo-profile-meta">
                 <h3>Md. Saiful Islam Shajib</h3>
@@ -244,7 +244,7 @@ export default function AboutPage() {
                 <article className="team-card" key={`${member.name}-${index}`}>
                   <div className="team-photo">
                     {member.image ? (
-                      <img src={member.image} alt={`${member.name}, ${member.role} at Bizovix`} />
+                      <img src={member.image} alt={`${member.name}, ${member.role} at Bizovix`} loading="lazy" decoding="async" />
                     ) : (
                       <span aria-hidden="true">
                         {member.name

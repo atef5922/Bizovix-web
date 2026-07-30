@@ -219,6 +219,8 @@ function MegaMenu({ type, pathname, onClose }: { type: Exclude<MenuKey, null>; p
                 width="520"
                 height="300"
                 className="mega-feature-visual"
+                loading="lazy"
+                decoding="async"
               />
             )}
             <p>{type === "Industries" ? "ERP for Manufacturing" : "Connected ERP Modules"}</p>
