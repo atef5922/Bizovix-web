@@ -1,13 +1,11 @@
 import type { Metadata, Viewport } from "next";
-import { Header } from "@/components/layout/Header";
-import { Footer } from "@/components/layout/Footer";
-import { MobileBottomNav } from "@/components/layout/MobileBottomNav";
-import { SiteTools } from "@/components/ui/SiteTools";
+import { SiteChrome } from "@/components/layout/SiteChrome";
 import { SEOJsonLd } from "@/components/seo/SEOJsonLd";
 import { organizationJsonLd, softwareJsonLd } from "@/src/lib/seo";
 import { siteConfig } from "@/src/config/site";
 import { absoluteUrl } from "@/src/lib/utils";
 import "./globals.css";
+import "./commercial.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -51,11 +49,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2" />
       </head>
       <body suppressHydrationWarning>
-        <Header />
-        <main id="main-content">{children}</main>
-        <Footer />
-        <MobileBottomNav />
-        <SiteTools />
+        <SiteChrome>{children}</SiteChrome>
         <SEOJsonLd data={organizationJsonLd()} />
         <SEOJsonLd data={softwareJsonLd()} />
       </body>
