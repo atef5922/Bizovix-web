@@ -3,8 +3,8 @@
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import {
-  Activity, BarChart3, Bell, Building2, ChevronDown, CircleDollarSign,
-  CreditCard, Download, FileText, Gauge, HelpCircle, KeyRound, Laptop,
+  Activity, ArrowUpRight, BarChart3, Bell, Building2, ChevronDown, CircleDollarSign,
+  CreditCard, Download, FileText, Gauge, KeyRound, Laptop, LifeBuoy,
   LayoutDashboard, Loader2, LogOut, Menu, PackageOpen, Search, ShieldCheck,
   Sparkles, Users, X,
 } from "lucide-react";
@@ -66,8 +66,10 @@ export function WorkspaceShell({
       <div className={`workspace workspace-${kind}`}>
         <aside className={`workspace-sidebar ${mobileOpen ? "is-open" : ""}`}>
           <div className="workspace-brand">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/brand/bizovix-logo-nav.png" alt="Bizovix" />
+            <Link href={`/${kind}`} className="workspace-brand-link" aria-label={`Bizovix ${title} home`}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/brand/bizovix-logo-nav.png" alt="Bizovix" />
+            </Link>
             <button type="button" onClick={() => setMobileOpen(false)} aria-label="Close menu"><X /></button>
           </div>
           <div className="workspace-product"><span>{kind === "admin" ? "B" : "A"}</span><div><strong>{title}</strong><small>{kind === "admin" ? "Commercial operations" : "Manage your workspace"}</small></div></div>
@@ -76,11 +78,11 @@ export function WorkspaceShell({
               <p>{group.label}</p>
               {group.items.map(([label, href, Icon]) => {
                 const active = href === `/${kind}` ? pathname === href : pathname.startsWith(href);
-                return <Link key={href} href={href} className={active ? "active" : ""} onClick={() => setMobileOpen(false)}><Icon />{label}</Link>;
+                return <Link key={href} href={href} className={active ? "active" : ""} aria-current={active ? "page" : undefined} onClick={() => setMobileOpen(false)}><Icon />{label}</Link>;
               })}
             </div>)}
           </nav>
-          <div className="workspace-sidebar-foot"><Link href="/"><LogOut /> Back to website</Link></div>
+          <div className="workspace-sidebar-foot"><Link href="/"><ArrowUpRight /> Back to website</Link></div>
         </aside>
 
         {mobileOpen && <button className="workspace-scrim" aria-label="Close menu" onClick={() => setMobileOpen(false)} />}
@@ -90,7 +92,7 @@ export function WorkspaceShell({
             <button className="workspace-menu" type="button" onClick={() => setMobileOpen(true)} aria-label="Open menu"><Menu /></button>
             <GlobalSearch kind={kind} />
             <div className="workspace-top-actions">
-              <Link href="/help-center" aria-label="Help" className="topbar-icon-link"><HelpCircle /></Link>
+              <Link href="/help-center" aria-label="Help center" title="Help center" className="topbar-icon-link"><LifeBuoy /></Link>
               <NotificationsMenu notifications={notifications} />
               <UserMenu user={user} signOutAction={signOutAction} />
             </div>
