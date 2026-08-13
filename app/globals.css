@@ -764,6 +764,7 @@ img {
   box-shadow: 0 0 16px rgba(22, 231, 177, 0.9);
 }
 
+.banner-content h1,
 .banner-content h2 {
   max-width: 560px;
   margin: 18px 0 0;
@@ -775,6 +776,7 @@ img {
   text-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
 }
 
+.banner-content h1 span,
 .banner-content h2 span {
   background: linear-gradient(90deg, #1698ff 0%, #1ee2b6 100%);
   background-clip: text;
@@ -4640,6 +4642,7 @@ legend {
     width: min(54vw, 460px);
   }
 
+  .banner-content h1,
   .banner-content h2 {
     font-size: clamp(30px, 4.6vw, 42px);
   }
@@ -4804,6 +4807,7 @@ legend {
     font-size: 11px;
   }
 
+  .banner-content h1,
   .banner-content h2 {
     margin-top: 14px;
     font-size: clamp(26px, 7.2vw, 34px);
@@ -7738,6 +7742,7 @@ legend {
 }
 
 /* Final professional typography scale */
+.banner-content h1,
 .banner-content h2 {
   font-size: clamp(1.95rem, 3.2vw, 3.35rem);
   line-height: 1.06;
@@ -7835,6 +7840,7 @@ legend {
 }
 
 @media (max-width: 640px) {
+  .banner-content h1,
   .banner-content h2,
   .hero h1,
   .page-hero h1,
@@ -7902,6 +7908,7 @@ main .banner-kicker {
   line-height: 1.2;
 }
 
+main .banner-content h1,
 main .banner-content h2,
 main .about-page-hero h1,
 main .pricing-page-hero h1,
@@ -7939,6 +7946,7 @@ main .pricing-price-row strong {
 
 @media (max-width: 640px) {
   main h1,
+  main .banner-content h1,
   main .banner-content h2,
   main .about-page-hero h1,
   main .pricing-page-hero h1,
@@ -10652,6 +10660,7 @@ main .biz-page-hero h1 {
   letter-spacing: 0;
 }
 
+main .banner-content h1,
 main .banner-content h2,
 main .blog-hero h1 {
   font-size: clamp(1.7rem, 2.65vw, 2.55rem);
@@ -10796,6 +10805,7 @@ main .contact-bottom-inner > a {
     line-height: 1.14;
   }
 
+  main .banner-content h1,
   main .banner-content h2,
   main .blog-hero h1 {
     font-size: clamp(1.4rem, 6.4vw, 1.9rem);
@@ -13159,6 +13169,7 @@ main .pricing-card p {
   color: var(--content-muted);
 }
 
+main .banner-content h1,
 main .banner-content h2,
 main .blog-hero h1,
 main .blog-action-panel h2,
@@ -13882,6 +13893,7 @@ main .process-pill svg {
     width: 7px;
   }
 
+  .banner-content h1,
   .banner-content h2 {
     max-width: 252px;
     margin-top: 12px;
@@ -14440,4 +14452,20 @@ main .process-pill svg {
   main .bd-coverage-section .bd-coverage-stats article.home-premium-stat strong {
     font-size: clamp(0.78rem, 4vw, 1rem);
   }
+}
+
+/* Keep the homepage's semantic H1 on the original dark-hero palette. The
+   explicit text fill prevents the sitewide heading color from winning in
+   WebKit/Blink after hydration. */
+main .banner-content .banner-primary-title {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff;
+}
+
+main .banner-content .banner-primary-title > span {
+  background: linear-gradient(90deg, #1698ff 0%, #1ee2b6 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent !important;
+  -webkit-text-fill-color: transparent;
 }

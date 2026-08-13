@@ -71,7 +71,7 @@ export function HeroBanner() {
           onSlideChange={(instance) => setActiveIndex(instance.realIndex)}
           className="banner-swiper"
         >
-          {bannerSlides.map((banner) => (
+          {bannerSlides.map((banner, index) => (
             <SwiperSlide key={banner.image}>
               <div className="banner-slide">
                 <img
@@ -87,7 +87,13 @@ export function HeroBanner() {
                     {banner.badge}
                   </p>
 
-                  <h2>{banner.title}</h2>
+                  {index === 0 ? (
+                    <h1 className="banner-primary-title">
+                      Cloud ERP Software for <span>Smarter Business Operations</span>
+                    </h1>
+                  ) : (
+                    <h2>{banner.title}</h2>
+                  )}
 
                   <div className="banner-rule" />
 
