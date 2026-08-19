@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight, CheckCircle2, ClipboardCheck, Download, Layers3, Route, ShieldCheck } from "lucide-react";
 import { CTASection } from "@/components/sections/MarketingSections";
+import { DownloadLink } from "@/components/ui/Button";
 import { SEOJsonLd } from "@/components/seo/SEOJsonLd";
 import { AutoPlayVideo } from "@/components/ui/AutoPlayVideo";
 import { Icon } from "@/components/ui/Icon";
@@ -194,9 +195,9 @@ export default async function IndustryDetailPage({ params }: { params: Promise<{
             <h1>{industry.title} ERP software for connected operations</h1>
             <p>{detail.intro}</p>
             <div className="erp-detail-hero-actions">
-              <a href={siteConfig.erpDownloadPath} download={siteConfig.erpDownloadFileName} className="erp-primary-link">
+              <DownloadLink className="erp-primary-link">
                 Download ERP software <Download size={16} />
-              </a>
+              </DownloadLink>
               <Link href="/pricing" className="erp-secondary-link">
                 View pricing
               </Link>

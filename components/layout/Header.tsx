@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { ChevronDown, Download, Mail, MapPin, Menu, Phone, Search, X } from "lucide-react";
-import { ButtonLink } from "@/components/ui/Button";
+import { ButtonLink, DownloadUnavailableNotice, useDownloadUnavailableNotice } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
 import { BrandLockup } from "@/components/layout/BrandLockup";
 import { industryNavigation, mainNavigation, resourcesNavigation, solutionNavigation } from "@/src/data/navigation";
@@ -89,6 +89,8 @@ export function Header() {
     [],
   );
 
+  const { phase: downloadNoticePhase, notify: notifyDownloadUnavailable, hide: hideDownloadNotice, wrapRef: downloadWrapRef } = useDownloadUnavailableNotice();
+
   return (
     <>
       <a className="skip-link" href="#main-content">Skip to content</a>
@@ -144,14 +146,28 @@ export function Header() {
             <button className="icon-button search-trigger" type="button" onClick={() => setSearch(true)} aria-label="Search">
               <Search className="h-5 w-5" />
             </button>
-            <a
-              className="icon-button mobile-download-trigger"
-              href={siteConfig.erpDownloadPath}
-              download={siteConfig.erpDownloadFileName}
-              aria-label="Download ERP"
-            >
-              <Download className="h-5 w-5" />
-            </a>
+            <span className="download-unavailable-wrap">
+              {siteConfig.erpDownloadEnabled ? (
+                <a
+                  className="icon-button mobile-download-trigger"
+                  href={siteConfig.erpDownloadPath}
+                  download={siteConfig.erpDownloadFileName}
+                  aria-label="Download ERP"
+                >
+                  <Download className="h-5 w-5" />
+                </a>
+              ) : (
+                <button
+                  type="button"
+                  className="icon-button mobile-download-trigger"
+                  onClick={notifyDownloadUnavailable}
+                  aria-label="Download ERP"
+                >
+                  <Download className="h-5 w-5" />
+                </button>
+              )}
+              <DownloadUnavailableNotice phase={downloadNoticePhase} onClose={hideDownloadNotice} />
+            </span>
             <Link className="signin-link" href="/sign-in">Sign In</Link>
             <ButtonLink
               className="nav-cta nav-download hidden sm:inline-flex"
@@ -175,6 +191,7 @@ export function Header() {
 }
 
 function MegaMenu({ type, pathname, onClose }: { type: Exclude<MenuKey, null>; pathname: string; onClose: () => void }) {
+  const { phase: downloadNoticePhase, notify: notifyDownloadUnavailable, hide: hideDownloadNotice, wrapRef: downloadWrapRef } = useDownloadUnavailableNotice();
   const items = type === "Industries" ? industryNavigation : type === "Solutions" ? [allSolutionsNavItem, ...solutionNavigation] : resourcesNavigation;
   const grouped = type === "Resources" ? groupResourceItems(resourcesNavigation) : groupItems(items);
   const featureImage =
@@ -229,7 +246,7 @@ function MegaMenu({ type, pathname, onClose }: { type: Exclude<MenuKey, null>; p
               <Link href="/industries/manufacturing" onClick={onClose}>
                 Explore Manufacturing ERP
               </Link>
-            ) : (
+            ) : siteConfig.erpDownloadEnabled ? (
               <a
                 href={siteConfig.erpDownloadPath}
                 download={siteConfig.erpDownloadFileName}
@@ -237,6 +254,13 @@ function MegaMenu({ type, pathname, onClose }: { type: Exclude<MenuKey, null>; p
               >
                 Download ERP Software
               </a>
+            ) : (
+              <span className="download-unavailable-wrap" ref={downloadWrapRef}>
+                <a href="#" onClick={(event) => { event.preventDefault(); notifyDownloadUnavailable(); }}>
+                  Download ERP Software
+                </a>
+                <DownloadUnavailableNotice phase={downloadNoticePhase} onClose={hideDownloadNotice} />
+              </span>
             )}
           </div>
         )}

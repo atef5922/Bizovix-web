@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Building2, Download, Mail, MapPin, MessageCircle, Phone, Send, ShieldCheck } from "lucide-react";
 import { ContactForm } from "@/components/forms/LeadForms";
 import { SEOJsonLd } from "@/components/seo/SEOJsonLd";
+import { DownloadLink } from "@/components/ui/Button";
 import { siteConfig } from "@/src/config/site";
 import { organizationJsonLd, pageMetadata } from "@/src/lib/seo";
 
@@ -77,9 +78,9 @@ export default function ContactPage() {
               <span className="title-accent">Bangladesh and South Asia</span>
             </h2>
           </div>
-          <a href={siteConfig.erpDownloadPath} download={siteConfig.erpDownloadFileName}>
+          <DownloadLink>
             Download ERP software <Download className="h-4 w-4" />
-          </a>
+          </DownloadLink>
         </div>
         <div className="contact-map-frame">
           <iframe
@@ -103,9 +104,9 @@ export default function ContactPage() {
             <h2>Need faster ERP guidance?</h2>
             <p>Share your company size, industry, branch count, and required modules so our team can route your request correctly.</p>
           </div>
-          <a href={siteConfig.erpDownloadPath} download={siteConfig.erpDownloadFileName}>
+          <DownloadLink>
             Download ERP software <Send className="h-4 w-4" />
-          </a>
+          </DownloadLink>
         </div>
       </section>
     </>

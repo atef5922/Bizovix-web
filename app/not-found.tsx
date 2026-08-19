@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { siteConfig } from "@/src/config/site";
+import { DownloadLink } from "@/components/ui/Button";
 
 export const metadata: Metadata = {
   title: "Page Not Found",
@@ -24,7 +24,7 @@ export default function NotFound() {
         <p>The route may have moved, or the content may not be published yet.</p>
         <div className="button-row">
           <Link className="nav-link active" href="/">Go Home</Link>
-          <a className="nav-link active" href={siteConfig.erpDownloadPath} download={siteConfig.erpDownloadFileName}>Download ERP</a>
+          <DownloadLink className="nav-link active">Download ERP</DownloadLink>
         </div>
       </div>
     </section>
