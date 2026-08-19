@@ -17,8 +17,8 @@ import {
   Workflow,
 } from "lucide-react";
 import { CTASection } from "@/components/sections/MarketingSections";
+import { DownloadLink } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
-import { siteConfig } from "@/src/config/site";
 import { solutions } from "@/src/data/solutions";
 import { pageMetadata } from "@/src/lib/seo";
 
@@ -64,9 +64,9 @@ export default function SolutionsPage() {
               purchase, inventory, manufacturing, sales, POS, HR, payroll, and reporting.
             </p>
             <div className="erp-hero-actions">
-              <a href={siteConfig.erpDownloadPath} download={siteConfig.erpDownloadFileName} className="erp-primary-link">
+              <DownloadLink className="erp-primary-link">
                 Download ERP software <Download size={16} />
-              </a>
+              </DownloadLink>
               <Link href="/industries" className="erp-secondary-link">
                 View industries
               </Link>

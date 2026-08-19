@@ -3,8 +3,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight, CalendarDays, CheckCircle2, Clock3, Download, Layers3, UserRound } from "lucide-react";
 import { CTASection } from "@/components/sections/MarketingSections";
+import { DownloadLink } from "@/components/ui/Button";
 import { SEOJsonLd } from "@/components/seo/SEOJsonLd";
-import { siteConfig } from "@/src/config/site";
 import { blogPosts, getBlogPost } from "@/src/data/blog";
 import { breadcrumbJsonLd, pageMetadata } from "@/src/lib/seo";
 import { absoluteUrl } from "@/src/lib/utils";
@@ -128,9 +128,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                 <h2>Map this topic to your actual ERP workflow</h2>
                 <p>Review modules, users, branches, approvals, migration needs, and reporting priorities with the Bizovix team.</p>
               </div>
-              <a href={siteConfig.erpDownloadPath} download={siteConfig.erpDownloadFileName}>
+              <DownloadLink>
                 Download ERP Software <Download className="h-4 w-4" />
-              </a>
+              </DownloadLink>
             </div>
           </article>
         </div>

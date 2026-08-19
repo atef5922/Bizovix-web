@@ -1,5 +1,5 @@
 import type { NextConfig } from "next";
-import { dirname } from "node:path";
+import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const projectRoot = dirname(fileURLToPath(import.meta.url));
@@ -13,6 +13,10 @@ const nextConfig: NextConfig = {
     ? {
         output: "export",
         trailingSlash: true,
+        webpack(config) {
+          config.resolve.alias["next/link"] = resolve(projectRoot, "components/static-export-link.tsx");
+          return config;
+        },
       }
     : {
         async redirects() {

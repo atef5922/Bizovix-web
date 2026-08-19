@@ -5,6 +5,7 @@ import { useState } from "react";
 
 import { trackAccountDownloadAction } from "@/src/server/actions/account.actions";
 import { IDLE_STATE } from "@/src/server/actions/action-state";
+import { siteConfig } from "@/src/config/site";
 import { useWorkspaceToast } from "./WorkspaceToast";
 
 /**
@@ -24,6 +25,10 @@ export function AccountDownloadButton({
   const { pushToast } = useWorkspaceToast();
 
   async function start() {
+    if (!siteConfig.erpDownloadEnabled) {
+      pushToast("error", siteConfig.erpDownloadUnavailableMessage);
+      return;
+    }
     setBusy(true);
     try {
       const formData = new FormData();

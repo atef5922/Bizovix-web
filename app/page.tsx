@@ -32,8 +32,8 @@ export const metadata: Metadata = {
       "Bizovix is a modern cloud ERP platform for businesses across Bangladesh and South Asia, connecting finance, inventory, purchase, manufacturing, sales, POS, HR, payroll, approvals, and reporting.",
   }),
   // The homepage shares the root layout segment, so its title does not receive
-  // the layout template. Keep the browser title aligned with the OG title.
-  title: "Cloud ERP Software in Bangladesh | Bizovix",
+  // the layout template.
+  title: "Bizovix",
 };
 
 export default function Home() {

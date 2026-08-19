@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/sections/MarketingSections";
-import { siteConfig } from "@/src/config/site";
+import { DownloadLink } from "@/components/ui/Button";
 import { pageMetadata } from "@/src/lib/seo";
 
 export const metadata: Metadata = {
@@ -32,7 +32,7 @@ export default function SignInPage() {
           <div className="feature-list-panel">
             <h2>ERP software access</h2>
             <p>New users can download the Bizovix ERP software and continue with their configured industry, modules, and reporting workspace.</p>
-            <a className="nav-link active" href={siteConfig.erpDownloadPath} download={siteConfig.erpDownloadFileName}>Download ERP</a>
+            <DownloadLink className="nav-link active">Download ERP</DownloadLink>
           </div>
           <div className="portal-preview-card">
             <span>Prepared portal areas</span>

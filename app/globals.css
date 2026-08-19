@@ -14469,3 +14469,129 @@ main .banner-content .banner-primary-title > span {
   color: transparent !important;
   -webkit-text-fill-color: transparent;
 }
+
+/* Disabled-download CTA notice card (site.ts erpDownloadEnabled = false). */
+.download-unavailable-wrap {
+  position: relative;
+  display: inline-flex;
+}
+
+.download-unavailable-tip {
+  position: fixed;
+  top: 92px;
+  right: 20px;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  width: auto;
+  max-width: min(340px, calc(100vw - 32px));
+  border-radius: 12px;
+  background: linear-gradient(165deg, #0c1830 0%, #101f3d 55%, #0b1830 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  padding: 12px 14px 12px 12px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), 0 4px 16px rgba(6, 12, 26, 0.3);
+  animation: download-tip-in 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.download-unavailable-tip .dl-tip-icon {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1698ff 0%, #1ee2b6 100%);
+  color: #071021;
+  box-shadow: 0 6px 14px rgba(22, 152, 255, 0.35);
+  animation: download-tip-icon-pop 0.45s cubic-bezier(0.24, 1.15, 0.32, 1) 0.05s backwards;
+}
+
+.download-unavailable-tip .dl-tip-icon svg {
+  width: 13px;
+  height: 13px;
+}
+
+.download-unavailable-tip .dl-tip-icon-loading svg {
+  animation: dl-tip-spin 0.85s linear infinite;
+}
+
+@keyframes dl-tip-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.download-unavailable-tip strong {
+  flex: 1;
+  min-width: 0;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 750;
+  letter-spacing: 0.01em;
+}
+
+.download-unavailable-tip .dl-tip-close {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.55);
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.download-unavailable-tip .dl-tip-close:hover {
+  background: rgba(255, 255, 255, 0.16);
+  color: #fff;
+}
+
+.download-unavailable-tip .dl-tip-close svg {
+  width: 12px;
+  height: 12px;
+}
+
+@keyframes download-tip-in {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes download-tip-icon-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.5) rotate(-12deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+@media (max-width: 480px) {
+  .download-unavailable-tip {
+    top: 76px;
+    right: 12px;
+    left: 12px;
+    max-width: none;
+    padding: 10px 12px 10px 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .download-unavailable-tip,
+  .download-unavailable-tip .dl-tip-icon,
+  .download-unavailable-tip .dl-tip-icon-loading svg {
+    animation: none;
+  }
+}

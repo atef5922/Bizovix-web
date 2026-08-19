@@ -20,6 +20,17 @@ const FALLBACK_PATH = siteConfig.erpDownloadFallbackPath;
  */
 export async function GET(request: Request) {
   const url = new URL(request.url);
+
+  // The published installer is an old build; the next release isn't ready
+  // yet. Send anyone hitting this route directly (bypassing the disabled
+  // buttons) to the download page instead of the stale file.
+  if (!siteConfig.erpDownloadEnabled) {
+    return NextResponse.redirect(new URL("/download", url.origin), {
+      status: 302,
+      headers: { "Cache-Control": "no-store" },
+    });
+  }
+
   const source = url.searchParams.get("source") ?? "public_website";
 
   let target = FALLBACK_PATH;
